@@ -25,11 +25,11 @@
         Default Value:     @
         Description:       The character which is used to split lines when display in log window.
 
-    Name:                DebugOnly
+    Name:                debugOnly
         Allowed Values:    N|Y
         Default Value:     N
         Description:       Setting this to Y will enable the pv_Message macro action only
-                         if the global macro variable gmDebug is set to Y. (This
+                         if the global macro variable gdebugOnly is set to Y. (This
                          parameter is to suppress certain messages for normal
                          execution).
 -----------------------------------------------------------------------------*/
@@ -37,128 +37,127 @@
                 , MessageDisplay   =
                 , MessageType      = NOTE
                 , splitChar        = @
-                , DebugOnly        = N
+                , debugOnly        = N
                 )/minoperator;
-
-    %Local  ut_Message_idx
-            ut_Message_outline
-            ut_Message_type
-            ut_Message_abort
-            ut_Message_inittext
-            ut_Message_text
-            ut_Message_count
-            ut_Message_shift
-            ut_Message_position
-            ut_Message_format
-            ut_Message_linecombined
+    %Local  _idx
+            _outline
+            _type
+            _abort
+            _inittext
+            _text
+            _count
+            _shift
+            _position
+            _format
+            _linecombined
     ;
     /*
     * This step prepares the starting line. Left alignment needed to avoid additional blanks.
     */
-    %Let ut_Message_text      = %Superq(MessageDisplay);
-    %Let ut_Message_idx       = 1;
-    %Let ut_Message_inittext  = /* %Sysfunc(DATETIME(),IS8601DT.)/     */%str( )&MessageLocation.;
-    %Let ut_Message_SplitChar = &SplitChar.;
+    %Let _text      = %Superq(MessageDisplay);
+    %Let _idx       = 1;
+    %Let _inittext  = /* %Sysfunc(DATETIME(),IS8601DT.)/     */%str( )&MessageLocation.;
+    %Let _SplitChar = &SplitChar.;
     /*
     * Check SplitChar for non missing
     */
     %If %Length(%Superq(SplitChar)) ~= 1 %Then %Do;
-        %Let ut_Message_text      = Invalid value for parameter splitChar="%Superq(splitChar)";
-        %Let ut_Message_type      = ERROR:;
-        %Let ut_Message_abort     = Y;
-        %Let ut_Message_SplitChar = @;
+        %Let _text      = Invalid value for parameter splitChar="%Superq(splitChar)";
+        %Let _type      = ERROR:;
+        %Let _abort     = Y;
+        %Let _SplitChar = @;
     %End;
     /*
     * Check MessageDisplay for non missing
     */
     %Else %If ~%Length(%Superq(MessageDisplay)) %Then %Do;
-        %Let ut_Message_text      = Invalid value: Parameter MessageDisplay is empty;
-        %Let ut_Message_type      = ERROR:;
-        %Let ut_Message_abort     = Y;
-        %Let ut_Message_SplitChar = @;
+        %Let _text      = Invalid value: Parameter MessageDisplay is empty;
+        %Let _type      = ERROR:;
+        %Let _abort     = Y;
+        %Let _SplitChar = @;
     %End;
     /*
     * Check and harmonize Type
     */
     %Else %If %Qleft(%Qupcase(&MessageType.)) in (NOTE WARNING ERROR ABORT RETURN)  %Then %Do;
-        %Let ut_Message_type  = %Qleft(%Qupcase(&MessageType.)):;
+        %Let _type  = %Qleft(%Qupcase(&MessageType.)):;
 
-        %if %Qleft(%Qupcase(&MessageType.)) = RETURN %then %Let ut_Message_return = Y;
-        %Else %Let ut_Message_return = N;
-        %if %Qleft(%Qupcase(&MessageType.)) = ABORT %then %Let ut_Message_abort = Y;
-        %Else %Let ut_Message_abort = N;
+        %if %Qleft(%Qupcase(&MessageType.)) = RETURN %then %Let _return = Y;
+        %Else %Let _return = N;
+        %if %Qleft(%Qupcase(&MessageType.)) = ABORT %then %Let _abort = Y;
+        %Else %Let _abort = N;
     %End;
     %Else %Do;
-        %Let ut_Message_text  = Invalid option for parameter MessageType="%Superq(MessageType)";
-        %Let ut_Message_type  = ERROR:;
-        %Let ut_Message_abort = Y;
+        %Let _text  = Invalid option for parameter MessageType="%Superq(MessageType)";
+        %Let _type  = ERROR:;
+        %Let _abort = Y;
     %End;
     /*
     * Check debug flags;
     */
-    %If not (%Superq(DebugOnly) in (Y N)) %Then %Do;
-        %Let ut_Message_text      = Wrong DebugOnly value: %Superq(DebugOnly) Valid values: N/Y.;
-        %Let ut_Message_type      = ERROR:;
-        %Let ut_Message_abort     = Y;
-        %Let ut_Message_SplitChar = @;
+    %If not (%Superq(debugOnly) in (Y N)) %Then %Do;
+        %Let _text      = Wrong debugOnly value: %Superq(debugOnly) Valid values: N/Y.;
+        %Let _type      = ERROR:;
+        %Let _abort     = Y;
+        %Let _SplitChar = @;
     %End;
 
     /*
     * Split display text to line breaks by SplitChar.
     */
-    %Let ut_Message_count = %Eval(%Sysfunc(COUNT(&ut_Message_text.,&ut_Message_SplitChar.))+1);
-    %Do %Until(&ut_Message_idx. > &ut_Message_count. );
-        %Let ut_Message_shift = 1;
-        %Let ut_Message_position = %Sysfunc(INDEXC(&ut_Message_text.,&ut_Message_SplitChar.));
-        %If &ut_Message_position.=0 %Then %Do;
-            %Let ut_Message_position = %Eval(%Length(&ut_Message_text.));
-            %Let ut_Message_shift = 0;
+    %Let _count = %Eval(%Sysfunc(COUNT(&_text.,&_SplitChar.))+1);
+    %Do %Until(&_idx. > &_count. );
+        %Let _shift = 1;
+        %Let _position = %Sysfunc(INDEXC(&_text.,&_SplitChar.));
+        %If &_position.=0 %Then %Do;
+            %Let _position = %Eval(%Length(&_text.));
+            %Let _shift = 0;
         %End;
-        %If &ut_Message_position.<=1 %Then %Do;
-            %If %Length(&ut_Message_text.)=1 AND &ut_Message_SplitChar. NE &ut_Message_text. %Then %Do;
-                %Let ut_Message_outline  = &ut_Message_text.;
+        %If &_position.<=1 %Then %Do;
+            %If %Length(&_text.)=1 AND &_SplitChar. NE &_text. %Then %Do;
+                %Let _outline  = &_text.;
             %End;
             %Else %Do;
-                %Let ut_Message_outline  =;
+                %Let _outline  =;
             %End;
         %End;
         %Else %Do;
-            %Let ut_Message_outline  = %Qsubstr(&ut_Message_text.,1,%Eval(&ut_Message_position.- &ut_Message_shift.));
+            %Let _outline  = %Qsubstr(&_text.,1,%Eval(&_position.- &_shift.));
         %End;
 
-        %If %Length(&ut_Message_text.) >= %Eval(&ut_Message_position.+ &ut_Message_shift.) AND &ut_Message_position > 0 %Then %Do;
-            %Let ut_Message_text     = %Qsubstr(&ut_Message_text.,%Eval(&ut_Message_position.+ &ut_Message_shift.));
+        %If %Length(&_text.) >= %Eval(&_position.+ &_shift.) AND &_position > 0 %Then %Do;
+            %Let _text     = %Qsubstr(&_text.,%Eval(&_position.+ &_shift.));
         %End;
         %Else %Do;
-            %Let ut_Message_text     = ;
+            %Let _text     = ;
         %End;
         /*
         * For lines >= 100 use the BEST format, for lines < 100 use Z2
         */
-        %If &ut_Message_idx < 100 %Then %Do;
-            %Let ut_Message_format = Z2.;
+        %If &_idx < 100 %Then %Do;
+            %Let _format = Z2.;
         %End;
         %Else %Do;
-            %Let ut_Message_format = BEST.;
+            %Let _format = BEST.;
         %End;
 
-        %Let ut_Message_linecombined = ERROR: %Left(%Sysfunc(PUTN(&ut_Message_idx.,&ut_Message_format.))) &ut_Message_inittext. &ut_Message_outline. ;
+        %Let _linecombined = &_type.: %Left(%Sysfunc(PUTN(&_idx.,&_format.))) &_inittext. &_outline. ;
 
-        %Put &ut_Message_linecombined.;
+        %Put &_linecombined.;
 
-        %Let ut_Message_inittext =;
-        %Let ut_Message_idx      = %Eval(&ut_Message_idx.+1);
+        %Let _inittext =;
+        %Let _idx      = %Eval(&_idx.+1);
     %End;
     /*
     * Abort SAS if abort = Y.
     */
-    %If &ut_Message_abort. = Y %Then %Do;
+    %If &_abort. = Y %Then %Do;
         %Abort CANCEL;
     %End;
     /*
     * Abort Macro if return = Y.
     */    
-    %If &ut_Message_return. = Y %Then %Do;
+    %If &_return. = Y %Then %Do;
         %Put %Superq(Macro abort);
         %Return;
     %End;    

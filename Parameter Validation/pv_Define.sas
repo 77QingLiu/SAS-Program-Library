@@ -16,7 +16,8 @@ Program Purpose:       The macro %pv_Define is used to paramater validation only
                   ,_pmAllowed    = any
                   ,_pmIgnorecase = 1
                   ,_messageType  = ABORT)/minoperator;
-%if &_pmIgnorecase = 1 %then %let &_pmName = %bquote(%qupcase(&&&_pmName));
+%if &_pmIgnorecase = 1 %then %let _pmValue = %bquote(%qupcase(&&&_pmName));
+%else %let _pmValue = %bquote(&&&_pmName);
 
 %local  pv_Define_macroname;
 
@@ -41,7 +42,7 @@ Program Purpose:       The macro %pv_Define is used to paramater validation only
 
 %*---------------------------------------------- Parameter checking ------------------------------------------------;
 %* Chech parameter is missing when required %*;
-%if &_pmRequired & %bquote(&&&_pmName) = %then %do;
+%if &_pmRequired & %bquote(&_pmValue) = %then %do;
     %pv_Message( MessageLocation = MACRO: &_pmMacroName - check required macro parameter[&_pmName]
                 , MessageDisplay = %str(@Parameter[&_pmName] is missing, it is a required parameter - ending macro);
                 , MessageType   = ABORT
@@ -51,39 +52,39 @@ Program Purpose:       The macro %pv_Define is used to paramater validation only
 %* Check valid types %*;
 %else %if %bquote(&_pmAllowed) ^= any %then %do;
     %if %qupcase(%bquote(&_pmAllowed)) = SASNAME  %then %do;
-        %if %sysfunc(prxmatch(/[^A-z0-9_ ]/ , %bquote(&&&_pmName))) %then %do;
+        %if %sysfunc(prxmatch(/[^A-z0-9_ ]/ , %bquote(&_pmValue))) %then %do;
             %pv_Message( MessageLocation = MACRO: &_pmMacroName - Check parameter[&_pmName] values
-                        , MessageDisplay = @value(%bquote(&&&_pmName)) is not a valid SAS Name - ending macro;
+                        , MessageDisplay = @value(%bquote(&_pmValue)) is not a valid SAS Name - ending macro;
                         , MessageType   = ABORT
                         ) 
         %end;  
     %end;
     %else %if %qupcase(%bquote(&_pmAllowed)) = DATASET  %then %do;
-        %if not %sysfunc(prxmatch(/^ *(\w+\.)?\w+ *$/ , %bquote(&&&_pmName))) %then %do;
+        %if not %sysfunc(prxmatch(/^ *(\w+\.)?\w+ *$/ , %bquote(&_pmValue))) %then %do;
             %pv_Message( MessageLocation = MACRO: &_pmMacroName - Check parameter[&_pmName] values
-                        , MessageDisplay = @value(%bquote(&&&_pmName)) is not a valid SAS dataset name - ending macro;
+                        , MessageDisplay = @value(%bquote(&_pmValue)) is not a valid SAS dataset name - ending macro;
                         , MessageType   = ABORT
                         ) 
         %end;  
     %end;    
     %else %if %qupcase(%bquote(&_pmAllowed)) = NUM  %then %do;
-        %if %sysfunc(prxmatch(/[^0-9]/ , %bquote(&&&_pmName))) %then %do;
+        %if %sysfunc(prxmatch(/[^0-9]/ , %bquote(&_pmValue))) %then %do;
             %pv_Message( MessageLocation = MACRO: &_pmMacroName - Check parameter[&_pmName] values
-                        , MessageDisplay = @value(%bquote(&&&_pmName)) is not all numeric - ending macro;
+                        , MessageDisplay = @value(%bquote(&_pmValue)) is not all numeric - ending macro;
                         , MessageType   = ABORT
                         ) 
         %end;  
     %end;  
     %else %if %qupcase(%bquote(&_pmAllowed)) = CHAR  %then %do;
-        %if %sysfunc(prxmatch(/[^A-z]/ , %bquote(&&&_pmName))) %then %do;
+        %if %sysfunc(prxmatch(/[^A-z]/ , %bquote(&_pmValue))) %then %do;
             %pv_Message( MessageLocation = MACRO: &_pmMacroName - Check parameter[&_pmName] values
-                        , MessageDisplay = @value(%bquote(&&&_pmName)) is not all character - ending macro;
+                        , MessageDisplay = @value(%bquote(&_pmValue)) is not all character - ending macro;
                         , MessageType   = ABORT
                         ) 
         %end;  
     %end;
     %* Check the value of the parameter is not in the list of allowed values %*;     
-    %else %if not (&&&_pmName in %bquote(&_pmAllowed)) %then %do;
+    %else %if not (&_pmValue in %bquote(&_pmAllowed)) %then %do;
         %pv_Message( MessageLocation = MACRO: &_pmMacroName - Check parameter[&_pmName] values
                     , MessageDisplay = @value is not in the list of allowed values(&_pmAllowed) - ending macro;
                     , MessageType   = ABORT
