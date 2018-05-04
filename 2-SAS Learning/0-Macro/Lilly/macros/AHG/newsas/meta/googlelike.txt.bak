@@ -1,0 +1,11 @@
+AHG1     proc means data=sashelp.class;
+AHG1     	var age;
+AHG1     run;
+
+
+  
+AHG2       title1 "subject in ae and not in ds";
+AHG2       select usubjid as id_not_in_ds
+AHG2       from ae
+AHG2       where usubjid not in 
+AHG2       (select usubjid from ds);

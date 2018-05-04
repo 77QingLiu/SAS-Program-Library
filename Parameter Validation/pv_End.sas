@@ -1,5 +1,5 @@
 %*--------------------------------------------------------------------------------------------------
-Program Purpose:       The macro %pv_End declare the start of macro
+Program Purpose:       The macro %pv_End declare the end of macro
 
     Macro Parameters:
 

@@ -1,0 +1,12 @@
+%macro 	reviewVarDiff(dsn1,dsn2);
+%local vars1 vars2;
+%let vars1=;
+%let vars2=;
+%AHGvarlist(&dsn1,Into=vars1);
+%AHGvarlist(&dsn2,Into=vars2);
+%put;
+%put ###diff####  in &dsn1 there are &vars1;
+%put ###diff#### in &dsn2 there are &vars2;
+%put ###diff####  (%AHGexclude(&vars1,&vars2) )not in &dsn1 ;
+%put ###diff####   (%AHGexclude(&vars2,&vars1) ) not in &dsn2 ;
+%mend;

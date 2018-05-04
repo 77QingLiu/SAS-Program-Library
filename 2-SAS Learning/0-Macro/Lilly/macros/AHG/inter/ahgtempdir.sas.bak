@@ -1,0 +1,11 @@
+%macro AHGtempdir;             
+%local dir;
+%if %AHGequalmactext(&sysuserid,ahuige) %then %let dir=c:\temp;
+/*%else %if %AHGequalmactext(&sysuserid,c187781) %then d:\temp;*/
+/*%else \\gh3nas01\gh3nas_sales.grp\LCDDMAC\STATS\SA\Macro library\Macro learning tool\user\&sysuserid;*/
+%else %let dir=\\gh3nas01\gh3nas_sales.grp\LCDDMAC\STATS\SA\Hui\temp\&sysuserid;
+
+%if %AHGwinorunix=WIN %then &dir;
+%else  &userhome/temp;
+%mend;
+

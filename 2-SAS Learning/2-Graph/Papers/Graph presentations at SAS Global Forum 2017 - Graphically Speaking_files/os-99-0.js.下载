@@ -1,0 +1,45 @@
+var memberId='1134';
+var osANSegCode='99_0_user,99_505_user';
+var osANConvCode='99_0_click_conversion';
+var osANPageViewConvCode='99_0_click_conversion_page_view';
+var osANUeConvPxCode='99_0_click_conversion_user_engagement';
+var osANUeConvSegCode='99_0_user_engaged_user,99_505_user_engaged_user';
+var osOSCampaignIds=['505'];
+var gaId='UA-1388686-113';
+var gaDomain="sas.com";
+if (typeof osDebug === 'undefined') {
+    var osDebug=false;
+}
+
+function osRunCustomScript(osJq){
+	// i.e.  osJq('#newsletter') or osJq('form[name="event"]')
+	requiredInputs = new Array();
+	requiredInputs["firstName"]="fname";
+	requiredInputs["lastName"]="lname";
+	requiredInputs["company"]="company";
+	requiredInputs["email"]="email";
+	requiredInputs["country"]="country";
+	requiredInputs["countrySelect"]="country";
+	requiredInputs["stateUS"]="state";
+	requiredInputs["stateCanada"]="state";
+	requiredInputs["businessPhone"]="phone";
+	requiredInputs["industry"]="industry";
+	instrumentForm(osJq,
+			'form[name="event"]',
+			requiredInputs,
+			"whitepaper",
+			1012180586,
+			"FkOuCL7fwgQQ6szS4gM"
+			);
+
+	var pixel = new Image();
+	pixel.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'googleads.g.doubleclick.net/pagead/viewthroughconversion/1012180586/?value=0&label=AG6wCLbgwgQQ6szS4gM&guid=ON&script=0';
+	pixel.height=1;
+	pixel.width=1;
+}
+
+(function() {
+	var osuelib = document.createElement('script'); osuelib.type = 'text/javascript'; osuelib.async = true;
+	osuelib.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'd3xl0zyjyljwa.cloudfront.net/px/os-ue-lib-1.1.0.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(osuelib, s);
+})();

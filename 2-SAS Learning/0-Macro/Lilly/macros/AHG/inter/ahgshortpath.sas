@@ -1,0 +1,3 @@
+%macro AHGshortpath(long);
+    
+%mend;

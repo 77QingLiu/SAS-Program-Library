@@ -1,0 +1,10 @@
+AHG1     proc means data=sashelp.class;
+AHG1     	var age;
+AHG1     run;
+
+
+  
+AHG2     proc freq data=sashelp.class;
+AHG2       table age;
+AHG2     run;
+

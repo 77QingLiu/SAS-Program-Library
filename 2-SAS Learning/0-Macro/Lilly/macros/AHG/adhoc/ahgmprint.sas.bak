@@ -1,0 +1,6 @@
+%macro AHGmprint;
+%global ahgmprintflag;
+%let ahgmprintflag=%AHGincr(ahgmprintflag,by=%str(-1));
+%if &ahgmprintflag<=0 %then option mprint;;    
+%put &sysmacroname;
+%mend;

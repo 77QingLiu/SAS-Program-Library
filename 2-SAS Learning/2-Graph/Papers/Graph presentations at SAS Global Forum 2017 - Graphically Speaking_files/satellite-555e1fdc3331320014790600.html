@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)http://assets.adobedtm.com/a4a4268256930a29de311efab04f43cf44db167b/scripts/satellite-555e1fdc3331320014790600.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<noscript>\n  <img height=\"1\" width=\"1\" alt=\"\" style=\"display:none;\" src=\"//www.bizographics.com/collect/?pid=7178&fmt=gif\" />\n</noscript>";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><noscript>
+  &lt;img height="1" width="1" alt="" style="display:none;" src="//www.bizographics.com/collect/?pid=7178&amp;fmt=gif" /&gt;
+</noscript>
+  
+
+</body></html>

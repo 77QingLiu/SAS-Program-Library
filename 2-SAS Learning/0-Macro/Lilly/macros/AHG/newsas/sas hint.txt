@@ -1,0 +1,1952 @@
+ODS p-35 
+
+
+
+
+
+
+
+
+
+
+
+1.	字符型和数值型的缺失值在录入时都用.表示，但字符型实际为空字符。
+2.	在条件判断时，数值型变量的缺失值比零小。字符型变量的缺失值只能与空字符’’比较，不能和.比较。
+
+data xx;
+input num char$;
+cards;
+1 d
+. a
+2 .
+;
+run;
+proc print;
+run;
+
+data xx;
+set xx;
+put _all_;
+if num=. then put 'num is .';else put 'nothing happens';
+if num^=. then put 'num is not .';else put 'nothing happens';
+if char=. then put 'char is .';else put 'nothing happens';*会报错;
+if char^=. then put 'char is not .';else put 'nothing happens'; *会报错;
+
+if num>0 then put 'num >0';else put 'nothing happens';
+if num<0 then put 'num <0';else put 'nothing happens';
+if char='' then put 'char is ''''';else put 'nothing happens';
+if char^='' then put 'char is not ''''';else put 'nothing happens';
+put _all_;
+run;
+
+3.	当给数组赋值时，可以用input语句，但是要把input放在条件句中，只读一次。????
+4.	set和input可以同时使用，在set和input任意一个到达数据最末尾时，完成数据读取。
+5.	给数组赋值也可以简单的用如下的语句 array x [3]$  ('a','b','c');
+6.	stop表示停止数据步的执行
+7.	rename 原变量名=现变量名；round(x,10)表示的是个位四舍五入，最后反应到十位上
+8.	link return
+9.	rank;
+proc rank out=outdata data=e.frmkyn;
+var pkyn;
+ranks p_r;
+run;
+10.	input函数用来转换字符型到(数字型，或者字符型),参数必须是informat,对应于(数字或字符型的INFORMAT) put函数用来转换 (数字型，或者字符型) 到字符型,参数必须是format,对应于(数字或字符型的FORMAT),通俗的讲就是,input中的格式对应于左边被赋值的值的格式.PUT中的格式对应于第一参数,源数据值的格式
+
+data x;
+input  money $;
+cards;
+43
+3
+4
+;
+run;
+
+proc print;
+run;
+
+data y;
+set x;
+n=input(money,comma7.);
+run;
+
+proc print;
+run;
+
+11.	sql语句，结果可以在output窗输出，也可存为数据集
+
+data d;
+input x y;
+cards;
+32 5 
+54 6
+6 7
+;
+run;
+
+proc sql;
+create table savedata as
+select *
+from d
+;
+run;
+
+proc sql;
+alter table savedata
+add z num
+;
+run;
+
+
+
+proc sql;
+update savedata
+set z=x*y
+;
+run;
+
+proc print data=savedata;
+run;
+
+
+proc sql;
+delete 
+from savedata
+where x<20
+;
+
+proc print data=savedata;
+run;
+
+
+12.	从access文件 真=-1 假=0 到xls文件 真=true 假=flase 到sas 真=* 假=0
+13.	宏变量定义中可以嵌套引用
+
+run;
+
+proc print data=y;
+run;
+
+14.	用libname定义user库后 ，如果不用库名，默认为库名为user,要建临时文件就必须用work.dataset
+15.	sql的sum等集合运算函数只能用在select或者having语句中
+   data dat;
+input x y@@;
+cards;
+1 2
+1 3
+2 4
+2 5
+2 6
+;
+proc sql;
+SELECT x ,SUM(y) AS TOTALy
+FROM dat
+GROUP BY x
+having (SUM(y)<=20)
+;
+group by 一定要在 having前面。
+计算也是分组求和
+结果如下
+x  totally
+1	5
+2	15
+16.	去除重复数据计算总数
+   proc sql;
+   select count(*)
+   from
+   (select distinct pcode from ahuige.agall )
+   ;
+
+17.	将两个表中关键字段不等的记录筛出来，不能用pcode<>pcode，只能用 not in
+   data ahuige.aglast;
+set ahuige.aglast;
+pcode=upcase(pcode);
+run;
+proc sql;
+   select distinct x.pcode from ahuige.aglast,x
+   where not( x.pcode in select aglast.pcode from ahuige.aglast)
+   ;
+18.	把宏解释器最后生成的程序显示在log,然后输出到一个文件
+   filename mprint 'c:\sas.txt';
+%let x=xxxx;
+%macro oh; 
+data &x;a=1;run;  
+
+%mend oh;
+options mfile mprint ;
+
+%oh;
+filename用于指定mprint的输出文件地址。
+
+19.	自由输入时，’:’号能保证在变量定义长度以内，完整的读取cards行的数据，而不用担心列的问题。
+  libname ahuige 'd:\company\sas\kynstructure';
+data ahuige.userinfo;
+input id:$3. name:$13. type:$8. length:$3. null:$7. meaning:$50.;
+ 
+cards;
+1   [pcode]         varchar	     6	    NOTNULL	KYN??è?±ào?￡??÷1??ü×?
+2   password        varchar      8      NOTNULL    ?ü??
+3	servicetime	    int		     0 	    NOTNULL	·t??′?êy
+4	name	        varchar		30	    NULL	    ?í?§D???
+5	address	        varchar		50	    NULL	    ?ê??í¨D?μ??·
+6   *zip            varchar 	 6      NULL        óê±à          
+7	tel	            varchar		30	    NULL    	áa?μμ??°
+8   *email          varchar    	50      NULL        μ?×óóê?t
+9	workunit	    varchar		50	    NULL    	1¤×÷μ￥??
+10  servicecode		varchar		 6		NULL		KYN·t??μ￥??±ào?
+11  serviceunit		varchar		50		NOTNULL	KYN·t??μ￥??
+12  userLevel       int          0    	NOTNULL 	ó??§ààDí 
+13  used            bit          0      NOTNUL     ·???±ê??
+14  checkuser       bit          0      NOTNUL     ?éó?±êê?
+15	indate	        varchar	 	10  	NOTNULL	ê×′???è?ê±??
+16	importflag	    int			 0      NOTNULL	μ?3?±ê??
+17	deal	        bit		     0   	NOTNULL	′|àí±êê?     
+18  doctorcode      varchar      6     	NULL		ò?éú±ào?
+19  doctor			varchar		16		NULL		ò?éúD???
+20  remark          varchar  	50      NULL        ±?×￠
+;
+
+proc print;
+run;
+20.	逻辑判断与2进制的一个例子
+data x;
+array a{8} a1-a8;
+input a1-a8;
+do i=1 to 8;
+  if a{8} then binary+2**(8-i);
+end;
+bitfield=put(binary,s370fpib1.);
+cards;
+1 0 1 0 0 0 0 1
+1 1 0 0 1 0 1 1 
+0 1 1 0 1 1 0 0 
+run;
+proc print;
+run;
+21.	@和@@，
+@是保持两个input语句间不要换行的符号
+@@是保持在一个input语句中不换行的符号
+22.	几个字符操作的pitfall
+   1.第一个讨厌的特性，变量按第一次赋值决定变量的长度。 
+data xx; 
+x='ab'; 
+x='ab'||'c'; 
+put x=; 
+run; 
+以上的语句，在log窗中可以看到，x的值依然是'ab';这会让一个使用过其他语言写过这种天经地义的正确写法但又在sas中得到这种结果的人不知所措 
+ 
+返回页首       
+ 
+然后现在会有sas的卫道者跳出来说，这有什么，一个变量应该先定义长度，然后再赋值。下面的方法可以解决这个问题 
+data xx; 
+length x$8.;*这里加一个定义长度; 
+x='ab'; 
+x='ab'||'c'; 
+put x=; 
+run; 
+这个问题的确解决了，log窗里可以看到这里x='abc' 
+好，现在初学者认为他已经了解了解决这个问题的方法。但是，下面的pitfall又来了。 
+data xx; 
+length x$8; 
+x='ab'; 
+x='x||'c'; 
+put x=; 
+run; 
+作者的本意是想得到x='abc'，但是log里面又显示的是x='ab',作者还是又跳进陷阱了。 
+ 
+卫道士又跳出来说，这个是因为sas自动给ab后面加上6个空格， 
+所以，应该再加一个trim函数. 
+data xx; 
+length x$8.; 
+x='ab'; 
+x=trim(x)||'c'; 
+put x=; 
+run; 
+上面的语句又解决问题了。log窗显示x='abc' 
+好，后面的问题又来了。你说后面自动加空格，那你你长度当然就是固定的8了。看看我下面的语句 
+data xx; 
+length x$8.; 
+x='ab'; 
+l=length(x); 
+put x=; 
+put l=; 
+x=trim(x)||'c'; 
+l=length(x); 
+put x=; 
+put l=; 
+run; 
+结果他的结果是第一个l表示长度为2，第二个l又表示长度为3.那空格为何又不算长度？？？ 
+ 
+卫道者又说，空格嘛，不算长度是应该的。 
+好，问题又来了。我试了试下面的语句 
+data xx; 
+len1=length('x'); 
+len2=length(' ____');*这里的4个_其实是空格;为了怕sasor网站把空格压缩了。 
+len2=length('_');*这里的1个_其实是空格;为了怕sasor网站把空格压缩了。 
+len3=length(''); 
+put _all_; 
+run; 
+结果，不但'x'长度为1，4个空格长度为1,1个空格长度为1，连TMD空值长度都为1.我说怎么上次用判断一个字符的长度为零来判断是不是空值没得效，搞得我半死不活 
+
+23.	日期变量的读入示例
+   data x;
+input y1 date7. y2 date9. y3 date11. y4 yymmdd10.;
+cards;
+1jan82 1jan1982 1-jan-1982 1982-01-01
+4sep02 4sep2002 4-sep-2002 2002-09-04
+;
+run;
+proc print;
+run;
+
+24.	宏数组，循环symput,symget使用的例子
+filename mprint 'c:\temp.txt';*定义宏编译后的输出文件;
+data table1; 
+input id$ rdate$ r1 r2; 
+cards; 
+600000 19991119 -0.005181 -0.005181 
+600000 19991122 -0.015997 -0.015997 
+600000 19991123 0.000000 0.000000 
+600000 19991124 -0.000756 -0.000756 
+600000 19991125 -0.001135 -0.001135 
+600000 19991126 0.001894 0.001894 
+600003 20000327 0.067434 0.067434 
+600003 20000328 0.038521 0.038521 
+600003 20000329 0.038576 0.038576 
+600003 20000330 -0.021429 -0.021429 
+600003 20000331 -0.036496 -0.036496 
+600003 20000403 -0.030303 -0.030303 
+; 
+run; 
+
+proc sort; 
+by rdate; 
+run; 
+
+data table2; 
+input rdate$ er; 
+cards; 
+19991119 -0.00943 
+19991122 -0.00264 
+19991123 0.00125 
+19991124 -0.00808 
+19991125 -0.00710 
+19991126 0.00018 
+20000327 0.02624 
+20000328 0.00874 
+20000329 -0.00146 
+20000330 0.01239 
+20000331 -0.00593 
+20000403 0.00042 
+
+; 
+run; 
+proc sort; 
+by rdate; 
+run; 
+
+
+
+data temp; 
+merge table1 table2; 
+by rdate; 
+run; 
+
+proc print; 
+run; 
+
+
+
+proc sql;
+  create table idset as
+  select distinct  id 
+  from temp;
+run;
+
+
+data  _null_;
+
+set idset;
+call symput(compress('m'||_n_),id);
+
+call symput('n',_n_); //第一个参数直接用字符串，表示是宏变量名，如果用字符变量，那么变量的值才是宏变量的名字;
+%put _all_;
+run;
+
+options mfile mprint;
+
+%macro domywork(m);
+proc reg outest=out&m data=temp&m; //引用宏参数都要加&，解释器才去替换;
+model r1=er; 
+run;
+%mend;
+
+
+
+%macro getdata(j);
+data temp&j;
+set temp;
+if id=symget(compress('m'||&j)) then output  temp&j;//symget这些函数是在宏解释器完成再运行的普通语句;
+run;
+%mend;
+
+%macro names(pre,num);
+  %do k=1 %to &num;
+    &pre&k  //这里k也是宏变量,引用要加&才替换
+  %end;
+%mend;
+
+%macro main;
+%do i=1 %to &n;
+%getdata(&i);
+%end;
+
+%do i=1 %to &n;
+%domywork(&i);
+%end;
+%mend;
+
+%main;
+data final;
+set 
+%names(out,&n);
+;
+run;
+
+data final;
+set final;
+id=symget(compress('m'||_n_));
+keep intercept er id;
+run;
+
+proc print;
+run;
+
+
+
+
+25.	帮人
+  试了一下，＆是可以用的，但是在你的程序上改太麻烦。写一个示意的程序，功能是用来判断一组记录是否被全部抽取完成。
+老大，如果按你的程序只是为了判断这一个条件，用这么多宏，数据集的建立，输入输出，你的机器还想活不？话又说回来，有必要吗?
+看看我的程序，２００是你的原有数据集的条数。你自己可以改
+data randomorder;
+array y{1:200};
+do until (n(of y1-y200)=200);
+temp=ceil(uniform(0)*200);
+if not temp=0 then 
+do;
+y{temp}=temp;
+x=n(of y1-y200);
+output;
+end;
+end;
+keep temp x;
+run;
+proc print;
+run;
+
+程序计算完成后，temp表示该次抽到的记录的流水号，x表示已经抽到了多少条新的记录。Randomorder数据集的记录条数就是总共抽了多少次。
+你看，200条记录，我一般1500,1700,1200次能遍历完，所以你说的999就差不多了是不对的，也有少的时候，有一下937就遍历完了。自己和自己过不去。最简单的语句才是最好的。
+在这个操作以前，你要把你的原记录编一下1到200的流水号就行了。
+所以，凡事不要想得那么复杂，
+26.	dsfd&的引用不一定是在%执行的时候。
+27.	%macroname(para)   宏名和参数名都不能用表达式,
+  %macro name(pre,num);
+  &pre&num
+%mend;
+
+options mfile mprint ; 
+
+data com.secondout;
+set com.second;
+call symput('n',allrisk);
+
+%name(r,&n)=%name(r,&n)+1;
+if %name(r,&n)<8 then output;
+
+
+proc print;
+var pcode;
+run;
+28.	ODS使用
+   data Clover; 
+input Strain $ Nitrogen @@; 
+datalines; 
+3DOK1 19.4 3DOK1 32.6 3DOK1 27.0 3DOK1 32.1 3DOK1 33.0 
+3DOK5 17.7 3DOK5 24.8 3DOK5 27.9 3DOK5 25.2 3DOK5 24.3 
+3DOK4 17.0 3DOK4 19.4 3DOK4 9.1 3DOK4 11.9 3DOK4 15.8 
+3DOK7 20.7 3DOK7 21.0 3DOK7 20.5 3DOK7 18.8 3DOK7 18.6 
+3DOK13 14.3 3DOK13 14.4 3DOK13 11.8 3DOK13 11.6 3DOK13 14.2 
+COMPOS 17.3 COMPOS 19.4 COMPOS 19.1 COMPOS 16.9 COMPOS 20.8 
+; 
+run; 
+
+ods trace on; 
+ods output parameterestimates = est; 
+
+proc glm; 
+class Strain; 
+model Nitrogen = Strain / solution; 
+run; 
+
+proc print data = est; 
+var dependent probt; 
+run; 
+
+ods trace off;
+29.	dsfd
+   data abc;
+input a b c;
+cards;
+1.2334343  5.64354767   6.56565656
+;
+run;
+
+proc contents data=abc noprint
+  out=pos(keep=name npos type length);
+run;
+
+%macro dot;
+  data _null_;
+  set pos;
+  if type=1 then 
+  do;
+  n+1;
+  call symput(compress('v'||n),name);
+  end;
+  call symput('t',n);
+
+%mend;
+
+%macro getname;
+  
+%mend;
+
+data d;
+set abc;
+
+run;
+
+proc print data=abc;
+run;
+30.	这是判断一个数据集的某变量是否在另一个数据集的变量中出现的例子
+可以想象为模拟SQL的 in 语句
+data tmp;
+input x y1;
+cards;
+1 2
+3 5
+3 4
+3 7
+4 6
+7 8
+;
+run;
+
+data ahuige;
+input y2;
+call symput('n',_n_);
+cards;
+2
+4
+6
+8
+;
+run;
+
+data haha;
+set tmp;
+drop y2;
+do i=1 to &n;
+set ahuige point=i;
+y=(y1=y2);
+if y then leave;
+end;
+run;
+
+proc print data=haha;
+run;
+
+
+
+
+31.	dd f
+全局变量
+%global %symput 系统宏变量，宏块外定义的宏变量
+%symglobal函数用来判断宏变量是否为全局
+局部变量
+%local, 用参数代入的宏变量(可以override外在的宏变量)，在宏块内用%let和%do生成的宏变量
+%symlocal函数用来判断宏变量是否为局部
+32.	一些重要的宏变量指示字
+1. _all_  _automatic_  _global_  _local_ _user_ 
+33.	dsfsd 
+在用%do I=…. 时，可能I会把外部宏变量给冲掉，所以，一定在前面要用%local I;
+这样就强制成为局部宏变量。
+34.	宏表达式中一般只自动进行整数运算，因为数字被宏编译器只认成文本。只是运算时临时转换。%eval只支持整数运算 %sysevalf支持浮点数但结果要注意和后续运算匹配
+35.	DATA步中的与macro交互的作用(两方面的)如下
+1.	将一个data步中的信息传到后面的SAS程序中去。
+2.	激发一个只能在data步运行后才有足够信息的macro.
+3.	DATA步运行时解析一个宏变量
+4.	删除一个宏变量
+5.	从macro中传信息到data步。
+36.	自动运行的宏
+第一次运行auto member的基本步骤
+1.	找出auto库中的member,把member中的所有东西全编译
+2.	把member中的非宏块的open language全运行
+3.	最后运行同名macro块。
+   第二次开始只运行3.
+37.	调用一个已编译的宏的步骤是
+1.	在当前session中找
+2.	在 options mstored  sasmstore= 的情况下，去找
+3.	在 options sasautos= mautosource ????的情况下
+38.	宏参数的代入规则
+   %macro ok(who);
+ %put &who;
+%mend;
+
+data ; /*直接用字符做宏的参数，不加引号*/
+%ok(me);
+run; 
+
+data ;/*不能用一般变量代入宏作参数，作用相当于原始字符*/前面的解释是错的，之所以这里直接显示的me这个字符的原因是宏执行早于一般语句，请看下一种方式可解决该问题,最初的解释没有错,后面的方法已经不是一般意义上的赋值了,所以,记得最近的想法就行了
+me='hehe';
+%ok(me);
+run;
+/*  以下用call execute的方式可以让%在data 步运行时再运行，以获得数据集中的值 */
+%macro ok(who);
+data _null_;
+ put &who;
+run;
+%mend;
+
+options mprint;
+data ;/*2??üó?ò?°?±?á?′úè?oê×÷2?êy￡?×÷ó??àμ±óú?-ê?×?·?*/
+me='hehe';
+call execute('%ok('''||me||''')');
+run;
+
+
+
+data ;/*代入宏变量时如果不加&，作用相当于原始字符*/
+%let me=hehe;
+%ok(me);
+run;
+
+data ;/*代入宏变量加&作参数结果正确*/
+%let me=hehe;
+%ok(&me);
+run;
+39.	%abort 中止后面所有程序。如果在DATA步中，该DATA步的新数据集不代替同名数据。
+40.	%Bquote %Nrbquote在编译时可以解析一些，但在最后execute时忽略,%superQ就是一点都不变
+41.	CMDMAC表示用命令行的方式运行macro,而不用%
+42.	
+43.	Vname可以用来得到一个数组变量的实际变量名
+   
+array x(3) x1-x3;
+y=vname(x(1));
+put y=;	
+y=x1
+
+44.	合并多个数据集
+有多个数据集,内部格式相同(也就是变量个数和名字都相同).数据集名如test5234001 ,test5234002,test5234007~~~ 
+test5235002,test5235004,test5325007~~~ 
+test5236001,~~~~~~~~ 
+
+~~~~~ 
+即数据集名的前部分相同,后部分的数字前四位是每次加一,后四位没有规律. 
+该如何写程序把所有的数据集合并成一个大的数据集.(总共100多个) 
+
+多谢那位高手帮忙一下!
+data
+test5234001 test5234002 test5234007
+test5235002 test5235004 test5235007 
+test5236001;
+x=1;
+run;
+
+
+%macro z(n);
+  %if &n<10 %then 00&n;
+  %if &n>=10 and &n<100 %then 0&n;
+  %if &n>=100 %then &n;
+%mend;
+
+%macro main(b,e);
+%do j=&b %to  &e;
+  %do i=1 %to 100 ;
+   %if %sysfunc(exist(test52&j%z(&i))) %then test52&j%z(&i);
+  %end;
+%end;
+
+%mend;
+options mprint;
+data big;
+set %main(34,36);
+run;
+
+proc print;
+run;
+
+45.	>: 这种在比较算符后加冒号的方式表示将长值切短与短值比较。
+   data ;
+x=('ABC'>'A');
+y=('ABC'>:'A');
+put x= y=;
+run;
+*
+x=1 y=0
+NOTE: êy?Y?ˉ WORK.DATA2 óD 1 ??1?2aoí 2 ??±?á?
+;
+46.	原数据集的每一条观测的五百个变量转置，放到一个新的数据集中，每个新数据集只有一个变量，对不？
+  data ori;
+array v{50} v01-v50;
+drop j i;
+do j=1 to 10;
+  do i=1 to 50;
+    v{i}=j+i;
+  end;
+  output;
+end;
+run;
+
+
+proc sql;
+  select count(*) into :n
+  from ori
+  ;
+
+%macro name(loop);
+
+   
+   %do i=1 %to &loop;
+   data  data_var&i;
+   p=&i;
+   set ori point=p;
+   array arr _all_;
+   keep v;
+   do over arr;
+     v=arr;
+	 output;
+   end;
+   stop;
+   run;
+   %end;
+%mend;
+
+
+data _null_;
+call execute('%name(&n)');
+run;
+
+ 
+47.	有4千个数据txt文件，形式都是+ / - 的循环　其中 / 是随机出现， 
+至少出现一次 
+例　 
++about you 
+/teach me 
+/leaning English 
+-studying chinese 
+
++see you 
+/combine to 
+-meet her father 
+
+。。。 
+。。。 
+把这数据输入成sas文件 
+　i 　　　　　　　　j 　　　　　　　　　　　　　k 
++about you 　/teach me 　　　　　　-studying chinese 
++about you 　/leaning English 　　　-studying chihese 
++see you 　 /combine to 　　 - /meet her father 
+。。。　　　　　　　　。。。　　　　　　　　　。。。。
+data ahuige;
+input v$50.;
+cards;
++about you 
+/teach me 
+/leaning English 
+-studying chinese 
++see you 
+/combine to 
+-meet her father 
+;
+run;
+
+data _null_ ;
+set ahuige end=e;
+retain ii jj kk 0;
+s=substr(v,1,1);
+if (s='+')then 
+  do; 
+   ii=ii+1;
+   call symput(compress('i'||ii),v);
+  end;
+if (s='/')then 
+  do; 
+   jj=jj+1;
+   call symput(compress('j'||jj),v);
+  end;
+if (s='-')then 
+  do; 
+   kk=kk+1;
+   call symput(compress('k'||kk),v);
+  end;
+big=max(ii,jj,kk);
+if e then call symput('big',big);
+run;
+
+
+data final;
+  do l=1 to 100;
+  if symexist(compress('i'||l)) then i=symget(compress('i'||l));
+  else i='';
+  if symexist(compress('j'||l)) then j=symget(compress('j'||l));
+  else j='';
+  if symexist(compress('k'||l)) then k=symget(compress('k'||l));
+  else k='';
+  if symexist(compress('i'||l)) or symexist(compress('j'||l))or symexist(compress('k'||l)) then   output;
+  else stop;
+  end;
+run;
+
+proc print;
+run;
+*上面的例子还可以看出来，过多的字符型数组在DATA 步里不好保留。用宏数组反而更方便;
+48.	Thanks for response  , Correction: it is 500 variables instead of 500 hundred. What I thought is that I creat a new data set called data_var, in which there is only one variable which is the variable names in data_ori. For example, in the data_ori, the variables are age, gender, weight...., then in data_var, the observation of each Variable are age, gender, weight..... How many variables in data_ori, how many observation will be in data_var. 
+
+My wish: write a loop, for first loop, it can read first obs in data_var, and the refer this obs to a var which will be used in analysis(using data_ori). Then the loop moves to next one, the second obs in data_var will be read and do the anaylsis as the first one. And so on. 
+
+I wish I can explain it more clearly
+  data ori; 
+array v{50} v01-v50; 
+drop i j;
+do j=1 to 10  ;
+  do i=1 to 50; 
+    v{i}=i+j*2; 
+  end; 
+  output;
+end;
+run; 
+
+data _null_;
+set ori;
+array name _all_;
+do over name;
+  n+1;
+  call symput(compress('name'||n),vname(name));
+end;
+call symput('n',n);
+stop;
+run;
+
+%macro domeans(n);
+  %do i=1 %to &n;
+   proc means data=ori;
+   var &&name&i;
+   run;
+  %end;
+%mend;
+
+data _null_;
+call execute('%domeans(&n)');
+run;
+
+
+
+
+
+
+49.	我想用datetime()产生系统时间，然后转换成yy-mm-dd-hh-mm-ss的格式，即包括了年-月-日-时-分-秒，然后插到表格的某个字段里。 
+但试了好多次都不行哪位帮忙啊？谢谢！
+    data a; 
+yy=substr(put(year(today()),$4.),3,2); 
+mmm=substr(put(month(today()),$2.),3,2); 
+dd=substr(put(day(today()),$2.),3,2); 
+hh=substr(put(hour(time()),$2.),3,2); 
+mm=substr(put(minute(time()),$2.),3,2); 
+ss=substr(put(second(time()),$2.),3,2); 
+ahuige=compress(yy||'-'||mmm||'-'||dd||'-'||hh||'-'||mm||'-'||ss); 
+run;
+50.	%SuperQ（argument）帮助上说是用来括宏名的，能不能括宏表达式还没试。
+  data _null_;
+call symput('x','Tom&jone');
+run;
+
+%let ahuige=x;
+%put &ahuige;
+
+%let ahuige=%superQ(x);
+%put &ahuige;
+///////////////
+10
+11   %let ahuige=x;
+12   %put &ahuige;
+x
+13
+14   %let ahuige=%superQ(x);
+15   %put &ahuige;
+Tom&jone
+51.	symput是按普通变量的长度赋给宏变量，所以有可能有后面的空格。
+52.	时间间隔计算的例子
+data x;
+t1=datetime();
+do i=1 to 100000000;
+t1=t1;
+end;
+t2=datetime();
+int=intck('second',t1,t2);
+list;
+run;
+53.	%sysfunc中的函数不能直接NEST,要用多个%sysfunc包住才行。而且不能用of这种方式提供自变量，只能一个一个的用comma分开。好象也不能用put,input等函数。只能用putn inputn putc inputc在SCL中。
+54.	open(datasetname)打开一个数据集并返回一个数据集的代码。Attrn(id,attrname),返回打开数据集的数字特征。Id通常是open的结果，attrname是nobs nvars这样的参数。
+55.	Return语句可以看作整个data步的类似与DELPHI的continue语句。而SAS也有continue语句，主要用于DO语句。LEAVE语句与DELPHI的break类似。用于DO组和SELECT组
+56.	_TEMPORARE_数组的临时的意思是指的是这些变量没有存到当前的数据集里，而且没有实际的变量名与它联系，只能用arr(i)这样的方法来引用，但是它的值在DATA步的下一个循环中保留，不置为缺失。这样便于作为中间变量来使用。
+57.	所有数组变量的定义只在本数据步有效。需重新定义
+58.	隐含数组的用法，在定义数组时，可以在维数的位置使用一个变量。并在后面用此来引用数组。而且在这里只能用(),而不能用中括号或者大括号。
+data ahuige;
+input x1-x4;
+array x(j) x1-x4;
+do j=1 to 4;
+  put x;
+end;
+cards;
+1 2 3 4
+5 6 7 8
+;
+run;
+
+   
+59.	在SQL语句中用outobs=来限定输出数据的条数
+proc sql outobs=12;
+title 'the first sum';
+select county 
+from sashelp.zipcode;
+60.	可以看看数据集的信息
+proc sql;
+describe table sashelp.zipcode;
+61.	可以在SELECT中用LABEL并用特殊字符来消除打印时的变量名（因为SAS不支持特殊字符开头的LABEL）
+62.	SELECT语句中可以用FORMAT来规定显示的格式
+如
+63.	对于计算字段，在SELECT和WHERE中引用计算字段要使用CALCULATED 关键字
+proc sql ;
+select electric-masonry as dif,(calculated dif)*2 as d2
+from sashelp.workers;
+64.	输入格式的一个例子
+data company;
+retain cor;
+drop first;
+input first:$10. @;
+if not (substr(first,1,4)='公司') then input @1 year n;
+else do; cor=first; input /year n;end;
+cards;
+公司A 
+1990 1 
+1991 2 
+1992 3 
+1993 4 
+1994 5 
+公司B 
+1990 6 
+1991 7 
+1992 8 
+1993 9 
+1994 10
+1995 11
+1996 12
+公司C 
+1990 13
+1991 14
+1992 15
+1993 16
+1994 17
+1995 18
+;
+run;
+65.	0在OR操作符中的应用
+data test;
+input q1-q15;
+cards;
+1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
+1 2 3 4 5 6 7 9 9 0 1 2 3 4 5
+1 2 3 4 5 6 7 8 0 0 1 2 3 4 5
+;
+run;
+
+options mprint;
+
+%macro q(n);
+  %do i=1 %to &n;
+    %nrquote( or (q&i=9))
+  %end;
+%mend;
+
+
+
+
+proc print data=test; 
+where 0 %q(15);
+run;
+
+66.	IMPORT 语句例子，比如引入一个ACCESS库中表格的例子
+proc import table="customers"
+ 
+       out=sasuser.cust
+ 
+       dbms=access2000;
+ 
+       uid="userid";
+ 
+       pwd="mypassword";
+ 
+       database="c:\myfiles\east.mdb";
+ 
+       wgdb="c:\winnt\system32\security.mdb";
+ 
+    proc print data=sasuser.cust(obs=5);
+run;
+67.	EXPORT数据的例子
+proc export data=sasuser.cust
+   outtable="customers"
+   dbms=access97
+   replace;
+ 
+       database="c:\myfiles\mydatabase.mdb";
+run;
+
+68.	从文本文件读数据的例子
+data index; 
+infile 'd:\index.txt' 
+firstobs=2 
+obs=23074 dsd; *dsd表示引号中内容为文本;
+input code $ date kaipan shoupan high low rate@@; 
+run;
+我有一个文本数据，是关于股市指数的，但是没有办法import到sas里头，请教高手帮忙给我解决一个难题。 
+
+原数据如附件所示，其中，code为指数代码，date为交易日期，kaifan为开盘价，shoupan为收盘价，high为当日最高价，low为当日最低价，rate为收益率。 
+code,date,kaipan,shoupan,high,low,rate 
+"999130",19960701,2074.920,1966.680,2076.300,1938.810,-977.000000 
+"999130",19960702,1959.990,1956.460,1991.910,1937.190,-0.005197 
+"999130",19960703,1986.710,2109.450,2109.990,1986.370,0.078197 
+"999130",19960704,2130.460,2192.200,2193.270,2125.190,0.039228 
+"999130",19960705,2210.120,2175.140,2231.830,2167.970,-0.007782 
+"999130",19960708,2229.430,2336.560,2337.840,2216.200,0.074211 
+"999130",19960709,2379.520,2411.220,2438.950,2345.680,0.031953 
+"999130",19960710,2427.760,2385.780,2427.960,2329.740,-0.010551 
+"999130",19960711,2380.440,2265.950,2381.190,2259.450,-0.050227 
+"999130",19960712,2229.250,2308.740,2309.260,2214.540,0.018884 
+"999130",19960715,2292.750,2250.730,2295.700,2218.860,-0.025126 
+"999130",19960716,2293.220,2355.050,2363.680,2268.070,0.046349 
+"999130",19960717,2371.370,2272.390,2373.380,2269.220,-0.035099 
+"999130",19960718,2268.990,2300.830,2309.100,2268.990,0.012515 
+"999130",19960719,2314.040,2324.870,2348.170,2277.950,0.010448
+DSD (delimiter-sensitive data) 
+specifies that when data values are enclosed in quotation marks, delimiters within the value be treated as character data. The DSD option changes how SAS treats delimiters when you use LIST input and sets the default delimiter to a comma. When you specify DSD, SAS treats two consecutive delimiters as a missing value and removes quotation marks from character values. 
+
+69.	用A UNION B时，如果不用ALL 参数，结果就没有从B来的重复的记录，反之保留所有记录，这样加ALL	的数据比不加ALL的要多，而用A except B时，加ALL的数据也可能比不加ALL的要多，因为自身有DUP的可能只被抵消一个，而不加ALL就被抵消全部。
+70.	在所有的quote函数中，%str和%nrstr是在宏编译时起作用，其他的都是在宏运行时起作用。
+%macro delcomma(str);
+  %substr(&str,2)
+%mend;
+
+
+data _null_;
+put "%f(i am a pig)";
+put "%delcomma(%quote(i,am,a,pig))";*这里如果是显式的参数，就不容易不加%quote，如果不是显式的，而是另一个宏生成的，就容易被忽略;
+run;
+71.	想不到SQL中的CASE语句可以这样用
+data ahuige;
+input a b;
+aa=0;
+cards;
+1 2
+1 1
+3 4
+;
+
+proc print;
+run;
+proc sql;
+update ahuige
+set aa=a*
+  case when b=1 then 1
+       when b=2 then 2
+       else 3
+  end
+;
+proc print;
+run;
+
+  
+72.	length语句规定的长度，对字符变量，在DATA步中就开始起作用，对数字变量，只在结果数据集中起作用，中间过程的长度不被切短。
+73.	用RENAME语句时，如果要对变量作处理，还是对老变量名进行，因为rename语句只是在最后输出时得用新的名字。
+74.	对几个变量赋相同的格式时，要用括号，如果不用就会出错
+data dataA ;/*本例是错误的写法*/
+input VAR1-VAR3 $;
+cards;
+aa 12 23 
+aa 134 12 
+aa 134 55
+bb 34 23 
+bb 35 25 
+bb 35 23 
+;
+run;
+正确的写法
+data dataA ;
+input (VAR1-VAR3) ($);
+cards;
+aa 12 23 
+aa 134 12 
+aa 134 55
+bb 34 23 
+bb 35 25 
+bb 35 23 
+;
+run;
+75.	一个宏语言的例子,将一句话中的单词分隔出来,然后,两两排列.\
+%macro All2subset(whole,sig);
+  %global n;
+  %let n=0;
+  %do %while (%trim(&whole) ne);
+    %let n=%eval(&n+1);
+    %let ele&n=%scan(&whole,1);
+    %put &&ele&n;
+	%if %trim(&&ele&n) ne %trim(&whole) %then %let whole=%substr(&whole,%length(%scan(&whole,1))+1,1000);
+	%else %let whole=;
+  %end;
+  %do i=1 %to &n-1;
+    %do j=%eval(&i+1) %to &n;
+      %put &&ele&i.&sig.&&ele&j;
+	  &&ele&i.&sig.&&ele&j
+	%end;
+  %end;
+%mend;
+
+%All2Subset(%quote(v1 v2 v3 v4 v5 v6 v7 v8 v9 v10),%quote(,));
+%All2Subset(%quote(one two three four five six),%quote( ));
+*this is going to show you how irregular variable names could be treated;
+
+
+
+76.	如果想知道某些过程ODS输出的OUTPUT对象名,可以用ODS TRACE ON,先在LOG窗中找出OUTPUT对象的名称,然后,用自己的数据集名字来命名.
+ods trace on;
+  proc means;
+  var i;
+  run;
+ods trace off;
+
+
+/******************************
+Output Added:
+-------------
+Name:       Summary
+Label:      Summary statistics
+Template:   base.summary
+Path:       Means.Summary
+
+*******************************/
+
+ods output summary=myset;
+proc means data=ahuige;
+var i;
+run;
+
+77.	sysin是一个在命令行下运行SAS程序的参数,
+比如可以用 d:\temp\myfile.sas sysin //效果不明,只知道能够运行.
+78.	如果想引用外部的宏变量,最好在使用前用%GLOBAL声明一下,再引用.
+79.	FILEREF FUNCTION 可以用来判断文件指示名的合法性
+Verifies that a fileref has been assigned for the current SAS session or process 
+Category:	External File 
+________________________________________
+Syntax
+sysrc=FILEREF(fileref); 
+sysrc 
+contains the return code for the operation: 
+0	Both the fileref and the external file exist.
+< 0	The fileref has been assigned, but the file that it points to does not exist.
+> 0	The fileref has not been assigned.
+Type: Numeric 
+fileref 
+is the fileref to be validated (up to eight characters). 
+Type: Character 
+
+80.	使用已编译好的宏的例子
+A.把MSTORED选项打开,指定好sasmstore的位置.即编译好的宏存放的位置
+libname sto 'd:\temp';
+options mstored sasmstore=sto;
+B.建立一个宏,在第一句中用 /store选项,表示要将编译好的宏存放到SasMStore 的位置
+%macro addAhuige(text) / store  ;
+  %put ahuige &text ahuige;
+%mend;
+C.调用宏,但是要将MSTORED选项打开,指定好sasmstore的位置(当前调用可免)
+libname sto 'd:\temp';
+options mstored sasmstore=sto;
+%addAhuige(%quote(what is up));
+
+81.	%include的用法
+%INCLUDE 从文件或者编辑窗或者交互终端正载入文本. 如果要载入同一目录下的多个文件.可用以下方法.
+Filename dirfile ‘c:\ahuige’;
+%include dirfile(f1.dat,f2.dat);
+
+
+82.	宏的参数可以在定义时就引用.
+%macro cdarsstd(dsetout,dsetin= &dsetout) ;
+%put &dsetout;
+%put &dsetin;
+%mend;
+
+%cdarsstd(ahuige);
+83.	一个合宏变量的值传递到普通过程中的方法是使用SYSPARM函数及对SYSPARM赋值.
+%let sysparm=ahuige;
+
+data tmp;
+x=sysparm();
+put _all_;
+run;
+84.	KEEP 和DROP语句不应该同时使用,(测试了同时使用的情况,从结果来判断不太清楚原则,所以请永远不要使用)澳大利亚的哥们在过程中同时使用了KEEP和DROP=这样的方法,但请自己不要使用
+85.	今天对宏执行的顺序又有了一个新的认识, 改正了过去错误的印象.宏的编译并不完全都是在整个程序执行前完成,更不是在定义时就完成了所有的宏statement的判断了, 而是一个块一个块(DATA步,过程步)的进行的.从以下的语句例1可以看出来.,但是在一个DATA步中发现了宏时,是先编译宏,再执行所有语句.例2
+例1
+%macro put2;
+%if &syspram=ahuige %then %put i am ahuige;
+%else %put my name is &syspram;
+%mend;
+data _null_;
+x='ahuige';
+call symput('syspram',x);
+run;
+
+%put2;
+data _null_;
+x='huiliu';
+call symput('syspram',x);
+run;
+
+%put2;
+例2
+%macro put2;
+%if &syspram=ahuige %then ahuige='ahuige';
+%else ahuige='not ahuige';
+%mend;
+
+data _null_;
+x='ahuige';
+call symput('syspram',x);
+run;
+
+data hui1;
+%put2;
+run;
+
+data _null_;
+x='huiliu';
+call symput('syspram',x);
+run;
+
+data hui2;
+%put2;
+run;
+
+86.	对宏的流程的测试,运行是按一个BLOCK一个BLOCK的从上到下,只有本步内的宏语句运行才早于一般语句.&的替换早于%
+%macro ahuige_01;
+%put ahuige;
+%mend;
+data _null_;
+put 'null';
+run;
+
+data _null_;
+%ahuige_01;
+run;
+
+%let m=01;
+data _null_;
+put 'ok';
+%ahuige_&m;
+run;
+87.	宏语言中空格长度的问题
+%macro ahuige;
+  %let l1=%length();
+  %let l2=%length(%quote( ));
+  %let l3=%length(%quote(  ));
+  %put _user_;
+%mend;
+%ahuige;
+/*
+AHUIGE L1 0
+AHUIGE L2 1
+AHUIGE L3 2
+
+*/
+88.	宏变量中字符替换的例子.
+%macro underscore(instr);
+  %let instr=%sysfunc(tranwrd(&instr,%quote( ),_));
+  %let instr=%sysfunc(tranwrd(&instr,%quote(-),_));
+  &instr
+%mend;
+
+%put %underscore(ahuige liu-hui);
+89.	在宏中不能做的两件事,一是不能用IN操作符,二是不能连用比较符号.
+
+90.	筛选重复数据,前提条件是有一个字段是关键字段,没有重复.有重复的还没有考虑.
+libname d 'd:\liuhui'; run;  options mprint;  %macro loop(i,j);    %do k=&i %to &j;    ,x&k   %end; %mend;  proc sql;   create table single as   select *   from d.a_14_15   group by x2%loop(3,15)%loop(18,80)   having x1=min(x1); 
+91.	在SQL中生成递增字段
+create table study_datasets as
+      select monotonic() as order, *
+      from study_datasets
+   ;
+92.	quote函数中,%str %nrstr是在编译时起作用的,在运行时无效,所以,对于比较固定的字符串,使用他们,对于比较动态的,如有参数代入的,特别是有不配对的引号和括号的,多用%bquote %bnrquote,它们是在运行时起作用的.而%superQ的参数应该是一个宏变量的变量名,或者解析为一个宏变量名的表达式,且请不要在前面加&.
+93.	宏与一般语句交互的一些经验,call symput总是在一个 data步中的(不管是在宏中还是一般语句中),在该步中,不能用&得到宏的值,但是可以用symget得到.
+94.	CEIL FLOOR INT ROUND 等函数都是默认要FUZZ的,如果CEILZ FLOORZ就不会.
+95.	一般使用数据集中的变量代入做为宏的引用时的参数时的流程一般如下.
+a.	用’%Fname(’||para||’)’等形式构建字符串.
+b.	用call execute(…)执行宏
+c.	注意使用宏所赋宏变量的顺序.CALL EXECUTE执行的语句,宏语句是立即执行,一般语句是在CALL EXECUTE的过程步完成后再执行.
+96.	在使用%str时不要在argument中有多个参数的宏函数,因为%str要quote不配对的(,而逗号使编译器看上去(不配对。
+options mlogic;
+%macro main;
+%let tableref=tddd;
+%let ref_t=%str(Table %length(&tableref));
+%let ref_t=%str(Table %substr(&tableref,1,2));
+%mend;
+
+%main;
+第一个可以，第二个有错。
+97.	随机数方程的种子为正数时,随机结果可以重复.为零时不可重复.
+98.	KEEP DROP时效
+99.	SAS HELP ONLINE of put 
+a.	PUT函数中的SOURCE和format一定要是相容的,数字型对数字型,字符型对字符型.
+b.	但PUT的结果一定是字符串,如果SOURCE 和FORMAT是数字型,结果自动转换为字符.
+Syntax
+	PUT(source, format.) 
+
+
+Arguments
+source 
+identifies the SAS variable or constant whose value you want to reformat. The source argument can be character or numeric.
+format. 
+contains the SAS format that you want applied to the variable or constant that is specified in the source. To override the default alignment, you can add an alignment specification to a format:
+-L	left aligns the value.
+-C	centers the value.
+-R	right aligns the value.
+Restriction:	The format. must be of the same type as the source, either character or numeric.
+
+
+
+100.	在使用INPUT和PUT函数时的技巧,与INPUT和PUT STATEMENT结合起来理解
+a.	INPUT是将外部数据输入, 而SAS内部可以有两种类型,所以INPUT的结果可以是两种类型,但输入源的类型只能是字符, 也就是一到二.
+b.	PUT是将内部数据输出, 而SAS内部可以有两种类型,所以PUT的数据源可以是两种类型,但输出结果的类型只能是字符, 也就是二到一.
+c.	在应用时,首先确定左侧结果的类型. 如果左侧是数字型,那么最外层必定只能用INPUT,不管表达式内还可能有其他的函数. 如果左侧是字符型,那么最外层可以是PUT或者INPUT.
+d.	
+
+data ahuige;
+input x$12.;
+if index(x,'-') then y=put(input(x,ddmmyy10.),date7.);
+*if index(x,'-') then y=put(x,date7.);*this is the wrong sentence;
+cards;
+16-8-2002
+14-10-2002
+;
+run;
+
+proc print;run;
+
+101.	SAS HELP INPUT 函数的例子.
+102.	在此一次使用二进制数据的例子
+data ahuige;
+format y binary8.;
+x='1';
+y=put(x,binary8.);
+run;
+proc print;run;
+
+103.	自由输入方式的PITFALL(好象是EXCEL中考过来有隐含的空格和回车)
+data ucdrg;
+input val 1-2 char$200.;*incorrect;
+char=trim(left(char));
+cards;
+13	C
+14	CC
+13	CS
+27	F
+4	ISU
+3	IU
+67	P
+67	PACK
+67	PK
+12	T
+12	T/D
+12	Tab
+12	Ts
+25	V
+25	a
+25	ap
+13	c
+13	cap
+13	capsule
+14	cc
+2	g
+2	gm
+2	grn
+3	iu
+3	ku
+1	m
+7	mcg
+1	mg
+4	mg/cap
+31	mg/ml
+4	mg/patch
+4	mg/wk
+14	ml
+24	ng
+67	p
+67	pkg
+12	t
+12	tab
+27	u
+7	ug
+27	unit
+;
+run;
+proc print;run;
+上面的程序会INPUT错误
+input val : 1-2 char$20.;才是正确的
+104.	使用PROC DATASETS的例子，将NOBS大于一定值的数据集COPY到另一个LIB
+libname inlib "d:\temp\dst";  *your inlib;
+
+%let num=20;        *your request nobs;
+data inlib.dst1 inlib.dst2 inlib.dst3;
+do i=1 to 100;
+ if i<=20 then output inlib.dst1;
+ else if 20<i<=50 then output inlib.dst2;
+ else  output inlib.dst3;
+end;
+run;
+
+proc datasets library=inlib nolist nodetails;
+  contents data=_all_ out=work.cont;
+run;
+
+proc sql noprint;
+  select distinct memname into : keepdst separated by ' '
+  from work.cont
+  where nobs>&num  /*> < =*/
+  ;
+
+proc copy  in=inlib out=work ;
+select &keepdst;
+run;
+105.	一定要注意，如果是对字符变量进行操作比如在后面加字符串，一定要用COMPRESS之类的函数。要不然    x=x||'abce';是永远得不到想要的结果的
+106.	LIBNAME ADVANCED USAGE
+Concatenating SAS Data Libraries
+When you logically concatenate two or more SAS data libraries, you can reference them all with one libref. You can specify a library with its physical filename or its previously assigned libref.
+________________________________________
+Syntax
+	LIBNAME libref <engine> (library-specification-1 <. . . library-specification-n>) 
+< options >; 
+
+1.	When a SAS file is opened for input or update, the concatenated libraries are searched and the first occurrence of the specified file is used.
+2.	When a SAS file is opened for output, it is created in the first library that is listed in the concatenation. 
+Note:   A new SAS file is created in the first library even if there is a file with the same name in another part of the concatenation.   
+3.	When you delete or rename a SAS file, only the first occurrence of the file is affected.
+4.	Anytime a list of SAS files is displayed, only one occurrence of a filename is shown. 
+Note:   Even if the name occurs multiple times in the concatenation, only the first occurrence is shown.   
+5.	A SAS file that is logically connected to another file (such as an index to a data set) is listed only if the parent file resides in that same library. For example, if library ONE contains A.DATA, and library TWO contains A.DATA and A.INDEX, only A.DATA from library ONE is listed. (See rule 4.)
+6.	If any library in the concatenation is sequential, then all of the libraries are treated as sequential.
+7.	The attributes of the first library that is specified determine the attributes of the concatenation. For example, if the first SAS data library that is listed is "read only," then the entire concatenated library is "read only."
+8.	If you specify any options or engines, they apply only to the libraries that you specified with the complete physical name, not to any library that you specified with a libref.
+9.	If you alter a libref after it has been assigned in a concatenation, it will not affect the concatenation.
+
+107.	FIRSTOBS 和 obs=不是指对原始数据集中进入的记录的限定而是在WHERE以后剩下的记录的限定, OBS其实改为LASTOBS就能和FIRSTOBS对应起来了.
+data A; 
+do I=1 to 100;
+X=I + 1;
+output;
+end;
+run;
+proc print data=work.a (firstobs=2  obs=4 ) ;
+where I > 90; 
+run;
+The result of PROC PRINT is observations 92, 93, and 94.
+
+108.	用RESOLVE函数可以用宏来模拟简单功能的自定义过程.
+
+%macro BMISTR(W,H,BMI);
+  %MACRO BMI(WW,HH);
+   %SYSEVALF(&WW/(%sysevalf(&HH/100))**2) 
+  %MEND;
+  DROP AHUIGE_STR;
+  AHUIGE_STR='%BMI('||&W||','||&H||')';
+  &BMI=INPUT(RESOLVE(AHUIGE_STR),10.2);
+%mend;
+
+
+
+DATA AHUIGE;
+INPUT W H;
+%BMISTR(W,H,BMI);
+CARDS;
+60 172
+78 186
+45 165
+;
+RUN;
+
+PROC PRINT;RUN;
+好象可以很简化
+%macro bmistr(w,h,bmi);
+&bmi=&w/(&h/100)**2;
+%mend;
+
+DATA AHUIGE;
+INPUT W H;
+%BMISTR(W,H,BMI);
+CARDS;
+60 172
+78 186
+45 165
+;
+RUN;
+109.	对于模拟生成数据步代码的宏函数.有以下注意点.首先是最好不要用这种宏作为GLOBAL的宏.局限在STUDY中最好.
+a.	在编写宏的时候,中间变量要多用不常用的变量名.而且最后要DROP掉.而且最好用LENGTH语句给予很大的长度.
+b.	还有一种技巧就是其中不要用中间变量,直接用计算式,避免了长度的问题但是减少了程序的可读性
+c.	还有一种麻烦的方法就是在调用时显式的提供中间变量的名称(编写时就要提供相应名称).以警示以后的使用.
+110.	DATASET OPTIONS USAGE
+END= cannot be used with POINT=. When random access is used, the END= variable is never set to 1.
+111.	引用前后记录的变量的手段
+嗬嗬,AHUIGE的不传之密都来了. 注意,本例不是计算什么缺失的个数的.是一个GENERAL的例子,运用更广. 
+data ahuige;
+input a b c;
+cards;
+3 5 7
+6 8 4 
+. 3 6
+3 5 7
+. 5 6
+;
+run;
+
+data final;
+  set ahuige;
+  n=_n_-1;
+  if missing(a) then  
+    do;
+      set ahuige (keep=c rename=(c=a)) point=n;
+    end;
+run;
+
+proc print;run;
+灵活的运用POINT, KEEP RENAME.你可以引用任何之前或者之后的数据,不用什么RETAIN  
+112.	达
+data new5;
+  input pr1;
+cards;
+1
+5
+7
+8
+5
+8
+;
+run;
+
+proc sql;
+  select distinct pr1 into :pr separated by ' '
+  from new5;
+quit;
+
+%macro out(dsn);
+   %do %while(%length(&dsn));
+   %let r=%scan(&dsn,1);
+     data pr&r;
+       set new5; 
+       if pr1=&r ;
+     run;
+     %let dsn=%substr(&dsn,%eval(%length(%scan(&dsn,1))+1));
+   %end;
+%mend;
+
+%out(&pr);
+113.	INPUT时的一些原则.
+
+data scores;
+infile datalines truncover;
+input name $ 1-12 score2 17-20 score1 27-30;
+datalines;
+Riley 1132 987
+Henderson 1015 1102
+;
+run;
+Note: You cannot use an informat with column input. _
+ 
+114.	在宏中模拟使用IN函数
+%macro in(str,paras,capSen=1);
+   %local ok i word;
+   %if &capSen=0 %then 
+      %do;
+          %let str=%upcase(&str);
+          %let paras=%upcase(&paras);
+      %end;
+   %let i = 1;
+   %let word = %scan(&paras,&i,%str( ));
+   %do %while (&word ne %str());
+      %if &word=&str %then %let ok=1;
+      %let i = %eval(&i+1);
+      %let word = %scan(&paras,&i,%str( ));
+   %end;
+   %if %length(&ok) %then 1;
+   %else 0;
+%mend;
+
+%put %in(liu, hui liu );
+
+%put %in(liu,pan hui Liu tao,capSen=0);
+115.	在用BY时,可以用GROUPFORMAT选项来以FORMAT的值来排序FEMALE,MALE,而不是以真实的值.比如1,2
+116.	在宏中用%SYSFUNC时不能用INPUT,PUT函数,只能用INPUTC INPUTN,PUTC,PUTN,这种函数用在普通的SAS中,FORMAT要用引号括起来.在宏中不用.
+%macro loop(start,end);
+  %do i=%sysfunc(inputn(&start,date9.)) %to  %sysfunc(inputn(&end,date9.));
+    %let today=%sysfunc(putn(&i,date9.)); 
+    %put &today;
+  %end;
+%mend;
+
+%loop(01sep2005,27nov2005);
+117.	%SYSFUNC使用函数时,在外面要加引号的参数在宏中不要加引号
+118.	BY变量的FIRST,LAST 问题
+1.	FIRST首先对BY组的第一条记录进行判断,从左到右(BY变量)中任何一个变量与上一个BY组相比是发生了变化的,那么就FIRST.VARIABLE为1,然后后面所有BY变量FIRST.VAR都为1.
+2.	LAST.首先对BY组的最后一条记录进行判断,从左到右,任何一个变量与下一条记录的值相比是不同的,那就LAST.VARIABLE为1.然后后面所有的BY变量也是LAST.VAR都为1.
+3.	最后一条记录的LAST全为1.
+详见351 of 656 rconcept
+
+119.	MODIFY和UPDATE的唯一区别在于MODIFY更有效率,只更新有改变的观察,而UPDATE是逐一覆盖,且MODIFY不用排序,而UPDATE要排序.但它们都不用MISSING覆盖非MISSING值,
+详见408 of 656 rconcept
+
+120.	ARRAY可以在INPUT,PUT或者函数中使用特殊引用.
+data ahuige;
+  array x(3);
+  input x(*);
+  m=mean(of x(*));
+  cards;
+3 5 6
+6 7 9
+;
+run;
+121.	proc print;run;d
+122.	取消LIBRARY的语句格式
+libname annual clear;
+123.	在使用TRIM时,如果被赋值变量没有预先定义长度.结果与TRIM的AUGMENT的长度一样.所以在某种意义上是无效的
+
+124.	SAS可以直接存入一个数据在SAS数据集文件中而不必用LIBRARY.DATASET
+
+data 'c:\dat.sas7bdat';
+  x=1;
+run;
+125.	一个比较重要的认识,当一段语句被QUOTE然后存入一个宏变量后,不能直接用&取出到一个DATA步或者PROC中进行执行,最好用未有QUOTE的宏变量,所以在用
+%let memmem=%bquote(&mem);
+%put &memmem;
+之类的语句之后,要真正使用时,请用%unquote函数先解除QUOTE.
+126.	很奇怪,在SORT语句中,NODUP与NODUPKEY的效果不一样.估计应该是NODUP是只删除所有变量值全同的记录,NODUPKEY要删除所有KEY重复的记录(只保留BY组的第一条记录),
+127.	VERIFY函数的使用,VERIFY是找出一个字符串中,第一个不在期望字符集合中的字符的位置.比如fgfhg中的第4个字符h是不在’sdfgn’中的.结果返回4.
+data;
+  input ver $;
+  x=verify(ver,'sdfgn');
+  cards;
+sdsfgd
+fgfhg
+nfgrr
+;
+run;
+128.	 多个SET运用时，_N_变化很奇怪，会影响输出数据个数。(原因可能是没有运行到set时，就还没有得到循环中止的条件。硬输出依然要输出)
+data x;
+  x=1;
+  output;
+  x=2;
+  output;
+run;
+
+data y;
+  x=1;
+  output;
+  set x;
+  output;
+run;
+129.	首字母大写
+/*data ahuige;*/
+/*  input str $8.;*/
+/*  cards;*/
+/*pig*/
+/*dinosaur*/
+/*;*/
+/*run;*/
+
+%macro cap1st(dsn,var);
+  data &dsn;
+    set &dsn;
+    substr(&var,1,1)=upcase(substr(&var,1,1));
+    substr(&var,2)=lowcase(substr(&var,2));
+  run;
+%mend;
+
+/*%cap1st(ahuige,str);*/
+130.	Rsubmit中使用的宏变量一定要是曾经在rsubmit时定义过的。
+131.	Legend and symbol的一个实例
+legend position=(top inside right) label=none across=1 FRAME MODE=share
+        order=('Placebo' 'Pregabalin 75 mg BID' 'Pregabalin 150 mg BID' 'Pregabalin 150/300 mg BID' )
+        ;
+symbol1 i=j  c = black l=1 value=circle ;
+symbol2 i=j  c = black l=2 value=square ;
+symbol3 i=j  c = black l=3 value=triangle ;
+symbol4 i=j  c = black l=4 value=diamond ;
+
+132.	用宏变量保存宏的调用STATEMENT.以及其激活。
+%macro dosomething;
+  data ahuige;
+    x=1;
+  run;
+%mend;
+
+%let mac=%nrstr(%dosomething);
+
+%unquote(&mac);
+133.	INPUT的DATALINES中有单个空格的修饰符
+& indicates that a character value may have one or more single embedded blanks. This format modifier reads the value from the next nonblank column until the pointer reaches two consecutive blanks or the end of the input line, whichever comes first. 
+: allows an informat to be specified to read the variable value. This format modifier reads the value from the next nonblank column until the pointer reaches the next blank column or the end of the input line, whichever comes first.  
+~ indicates to treat single quotation marks, double quotation marks, and delimiters in character values in a special way. This format modifier reads delimiters within quoted character values as characters instead of as delimiters and retains the quotation marks when the value is written to a variable.
+134.	EXCEL中回车键的RANK是10;
+135.	libname   set sashelp.vslib; 
+136.	SYMBOLn~  it seems that n is automatically related to group variable-leg_sort the first value of leg_sort is symbol1………..
+symbol1 interpolation=none  color = black  value=star ;
+symbol2 i=n  c = black value=dot ;
+proc gplot data =pearson ;
+    plot UROMDPC*chgempn=leg_sort/noframe haxis = axis2 vaxis = axis1  ;
+run;
+
+function 中 X Y的参数是相对的，当一个LABEL画好后，X Y从左上角的坐标变到右下角。所以下一个LABEL的X如果要对齐时是要用负值来调整的。LABEL越长，负值越大。
+   data anno2;
+     %dclanno;
+     length text $30;
+       xsys='7';ysys='7';hsys='3';
+       retain when 'a';
+       %move(50,50);
+       %cntl2txt;
+  function='LABEL';color='black';x=47;y=-2;size=2;text='* (75 mg BID)';output;
+  function='LABEL';color='black';x=-5;y=-6;size=2;text='* (150 mg BID)';output;
+  function='LABEL';color='black';x=-4;y=-6;size=2;text='* (150/300 mg BID)';output;
+run;
+d txt文件中有tab键分隔的数据dlm怎么设？
+got it. dlm='09'x
+137.	SAS MACRO 的 DEFAULT PARAMETER在编译的参数段中最好不要用％SYSFUNC（DATE（），DATE9。）这样的默认值（甚至程序段？），因为这样在运行时不会变化的，应该在调用的宏中使用。
+138.	日期常量
+You can create a constant representing a date or time by writing the date or time enclosed in single or double quotes, followed by a D (date), T (time) or DT (datetime) to indicate the type of value.
+
+'11JUL2008:00:09:45'dt;
+139.	 %put %mac; is not appropriate but %if %mac %then is fine if %mac return string with Boolean value(or number or string).
+140.	 DATETIME() AND SORT OF FUNCTIONS SHOULD BE USED IN DATA STEPS IN MACROS IF YOU USE %SYSFUNC TO INVOKE THEM THEN YOU ONLY GET THE FIXED RETURN VALUE AT COMPILE DATETIME.
+141.	自动运行SAS程序 在BAT文件中输入如下代码：
+D:\SAS82\SAS\V8\nls\zh\sas.exe -NOSYSIN -sysparm '""para""' -initstmt '%include ""&projectroot.\pgm.SAS""; ' -nolog -noterminal -nologo -icon
+
+运行BAT文件就可以了
+
+
+
+142.	leading zero format   y=put(12,z5.);
+143.	if in proc report. Group is used please guarantee group variables are already in front of other column. group group …………
+144.	 RSUBMIT
+
+
+145.	%syslput and %sysrput, 
+%syslput should be submitted locally. %sysrput should be submitted remotely. 
+
+
+%syslput rtabno=&ltabno; *%signon should be executed first;
+%nrstr(%%)sysrput &loutver=&rtabver; 
+146.	if a string is generated as a macro statement. Please add % at the beginning before %unquote it (submit it);
+147.	如果LIBNAME USER ‘’.从默认WORK库指向 其他地方，临时生成的FORMATS。CAT也会转到其他地方，调用可能会出问题，所以要第一时间生成FORMATS。CAT
+148.	从文本文件中读记录，如果过长，要把OPTION  LRECL＝32767.
+149.	one DO set END block will set record from one dataset but two DO set END blocks are regarded as two different SETs.even set from the same dataset 
+;
+
+150.		如果一个宏是为了生成文本，宏中调用的宏的末尾不要加分号。
+151.	 option NOCENTER  LEFTMARGIN=2 pagesize=100 linesize=64 FONT=("Courier New" 14);
+152.	FILENAME libname xxxx 都不能大于8个字符
+153.	如果一个宏的参数是传递一个宏变量的名字并传值出来，如果宏内部有一个LOCAL的宏变量是同名的则值无法被传递出来，所以宏传递的名字不要用太普通的，如I AHUIGE STR等.
+154.	宏变量如果有逗号分号等特殊字符，在用FREELOOP,FUNCLOOP等方式运行时，会被UNQUOTE，所以加了%STR还是会失败，因此，可以用DUMMY的值，进去，最后在生成的结果数据或者文本中替换。也可以用传递“变量名字”进去？如果修改CORE的运行的MACRO
+155.	PROC SQL的通配符是%，不是*。但是如果用宏传递的时候，加了单引号也会解析的，所以不能只用一个%，而是要用两个连续的传进去，但是通配时两个%和一个%的效果是一样的。
+156.	PROC REPORT时，可以去除所有的LABEL,用VAR的NAME的长度来控制显示宽度，参数就可以用最简单的。attrib _all_ label='';
+157.	设好以下USER库后，一级数据集名不再指向WORK库，而是USER库。 libname user 'd:\temp\mywork';
+158.	压缩文件  tar -xvf yourfile.tar to extract the file to the current directory.
+Or tar -C /myfolder -xvf yourfile.tar to extract to another directory.
+159.	Logistical 回归有时要用DESCENDING OPTION 因为结果变量是0 1， 默认取第一，会取为0.
+160.	LOGISTICAL 回归的变量的OR值，对比的顺序也是和取值有关，所以如果用FORMAT,要注意FORMAT取值的顺序。
+161.	proc format ;
+162.	  value  af  
+163.	  0="_ No Atrial Fibrillation"
+164.	  1="1 Atrial Fibrillation"
+165.	  ;
+166.	
+title "Logistical regression in all patients" ;
+proc logistic data=allnum;
+  class sex  hypertension diab CAD stroke HeartFailure coumadin  INR chads2grp chads2vascgrp / param=ref ;
+  model thrombus= age sex  hypertension diab CAD stroke HeartFailure chads2grp  chads2vascgrp coumadin  INR  ;
+167.	run;
+168.	call execute is very dangerous if it calls mixed statements (macro and pure sas code). macro statements execute first no matter how.
+169.	dm 'keydef "shf f9" "next VIEWTABLE:; end"';
+ 
+Ctrl+/ add comments 
+Ctrl+shift+/ remove comments 
+Ctrl+F2 mark a line in a program 
+F2 jump to the next marked line 
+Shift+F jump to the previous marked line 
+
+170.	%put %sysfunc(pathname(sasuser));
+171.	when use prxfunc, please trim variable blanks first. or use \b*$;
+172.	 readline keep leading spaces
+
+%macro AHGreadline(file=,out=readlineout);
+data &out;
+  filename inf   "&file" ;
+  infile inf truncover;;
+  format  line $char800.;
+  input    line $CHAR800.;
+run;
+%mend;
+
+
+173.	   foreach ($myfile in ls .\* -include c_* ,o_* ) {  (Get-Content $myfile)[0 .. 200] }
+
+174. delete old files
+ $limit = (Get-Date).AddDays(-15)
+ 
+ 
+$path = "c:\users\c187781\temp"
+
+# Delete files older than the $limit.
+Get-ChildItem -Path $path -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit } |Remove-Item -Force
+
+# Delete any empty directories left behind after deleting the old files.
+Get-ChildItem -Path $path -Recurse -Force | Where-Object { $_.PSIsContainer -and (Get-ChildItem -Path $_.FullName -Recurse -Force | Where-Object { !$_.PSIsContainer }) -eq $null } | Remove-Item -Force -Recurse
+
+
+175.  when using SAS for generation of html file, please be strict of the quote, maybe single inside, double outside.
+
+176. use CSS to control html style.
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>$80</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+177. 	  close sas datasets one by one dm 'next VIEWTABLE:; end;'; – RawFocus Aug 
+
+178. RESOLVE FUNCTION IS useful only under condition of resolving single quoted strings.  x=resolve('&mymacro');
+
+179.  no max length warning ; option noquotelenmax ;
+
+180. for proc report group option. make sure before group variables, all previous columns are uniform within groups. 
+usually it is not the case, so, please turn all previous variables into a single ord var. 
+
+181. for generation of total column, the record should keep 
+
+182. when use powershell from sas, remember to add % before % and replace uses single quote 
+  %let googlecmd=%nrstr("powershell.exe cat D:\newsas\meta\googlelike.txt|select-string ""^AHG&ahgGoogleID""|%%{ $_ -replace '^AHG&ahgGoogleID',' '} > D:\TEMP\googleresult.txt ");
+
+183. robocopy dmc_blinded7 hui_test /e /xf *.sas7bdat *.log *.lst *.rtf *.xpt *.zip *.rtf *.pdf
+
+robocopy  intrm1 hui20160730 /e /xf *.sas7bdat *.log *.lst *.xpt *.zip *.rtf *.pdf
+
+\\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\dmc_blinded7\replica_programs\sdtm\system_files\
+
+ copy \\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\dmc_blinded7\data\eds\*.* \\mango\sddext.grp\SDDEXT034\prd\ly2835219\i3y_mc_jpbl\dmc_blinded7\data\eds\
+ copy \\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\dmc_blinded7\data\custom\*.* \\mango\sddext.grp\SDDEXT034\prd\ly2835219\i3y_mc_jpbl\dmc_blinded7\data\custom\
+
+
+184. sasgsub -gridwait -gridsubmitpgm path/test1.sas -gridsasopts "-sysparm abc" ;
+185.  javascript can only access files in the same server. src is \ and url is / .
+   
+   
+   <script src="\\mango\sddext.grp\SDDEXT034\TRASH\jq.js"></script> 
+<script>
+$.ajax({
+
+url:'//mango/sddext.grp/SDDEXT034/qa/ly2835219/i3y_mc_jpbl/intrm1/programs_stat/tfl_output/t_tte_subgrp_os.rtf',
+    type:'HEAD',
+    error: function()
+    {
+        window.alert("no");
+    },
+    success: function()
+    {
+        
+$("#t_tte_subgrp_os").css( "color", "red" ); 
+
+    }
+});
+</script> 
+
+
+############
+tr>
+
+<td>
+
+<strong style='font-style: italic;color:DeepPink ;'>  
+<DEL><a href=".\hui.rtf"  ID='HUI' > Hui test TFL</a> </DEL>
+</strong> 
+ 
+</td>
+
+
+<script>
+$.ajax({
+
+url:'./conmed_diarrhoeaae.rtf',
+    type:'HEAD',
+    error: function()
+    {
+        $("#HUI").css( "color", "red" ); 
+    },
+    success: function()
+    {
+        
+
+   $("#HUI").wrap("<del>")
+
+    }
+});
+</script> 
+
+</tr>
+$$$$$$$$$$$
+
+
+"C:\Program Files\SAS\SASFoundation\9.2(32-bit)\sas.exe" -CONFIG "C:\Program Files\SAS\SASFoundation\9.2(32-bit)\nls\zh\SASV9.CFG"
+
+186.    when use prxchange with ' " please use  %bquote and %str functions for  them
+  %let gglkey&i=%sysfunc( 
+                          prxchange
+                          (
+                          %nrbquote(s/\s*(%str(%')[^%str(%')]+%str(%')).*/\1/),1,&clipline                   
+                          )        
+                        );

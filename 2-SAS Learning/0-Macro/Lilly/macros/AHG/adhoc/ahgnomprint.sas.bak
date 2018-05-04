@@ -1,0 +1,5 @@
+%macro AHGnomprint;
+%global ahgmprintflag;
+%let ahgmprintflag=%AHGincr(ahgmprintflag);
+option nomprint;
+%mend;

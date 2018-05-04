@@ -1,0 +1,327 @@
+com_sas_ci_acs.ob_boot = {
+    getDatahubId:function(){
+    return 'e8c3af25-d2cc-32a2-8872-dd75b4e5b816';
+	}
+};
+(function(doc, script) {
+    var js, 
+        fjs = doc.getElementsByTagName(script)[0],
+        add = function(url, id) {
+            if (doc.getElementById(id)) {return;}
+            js = doc.createElement(script);
+            js.async = 1;
+            js.src = url;
+            id && (js.id = id);
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    com_sas_ci_acs.ob_util_async.load_guid = '88f561d6543c7b3589a16bce';
+
+
+}(document, 'script'));
+com_sas_ci_acs._ob_configure.prototype.ob_cfg = function()
+{
+   this.ccs='https://execution-use.ci360.sas.com:443/t/e/681cceba2200012815576dcc';
+   this.csu='https://tngcisasusp-ads.aimatch.com/tngcisasusp/hserver';
+   this.timeout=2000;
+   this.maxCCMatches=10;
+   if(typeof(com_sas_ci_acs.version)==="undefined" || com_sas_ci_acs.version.split('.')[0] < 1){
+      this.load_guid = '79efbe915b3c7b3589a16bc4';
+   }
+   else{
+      this.load_guid = com_sas_ci_acs.ob_util_async.load_guid;
+   }
+   this.thousands_separator=',';
+   this.decimal_separator='.';
+   if(typeof(com_sas_ci_acs.ob_util.setBaseTimestamp)!=="undefined"){
+      com_sas_ci_acs.ob_util.setBaseTimestamp(1490969688973);
+   }
+   this.sendBodyAsHeader=true;
+   this.trackCancelledEvents=false;
+   this.trackEventResponses=false;
+}
+com_sas_ci_acs._ob_configure.prototype.getVisitorId = function()
+{
+    return com_sas_ci_acs.ob_util.ckR('_SI_VID_1.681cceba2200012815576dcc');
+}
+com_sas_ci_acs._ob_configure.prototype.getDatahubId = function()
+{
+     return com_sas_ci_acs.ob_boot.getDatahubId();
+}
+com_sas_ci_acs._ob_configure.prototype.getSessionId = function()
+{
+    var v=com_sas_ci_acs.ob_util.ckR('_SI_SID_1.681cceba2200012815576dcc');
+    if (v==null) return '';
+    return v.split('.')[0];
+}
+com_sas_ci_acs._ob_configure.prototype.getLastActivity = function()
+{
+    var v=com_sas_ci_acs.ob_util.ckR('_SI_SID_1.681cceba2200012815576dcc');
+    if (v==null) return 0;
+    var a=v.split('.');
+    if (a.length < 2) return 0;
+    return a[1];
+}
+com_sas_ci_acs._ob_configure.prototype.getMaxInactivity = function()
+{
+    var v=com_sas_ci_acs.ob_util.ckR('_SI_SID_1.681cceba2200012815576dcc');
+    if (v==null) return 0;
+    var a=v.split('.');
+    if (a.length < 3) return 0;
+    return a[2];
+}
+com_sas_ci_acs._ob_configure.prototype.updateActivity = function(ts1, ts2)
+{
+    com_sas_ci_acs.ob_util.sckW('_SI_SID_1.681cceba2200012815576dcc', 'ebb2840fb7efe00c23681a4e' , '/','.sas.com,.blogs.sas.com', ts1, ts2);
+}
+com_sas_ci_acs.ob_event.prototype.termConfiguration = function()
+{
+    var terms = {};
+
+    terms['global'] = {};
+    terms['find'] = {};
+    terms['load'] = {};
+    terms['DOMContentLoaded'] = {};
+    terms['click'] = {};
+    terms['exclude'] = {};
+    terms['blur'] = {};
+    terms['change'] = {};
+    terms['cart'] = {};
+    terms['submit'] = {};
+
+terms['global']['page_title'] = document.title;
+terms['global']['referrer'] = document.referrer;
+terms['global']['uri'] = document.URL;
+terms['global']['requestedfile'] = com_sas_ci_acs.ob_util.parseUri(document.URL).path;
+
+terms['load']['tzo'] = new Date().getTimezoneOffset();
+terms['load']['platform'] = navigator.platform;
+terms['load']['cpu'] = navigator.cpuClass;
+terms['load']['port'] = location.port;
+terms['load']['protocol'] = com_sas_ci_acs.ob_util.location();
+terms['load']['flash_enabled'] = com_sas_ci_acs.ob_util.flash().e;
+terms['load']['flash_version'] = com_sas_ci_acs.ob_util.flash().v;
+terms['load']['javascript_enabled'] = true;
+terms['load']['java_enabled'] = com_sas_ci_acs.ob_util.java().e;
+terms['load']['java_version'] = com_sas_ci_acs.ob_util.java().v;
+terms['load']['screen_info'] = screen.width + 'x' + screen.height + '@' + screen.colorDepth;
+if (!com_sas_ci_acs.ob_util.isUndefined(document.documentElement)&&(null!=document.documentElement.getAttribute('lang'))) terms['load']['html.lang'] = document.documentElement.getAttribute('lang');
+if (!com_sas_ci_acs.ob_util.isUndefined(document.documentElement)&&(null!=document.documentElement.getAttribute('xml:lang'))) terms['load']['html.xml:lang'] = document.documentElement.getAttribute('xml:lang');
+terms['load']['browser_language'] = !com_sas_ci_acs.ob_util.isUndefined(navigator.language) ? navigator.language : navigator.browserLanguage;
+terms['load']['character_set'] = com_sas_ci_acs.ob_util.isUndefined(document.charset)?document.characterSet:document.charset;
+terms['load']['csz'] = document.documentElement.outerHTML.length;
+terms['load']['bsz'] = window.innerWidth + 'x' + window.innerHeight;
+
+terms['DOMContentLoaded']['tzo'] = new Date().getTimezoneOffset();
+terms['DOMContentLoaded']['platform'] = navigator.platform;
+terms['DOMContentLoaded']['cpu'] = navigator.cpuClass;
+terms['DOMContentLoaded']['port'] = location.port;
+terms['DOMContentLoaded']['protocol'] = com_sas_ci_acs.ob_util.location();
+terms['DOMContentLoaded']['flash_enabled'] = com_sas_ci_acs.ob_util.flash().e;
+terms['DOMContentLoaded']['flash_version'] = com_sas_ci_acs.ob_util.flash().v;
+terms['DOMContentLoaded']['javascript_enabled'] = true;
+terms['DOMContentLoaded']['java_enabled'] = com_sas_ci_acs.ob_util.java().e;
+terms['DOMContentLoaded']['java_version'] = com_sas_ci_acs.ob_util.java().v;
+terms['DOMContentLoaded']['screen_info'] = screen.width + 'x' + screen.height + '@' + screen.colorDepth;
+if (!com_sas_ci_acs.ob_util.isUndefined(document.documentElement)&&(null!=document.documentElement.getAttribute('lang'))) terms['DOMContentLoaded']['html.lang'] = document.documentElement.getAttribute('lang');
+if (!com_sas_ci_acs.ob_util.isUndefined(document.documentElement)&&(null!=document.documentElement.getAttribute('xml:lang'))) terms['DOMContentLoaded']['html.xml:lang'] = document.documentElement.getAttribute('xml:lang');
+terms['DOMContentLoaded']['browser_language'] = !com_sas_ci_acs.ob_util.isUndefined(navigator.language) ? navigator.language : navigator.browserLanguage;
+terms['DOMContentLoaded']['character_set'] = com_sas_ci_acs.ob_util.isUndefined(document.charset)?document.characterSet:document.charset;
+terms['DOMContentLoaded']['csz'] = document.documentElement.outerHTML.length;
+terms['DOMContentLoaded']['bsz'] = window.innerWidth + 'x' + window.innerHeight;
+
+terms['cart']['pe_330d61d0783c2153648b3ab3ebd54f42'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('td#cartTotalValue','innerText','before','U');};}();
+terms['cart']['pe_a31fe13f11d424503e6a803dc509eb17'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('form#PAYMENT_TOKEN:nth-child(6) > div#checkout-review-totals:nth-child(2) > fieldset:nth-child(1) > fieldset:nth-child(2) > table#cart-summary-table > tbody > tr#total:nth-child(11) > td#cartTotalValue:nth-child(2)','innerText','before',' ');};}();
+terms['cart']['pe_8bbd01c1d5bc73dab0c6545c2d46e2e1'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('form#PAYMENT_TOKEN:nth-child(6) > div#checkout-review-totals:nth-child(2) > fieldset:nth-child(1) > fieldset:nth-child(2) > table#cart-summary-table > tbody > tr#tax1:nth-child(7) > td#value:nth-child(2)','innerText','before',' ');};}();
+terms['cart']['pe_9cc2e36e47fbfa34fc51360570785d11'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('form#PAYMENT_TOKEN:nth-child(6) > div#checkout-review-totals:nth-child(2) > fieldset:nth-child(1) > fieldset:nth-child(2) > table#cart-summary-table > tbody > tr#shipping:nth-child(3) > td#cartShippingCostValue:nth-child(2)','innerText','before',' ');};}();
+terms['find']['pe_5efd19d8c688a6764e0facb67453c47d'] = com_sas_ci_acs._ob_dom.findElement('div#content3 > div.section > div > div.product-documentation > form');
+terms['load']['pe_15d19feb54b99ca033538d151fbdf66c'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div#wrapper:nth-child(1) > div.page-container.divided.clearfix:nth-child(5) > div.details-container.one-half.right-border:nth-child(2) > ul > li:nth-child(1)','innerText','after','ISBN#');};}();
+terms['load']['pe_cacc8230307c908e2c18c5ace4867266'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('ul#mega-menu-1 > li.dc-mega-li > a.dc-mega','innerText','none','');};}();
+terms['load']['pe_9716253cc2756412acaa6039b426314f'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div#inventoryText','innerText','none','');};}();
+terms['load']['pe_612cbad1c2e25d562cfc4d816df7a443'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('input[type=hidden][name=\"cartItems[0].skuCode\"]','value','none','');};}();
+terms['load']['pe_82c0eee1fe4a5deaebf8abcef1df1a5d'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('ul#mega-menu-1:nth-child(1) > li:nth-child(1) > a','innerText','none','');};}();
+terms['find']['pe_066841d5c3775e6a68f83c7c4a11334c'] = com_sas_ci_acs._ob_dom.findElement('div.parsys_column.cq-colctrl-lt3-c2');
+terms['load']['pe_476d2c2fb055bfdc8da8a87a95d86d4e'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.styledcontainer.parbase > div.container > div.par.parsys >div.parsys_column.cq-colctrl-lt3 > div.parsys_column.cq-colctrl-lt3-c2 > div > div > a > img','alt','none','');};}();
+terms['find']['pe_b948b752dc8cd57aeca363403e7e6deb'] = com_sas_ci_acs._ob_dom.findElement('div.homecarousel ul.panels li:nth-child(2)');
+terms['load']['pe_d7b4b2234f17f68967dec9a4029357a1'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.homecarousel ul.panels li:nth-child(2) a','href','none','');};}();
+terms['find']['pe_ee9f14121e6cd3d2512fac6f056ebdb8'] = com_sas_ci_acs._ob_dom.findElement('div.parsys_column.cq-colctrl-lt3-c1');
+terms['load']['pe_048a11c3c9f726b06baa0d465ffdf18f'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.styledcontainer.parbase > div.container > div.par.parsys >div.parsys_column.cq-colctrl-lt3 > div.parsys_column.cq-colctrl-lt3-c1 > div > div > a > img','alt','none','');};}();
+terms['find']['pe_88fc5adf3bd88842eedb3a4a64f839af'] = com_sas_ci_acs._ob_dom.findElement('div.homecarousel ul.panels li:first-child');
+terms['load']['pe_00a86ffcc11b15edd958ec66e4d41284'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.homecarousel ul.panels li:first-child a','href','none','');};}();
+terms['find']['pe_0949eb7719dc15e76df5eff161963d1b'] = com_sas_ci_acs._ob_dom.findElement('div.parsys_column.cq-colctrl-lt3-c0');
+terms['load']['pe_fc3c52d6d0a06f040f3e5760b73e7636'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.styledcontainer.parbase > div.container > div.par.parsys >div.parsys_column.cq-colctrl-lt3 > div.parsys_column.cq-colctrl-lt3-c0 > div > div > a > img','alt','none','');};}();
+terms['find']['pe_da48757a4521f4f1e46277c633c4645d'] = com_sas_ci_acs._ob_dom.findElement('div.homecarousel ul.panels li:nth-child(3)');
+terms['load']['pe_1384740e68d18ba9724e0de56617582d'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.homecarousel ul.panels li:nth-child(3) a:nth-child(2)','href','none','');};}();
+terms['find']['pe_4ea4461e2978719e4434f5e87ee57515'] = com_sas_ci_acs._ob_dom.findElement('div.contentcarousel');
+terms['load']['pe_2329fcc4ef2003572ee370cc0b6a22d4'] = function() {return function() {return com_sas_ci_acs._ob_dom.collectTerm('div.contentcarousel div.item a','href','none','');};}();
+
+    return terms;
+}
+com_sas_ci_acs._ob_cart_configuration.prototype.getCartConfig = function()
+{
+   var cart = {};
+
+
+
+    return cart;
+}
+com_sas_ci_acs._ob_cart_configuration.prototype.getCheckoutConfig = function()
+{
+   var cart = {};
+
+
+
+    return cart;
+}
+com_sas_ci_acs._ob_cart_configuration.prototype.getPurchaseConfig = function()
+{
+   var cart = {};
+
+
+
+    return cart;
+}
+com_sas_ci_acs._ob_jsvar_configuration.prototype.getConfig = function()
+{
+    var jsVars = {};
+
+jsVars['price'] = 'price';
+jsVars['orderData.orderId'] = 'orderData.orderId';
+jsVars['orderData.orderTotal'] = 'orderData.orderTotal';
+jsVars['orderData.orderTax'] = 'orderData.orderTax';
+jsVars['orderData.orderShipping'] = 'orderData.orderShipping';
+jsVars['page_id'] = 'null';
+
+    return jsVars;
+}
+com_sas_ci_acs._ob_jsvarchange_configuration.prototype.getConfig = function()
+{
+    var jsChangeVars = {};
+
+    return jsChangeVars;
+}
+com_sas_ci_acs._ob_contentvisible_configuration.prototype.getConfig = function()
+{
+    var contentVars = {};
+
+
+    return contentVars;
+}
+com_sas_ci_acs.ob_injector.prototype.getSpotDefinitions = function()
+{
+   var m = {};
+
+
+    return m;
+}
+com_sas_ci_acs._ob_configure.prototype.isCollectionEnabled = function()
+{
+   var collect = {};
+
+
+collect['clicks'] = 'true';
+collect['contentevents'] = 'true';
+collect['fieldinteractions'] = 'true';
+collect['formsubmits'] = 'true';
+collect['jsvars'] = 'true';
+collect['media'] = 'true';
+collect['mouseovers'] = 'false';
+collect['pageloads'] = 'true';
+
+   collect['pageloads_eventid'] = [];
+   collect['pageloads_eventname'] = [];
+   collect['pageloads_eventtype'] = [];
+   collect['pageloads_prd_selector'] = [];
+   collect['pageloads_system_type'] = [];
+   collect['formsubmits_eventid'] = [];
+   collect['formsubmits_eventname'] = [];
+   collect['formsubmits_system_type'] = [];
+   collect['formsubmits_elements'] = [];
+   collect['clicks_eventid'] = [];
+   collect['clicks_eventname'] = [];
+   collect['clicks_system_type'] = [];
+   collect['changevar_eventid'] = [];
+   collect['changevar_attributes'] = [];
+   collect['content_eventid'] = [];
+   collect['content_attributes'] = [];
+   collect['pageloads_attributes'] = [];
+   collect['formsubmits_attributes'] = [];
+   collect['clicks_attributes'] = [];
+   collect['event_properties'] = [];
+   collect['loginevent_attributes'] = [];
+
+collect['pageloads_eventid'].push('15335351-4022-4338-9074-51600b82e4cb');
+collect['pageloads_eventname']['15335351-4022-4338-9074-51600b82e4cb'] = 'Event: Referring Domain';
+collect['pageloads_eventtype']['15335351-4022-4338-9074-51600b82e4cb'] = 'pageView';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'] = [];
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0] = [];
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['name'] = 'Referring_Domain';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['cart_att_type'] = 'OTHER';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['referrerUrlDomain'] = 'true';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['attribute'] = '';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['type'] = 'string';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['filter'] = 'between';
+collect['pageloads_attributes']['15335351-4022-4338-9074-51600b82e4cb'][0]['filterpattern'] = 'http://__&&__/';
+
+collect['formsubmits_eventid'].push('5a0c55d0-babc-437e-88fd-6dee59866580');
+collect['formsubmits_eventname']['5a0c55d0-babc-437e-88fd-6dee59866580'] = 'Engage: AEM Form - Price Quote';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'] = [];
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][0] = [];
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][0]['selector'] = 'form#_content_wwwbp_en_whitepapers_pages_white-paper-title-page_wp-template_jcr_content_par_start_a0d0';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1] = [];
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['name'] = 'User_ID_Attribute';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['selector'] = 'form#_content_wwwbp_en_whitepapers_pages_white-paper-title-page_wp-template_jcr_content_par_start_a0d0';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['elementId'] = '_content_wwwbp_en_whitepapers_pages_white-paper-title-page_wp-template_jcr_content_par_start_a0d0_email';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['filter'] = 'none';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['filterpattern'] = '';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['login_event_type'] = 'login_id';
+collect['formsubmits_elements']['5a0c55d0-babc-437e-88fd-6dee59866580'][1]['obscured'] = 'false';
+
+collect['pageloads_eventid'].push('f6a63f05-7951-4a42-bc9f-41d8eef71885');
+collect['pageloads_eventname']['f6a63f05-7951-4a42-bc9f-41d8eef71885'] = 'b70dc714-9dcd-4ba9-bef2-3cf3fb213a3f';
+collect['pageloads_eventtype']['f6a63f05-7951-4a42-bc9f-41d8eef71885'] = 'pageView';
+collect['event_properties']['f6a63f05-7951-4a42-bc9f-41d8eef71885'] = [];
+collect['event_properties']['f6a63f05-7951-4a42-bc9f-41d8eef71885'][0] = [];
+collect['event_properties']['f6a63f05-7951-4a42-bc9f-41d8eef71885'][0]['cookie'] = 'ep_iPlanetDirectoryPro';
+collect['event_properties']['f6a63f05-7951-4a42-bc9f-41d8eef71885'][0]['name'] = '.*';
+collect['event_properties']['f6a63f05-7951-4a42-bc9f-41d8eef71885'][0]['filter'] = 'regex';
+
+
+    return collect;
+}
+com_sas_ci_acs._ob_configure.prototype.getFormConfig = function()
+{
+   var ff = {};
+   ff['nature'] = 'ign';
+
+   ff['obs'] = [];
+   ff['ign'] = [];
+   ff['inc'] = [];
+
+
+ff['nature'] = 'ign';
+ff['inc'][0] = {};
+ff['inc'][0]['domain'] = {};
+ff['inc'][0]['domain']['p'] = {};
+ff['inc'][0]['domain']['p']['attr'] = 'domain';
+ff['inc'][0]['domain']['p']['op'] = 'all';
+ff['inc'][0]['domain']['p']['values'] = [];
+ff['inc'][0]['protocol'] = {};
+ff['inc'][0]['protocol']['p'] = {};
+ff['inc'][0]['protocol']['p']['attr'] = 'protocol';
+ff['inc'][0]['protocol']['p']['op'] = 'equals';
+ff['inc'][0]['protocol']['p']['values'] = [];
+ff['inc'][0]['protocol']['p']['values'][0] = 'http';
+ff['inc'][0]['protocol']['p']['values'][1] = 'https';
+ff['inc'][0]['form'] = [];
+ff['inc'][0]['form'][0] = {};
+ff['inc'][0]['form'][0]['attr'] = 'id';
+ff['inc'][0]['form'][0]['op'] = 'equals';
+ff['inc'][0]['form'][0]['values'] = [];
+ff['inc'][0]['form'][0]['values'][0] = 'jktfuj';
+
+    return ff;
+}
+
+com_sas_ci_acs.ob_util.specialClickProcessing=true;
+
+com_sas_ci_acs.ob_configure.initialize();

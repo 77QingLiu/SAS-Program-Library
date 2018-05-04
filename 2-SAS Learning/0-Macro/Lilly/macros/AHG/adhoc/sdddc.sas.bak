@@ -1,0 +1,10 @@
+%macro SDDDC(dir,pre=F:);
+  %local start;
+  %Let dir=%sysfunc(compress(&dir));
+  %let dir=%AHGanySlash(&dir,toslash=\);
+
+  %let start=%AHGpos(&dir,lillyce\);
+  %let dir=&pre\lillyce\%substr(&dir,&start+8);
+  &dir
+%mend;
+

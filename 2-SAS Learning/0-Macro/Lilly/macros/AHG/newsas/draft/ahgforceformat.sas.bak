@@ -1,0 +1,42 @@
+%macro AHGforceFormat(dsn,vars,out=,pref=att_length_);
+%macro ___type(dsn,var);
+%local did;
+%let did=  %sysfunc(open(&dsn,in));
+%if %sysfunc(vartype(&did,%sysfunc(varnum(&did,&var))))=C %then $;
+%mend;
+
+%macro ___Def(vars);
+  %local count i temp ;
+  %do i=1 %to %AHGcount(&vars);
+    %let temp=&pref%scan(&vars,&i);
+    %if %symexist(&temp) %then %Let &temp=$8;
+    LENGTH %scan(&vars,&i)  &&&temp ;;
+  %end;
+%mend;
+
+%macro ___rename(vars,comma );
+  %local count i temp ;
+  %do i=1 %to %AHGcount(&vars);
+    %scan(&vars,&i)=_%scan(&vars,&i)_ %bquote(&comma)
+  %end;
+%mend;
+
+%if %AHGblank(&out) %then %let out=%AHGbarename(&dsn);
+data &out;
+  %___def(    MHDECOD  MHLLT MHHLT   MHHLGT       MHBODSYS   MHSOC   );
+  set &dsn(rename=(%___rename(  &vars  )));
+
+  %local count i temp ;
+  %do i=1 %to %AHGcount(&vars);
+  %let temp=&pref%scan(&vars,&i)%str(.);
+  %let temp=&&&temp;
+   drop _%scan(&vars,&i)_;
+   %scan(&vars,&i)=input(left(put(_%scan(&vars,&i)_,%___type(&dsn,%scan(&vars,&i))8. )),%unquote(&temp));
+  %end;
+
+run;
+
+%mend;
+%let att_length_age=$20;
+%let att_length_weight=20;
+%AHGforceFormat(sashelp.class,age weight);

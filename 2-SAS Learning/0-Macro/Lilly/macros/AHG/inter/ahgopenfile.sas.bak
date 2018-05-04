@@ -1,0 +1,23 @@
+%macro AHGopenfile(file,where);
+	%if %sysfunc(fileexist(&file)) %then
+	%do;
+  %let file=%bquote(&file);
+  %local extension basename fullname;
+  %let extension=%scan(&file,-1,.);
+  %let basename=%scan(&file,-1,\);
+  %if  %AHGblank(&extension) %then 
+  %do;
+	x "copy ""&file""   ""&localtemp\&basename..txt.txt""   ";;
+  %let fullname=&localtemp\&filename..txt.txt;
+
+  %end;
+  %else %let fullname=&file;
+  %AHGpm(fullname);
+    %if %lowcase(&where)=sas %then dm "whostedit; include ""&fullname"" ";
+    %else x """&fullname""";
+	%end;
+
+%mend;
+
+
+

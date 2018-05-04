@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="windows-1250"?>                                                           
+                                                                                                        
+<SXLEMAP name="AUTO_GEN" version="2.1">                                                                 
+                                                                                                        
+    <!-- ############################################################ -->                               
+    <TABLE description="properties" name="properties">                                                  
+        <TABLE-PATH syntax="XPath">/properties</TABLE-PATH>                                             
+                                                                                                        
+        <COLUMN class="ORDINAL" name="properties_ORDINAL">                                              
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/properties</INCREMENT-PATH>                
+            <TYPE>numeric</TYPE>                                                                        
+            <DATATYPE>integer</DATATYPE>                                                                
+        </COLUMN>                                                                                       
+                                                                                                        
+    </TABLE>                                                                                            
+                                                                                                        
+    <!-- ############################################################ -->                               
+    <TABLE description="target" name="target">                                                          
+        <TABLE-PATH syntax="XPath">/properties/target</TABLE-PATH>                                      
+                                                                                                        
+        <COLUMN class="ORDINAL" name="properties_ORDINAL">                                              
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/properties</INCREMENT-PATH>                
+            <TYPE>numeric</TYPE>                                                                        
+            <DATATYPE>integer</DATATYPE>                                                                
+        </COLUMN>                                                                                       
+                                                                                                        
+        <COLUMN class="ORDINAL" name="target_ORDINAL">                                                  
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/properties/target</INCREMENT-PATH>         
+            <TYPE>numeric</TYPE>                                                                        
+            <DATATYPE>integer</DATATYPE>                                                                
+        </COLUMN>                                                                                       
+                                                                                                        
+        <COLUMN name="path">                                                                            
+            <PATH syntax="XPath">/properties/target/@path</PATH>                                        
+            <TYPE>character</TYPE>                                                                      
+            <DATATYPE>string</DATATYPE>                                                                 
+            <LENGTH>4096</LENGTH>                                                                        
+        </COLUMN>                                                                                       
+                                                                                                        
+    </TABLE>                                                                                            
+                                                                                                        
+    <!-- ############################################################ -->                               
+    <TABLE description="property" name="property">                                                      
+        <TABLE-PATH syntax="XPath">/properties/target/property</TABLE-PATH>                             
+                                                                                                        
+        <COLUMN class="ORDINAL" name="target_ORDINAL">                                                  
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/properties/target</INCREMENT-PATH>         
+            <TYPE>numeric</TYPE>                                                                        
+            <DATATYPE>integer</DATATYPE>                                                                
+        </COLUMN>                                                                                       
+                                                                                                        
+        <COLUMN class="ORDINAL" name="property_ORDINAL">                                                
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/properties/target/property</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>                                                                        
+            <DATATYPE>integer</DATATYPE>                                                                
+        </COLUMN>                                                                                       
+                                                                                                        
+        <COLUMN name="name">                                                                            
+            <PATH syntax="XPath">/properties/target/property/@name</PATH>                               
+            <TYPE>character</TYPE>                                                                      
+            <DATATYPE>string</DATATYPE>                                                                 
+            <LENGTH>200</LENGTH>                                                                        
+        </COLUMN>                                                                                       
+                                                                                                        
+        <COLUMN name="property">                                                                        
+            <PATH syntax="XPath">/properties/target/property</PATH>                                     
+            <TYPE>character</TYPE>                                                                      
+            <DATATYPE>string</DATATYPE>                                                                 
+            <LENGTH>32767</LENGTH>                                                                        
+        </COLUMN>                                                                                       
+                                                                                                        
+    </TABLE>                                                                                            
+                                                                                                        
+</SXLEMAP>                                                                                              

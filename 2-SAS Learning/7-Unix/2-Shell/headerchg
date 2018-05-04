@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+#Script name: headerchg
+#Program location: /user1/zenga/shellscripts/
+#
+#Purpose: To change the header box
+#
+#Input: headerchg protocol time xx.sas
+#
+#Creation Date: 03Dec2015
+#
+#Developer/Programmer: Allen Zeng
+#******************************************************************************
+#******************************************************************************
+
+if [ $# -lt 2 ]
+then
+    echo 'Usage: headerchg protocol time xx.sas'
+    exit 1
+fi
+
+protocol=$1
+time=$2
+
+if [ $# -eq 2 ]
+then
+    for file in *.sas
+    do 
+        sed -e "1,30 s/\(.*Protocol No:.*\/[ ]\).*/\1$protocol/;
+                1,30 s/\(.*Study Code:[ ]*\)[ ][0-9]*/\1 $time/" $file > $file.new
+	 	mv $file.new $file
+	 	echo $file done 
+    done
+else
+    while [ $# -gt 2 ]
+    do
+        sed -e "1,30 s/\(.*Protocol No:.*\/[ ]\).*/\1$protocol/;
+                1,30 s/\(.*Study Code:[ ]*\)[ ][0-9]*/\1 $time/" $3 > $3.new
+	 	mv $3.new $3
+	 	echo $3 done 
+		shift
+    done
+fi

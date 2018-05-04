@@ -1,0 +1,107 @@
+%macro overviewEx(folder=,Excelname=,N= );
+/*%local localtemp;*/
+/*%let localtemp=%sysfunc(getoption(work));*/
+%local drive study;
+%if %AHGblank(&excelname) %then %let excelname=%sysfunc(tranwrd(%AHGscansubstr(&folder,2,4,dlm=\),\,_));
+%if %AHGblank(&excelname) %then %let excelname=%sysfunc(tranwrd(&folder,\,_));
+%let excelname=%sysfunc(tranwrd(&excelname,:,_));
+
+/*%goto myExit;*/
+
+
+%let study=&excelname;
+%let drive=%Scan(&folder,1,:):;
+dm 'clear log';
+%local allrtf delimit alldsn;
+%let allrtf=;
+
+%AHGpm(folder allrtf);
+%AHGfilesInDir(&folder,extension=rtf,into=allrtf);
+%AHGpm(allrtf);
+
+data allrtf;
+run;
+%let delimit=%AHGdelimit;
+
+%local onertf i;
+data seperator;
+  format line $200.;
+  line=repeat('*',140);
+  output;
+  line=repeat('*',140);
+  output;
+  line='';
+  output;
+run;
+
+%if %AHGblank(&n) %then %let n=%AHGcount(&allrtf,dlm=@);
+%do i=1 %to  &n;
+
+%let onertf=%scan(&allrtf,&i,%str(@));
+%AHGrtftotxt(&folder&delimit&oneRTF,onertf, ,tailor=0);
+data onePiece;
+run;
+
+
+data onePiece;
+  if page=-1 then return;
+  page+1;
+  format line $200. rtf $50. link $500.;
+  set oneRTF;
+  rtf="&onertf";
+  drop rtf page;
+/*  line=substr(line,1,index(line,'   '));*/
+
+  select (_n_);
+     when (-1)
+     do;
+     line="[&onertf]:  "||line;
+     link="file:///"||"&folder&delimit&oneRTF";
+     end;
+     when (-2) line="["||trim(line)||"]";
+/*     when (3,4,5) x=x*100;*/
+     otherwise;
+  end;
+if index(upcase(line),upcase('Dataset Location:')) then page=-1;
+put line=;
+if index(upcase(tranwrd(line,'\','/')),upcase('//lillyce/')) then 
+  do;
+  put theline=;
+  line=tranwrd(line,'\\','/');
+  line=substr(line,index(upcase(line),upcase(' //lillyce/')),500);
+  line=tranwrd(line,'/','\');
+  line=tranwrd(line,' \\lillyce\',"file:///&drive\lillyce\");
+  end;
+output;
+
+run;
+
+data allrtf;
+  set allrtf seperator onePiece;
+run;
+  
+%end;
+
+
+
+
+
+
+x del "&localtemp\Overview_of_&STUDY..xls";
+
+proc export data=allrtf outfile="&localtemp\Overview_of_&STUDY..xls"
+dbms=excel;
+sheet='RTF LINKS';
+run;
+
+/*data _null_;*/
+/*  x=sleep(3);*/
+/*run;*/
+
+x "start &localtemp\Overview_of_&STUDY..xls ";
+
+%myexit:;
+
+
+%mend;
+

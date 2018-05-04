@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+#Script name: headerchga
+#Program location: /user1/zenga/shellscripts/
+#
+#Purpose: To change the SAS code header box
+#
+#Input: headerchga protocol time author xx.sas/*.sas
+#
+#Release Date: 03Dec2015
+#
+#Developer/Programmer: Allen Zeng
+#******************************************************************************
+#******************************************************************************
+
+if [ $# -lt 3 ]
+then
+    echo 'Usage: headerchga protocol time author xx.sas/*.sas'
+    exit 1
+fi
+
+protocol=$1
+time=$2
+author=$3
+date=`date "+%d%b%Y"`
+
+if [ $# -eq 3 ]
+then
+    for file in *.sas
+    do 
+        sed -e "1,30 s/\(.*Protocol No:.*\/[ ]\).*/\1$protocol/;
+                1,30 s/\(.*Study Code:[ ]*\)[ ][0-9]*/\1 $time/;
+                1,30 s/\([ ]*Author:[ ]*\)[A-Za-z]*[ ]*[A-Za-z]*\([ ]\$LastChangedBy:.*\)/\1$author\2/;
+                1,30 s/\([ ]*Creation.*[ ]*\)[ ].*\([ ]\/[ ]\$LastChangedDate:.*\)/\1 $date\2/" $file > $file.new
+   
+	 mv $file.new $file
+ 
+	 echo $file done 
+    done
+else
+    while [ $# -gt 3 ]
+    do
+         sed -e "1,30 s/\(.*Protocol No:.*\/[ ]\).*/\1$protocol/;
+                 1,30 s/\(.*Study Code:[ ]*\)[ ][0-9]*/\1 $time/;
+                 1,30 s/\([ ]*Author:[ ]*\)[A-Za-z]*[ ]*[A-Za-z]*\([ ]\$LastChangedBy:.*\)/\1$author\2/;
+                 1,30 s/\([ ]*Creation.*[ ]*\)[ ].*\([ ]\/[ ]\$LastChangedDate:.*\)/\1 $date\2/" $4 > $4.new
+   
+	 mv $4.new $4
+ 
+	 echo $4 done 
+	 shift
+    done
+fi

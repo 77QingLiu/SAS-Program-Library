@@ -1,0 +1,71 @@
+%macro FullInformation;
+data ahuigeFull(keep=a b c d);
+  array answers(1:4) $10. a b c d;
+  do i=1 to 10000;
+    do j=1 to 4;
+      answers(j)='notCar';
+    end;
+    carid=mod(RANTBL(2016,0.25,0.25,0.25,0.25),4)+1;
+    answers(carid)='car';
+    output;
+  end;
+run;
+
+data knowEverything(keep=a b c d finalAnswer);
+  set ahuigeFull;
+  array answers(1:4) $10. a b c d;
+  deleteTimes=0;
+  do j=1,2,4;
+     if deleteTimes<2 and answers(j)='notCar' then
+     do;
+     answers(j)='';
+     deletetimes=deletetimes+1;
+     end;
+  end;
+  do j=1,2,4;
+  if answers(j)>'' then finalanswer=answers(j);
+  end;
+run;
+
+proc freq data=knowEverything;
+  tables c finalanswer/missing;
+run;
+%mend;
+%FullInformation;
+
+
+%macro PartialInformation;
+data ahuigePartial(keep=a b c d);
+  array answers(1:4) $10. a b c d;
+  do i=1 to 10000;
+    do j=1 to 4;
+      answers(j)='NotCar';
+    end;
+    carid=mod(RANTBL(2016,0.25,0.25,0.25,0.25),4)+1;
+    answers(carid)='car';
+    do until (unKNownid>0  and  unKNownid ~= carid); 
+    unKNownid=mod(RANTBL(2016,0.25,0.25,0.25,0.25),4)+1;
+    if unKNownid ~= carid then answers(unKNownid)='UnKnown';
+    end;
+    output;
+  end;
+run;
+data knowPartial(keep=a b c d finalAnswer);
+  set ahuigePartial;
+  array answers(1:4) $10. a b c d;
+  deleteTimes=0;
+  do j=1,2,4;
+     if deleteTimes<2 and answers(j)='NotCar' then
+     do;
+     answers(j)='';
+     deletetimes+1;
+     end;
+  end;
+  do j=1,2,4;
+  if answers(j)>'' then finalanswer=answers(j);
+  if finalanswer>'' and mod(j,2)=1 then leave;
+  end;
+run;
+proc freq data= knowPartial;tables c finalanswer/missing;run;
+%mend;
+%partialinformation;

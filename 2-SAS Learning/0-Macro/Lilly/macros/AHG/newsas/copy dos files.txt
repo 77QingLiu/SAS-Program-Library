@@ -1,0 +1,7 @@
+For %X in (ahgreportby.sas ahgblank.sas ahgclearglobalmac.sas ahgcolumn2mac.sas ahgcount.sas ahgcreatehashex.sas ahggettempname.sas ahghashvalue.sas ahgincr.sas ahgindex.sas ahgrandom.sas ahgremovewords.sas ahgvarinfo.sas ahgvarlist.sas) do Copy %X "\\gh3nas01\gh3nas_sales.grp\LCDDMAC\STATS\SA\Macro library\Macro learning tool\macros\"
+
+
+
+For %X in (ahgprt.sas) do Copy %X "D:\lillyce\qa\ly231514\h3e_cr_jmit\safety_review11\replica_programs\validator_component_modules\"
+
+

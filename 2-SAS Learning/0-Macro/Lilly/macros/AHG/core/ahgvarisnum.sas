@@ -1,0 +1,10 @@
+%macro AHGvarisnum(dsn,var,into=varIsNum);
+%local varinfo;
+%AHGgettempname(varinfo);
+%AHGvarinfo(&dsn,out=&varinfo,info= name type);
+data _null_;
+  set &varinfo(where=(%AHGequaltext(name,"&var")  ) );
+  if type='N' then call symput("&into",'1');
+  else call symput("&into",'0');
+run;
+%mend;

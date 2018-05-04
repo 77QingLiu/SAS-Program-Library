@@ -1,0 +1,12 @@
+%macro AHGapplyLS(str,ls );
+  %local mid left right all;
+  %let mid=%index(&str,%str(     ));
+  %If &mid=0 %then &str;
+  %else 
+  %do;
+  %let left=%substr(&str,1,%eval(&mid-1));
+  %let right=%left(%substr(&str,&mid));
+  %let all=&left%sysfunc(repeat(%str( ),%eval(&ls-%length(&left)-%length(&right))))&right;
+&all 
+  %end;
+%mend;

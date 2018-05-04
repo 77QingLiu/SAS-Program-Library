@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="windows-1250"?>
+		
+<!-- ############################################################ -->
+<SXLEMAP name="AUTO_GEN" version="1.2">
+
+    <!-- ############################################################ -->
+    <TABLE name="status">
+        <TABLE-DESCRIPTION>status</TABLE-DESCRIPTION>
+        <TABLE-PATH syntax="XPath">/status</TABLE-PATH>
+
+        <COLUMN name="status_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+    </TABLE>
+
+    <!-- ############################################################ -->
+    <TABLE name="target">
+        <TABLE-DESCRIPTION>target</TABLE-DESCRIPTION>
+        <TABLE-PATH syntax="XPath">/status/target</TABLE-PATH>
+
+        <COLUMN name="status_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="target_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="path">
+            <PATH syntax="XPath">/status/target/@path</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>4096</LENGTH>
+        </COLUMN>
+
+    </TABLE>
+
+    <!-- ############################################################ -->
+    <TABLE name="entry">   
+        <TABLE-DESCRIPTION>entry</TABLE-DESCRIPTION>
+        <TABLE-PATH syntax="XPath">/status/target/entry</TABLE-PATH>
+
+        <COLUMN name="target_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="entry_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target/entry</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="path">
+            <PATH syntax="XPath">/status/target/entry/@path</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>4096</LENGTH>
+        </COLUMN>
+
+    </TABLE>
+
+    <!-- ############################################################ -->
+    <TABLE name="wc_status">
+        <TABLE-DESCRIPTION>wc-status</TABLE-DESCRIPTION>
+        <TABLE-PATH syntax="XPath">/status/target/entry/wc-status</TABLE-PATH>
+
+        <COLUMN name="entry_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target/entry</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="wc_status_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target/entry/wc-status</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="props">
+            <PATH syntax="XPath">/status/target/entry/wc-status/@props</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>200</LENGTH>
+        </COLUMN>
+
+        <COLUMN name="item">
+            <PATH syntax="XPath">/status/target/entry/wc-status/@item</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>200</LENGTH>
+        </COLUMN>
+
+        <COLUMN name="revision">
+            <PATH syntax="XPath">/status/target/entry/wc-status/@revision</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>200</LENGTH>
+        </COLUMN>
+
+    </TABLE>
+
+    <!-- ############################################################ -->
+    <TABLE name="commit">
+        <TABLE-DESCRIPTION>commit</TABLE-DESCRIPTION>
+        <TABLE-PATH syntax="XPath">/status/target/entry/wc-status/commit</TABLE-PATH>
+
+        <COLUMN name="wc_status_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target/entry/wc-status</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="commit_ORDINAL" ordinal="YES">
+            <INCREMENT-PATH beginend="BEGIN" syntax="XPath">/status/target/entry/wc-status/commit</INCREMENT-PATH>
+            <TYPE>numeric</TYPE>
+            <DATATYPE>integer</DATATYPE>
+        </COLUMN>
+
+        <COLUMN name="revision">
+            <PATH syntax="XPath">/status/target/entry/wc-status/commit/@revision</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>200</LENGTH>
+        </COLUMN>
+
+        <COLUMN name="author">
+            <PATH syntax="XPath">/status/target/entry/wc-status/commit/author</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>200</LENGTH>
+        </COLUMN>
+
+        <COLUMN name="date">
+            <PATH syntax="XPath">/status/target/entry/wc-status/commit/date</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>string</DATATYPE>
+            <LENGTH>200</LENGTH>
+        </COLUMN>
+
+    </TABLE>
+
+</SXLEMAP>

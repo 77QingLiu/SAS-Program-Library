@@ -1,0 +1,121 @@
+S:\LY2189265\GBDK\Chinese\lillyce  under qa
+上海卢湾区内环以内湖滨路222号，企业天地1号楼16楼，礼来制药
+
+Lilly (Suzhou) Pharmaceutical Company Shanghai Branch
+1 Corporate Avenue, 222 Hubin Road, Shanghai, China 200021
+86-21-23021216 (office) | 86-13917978832 (mobile)
+
+200021
+15800838443
+
+data deletefromithere; 
+data writetofilefromithere;
+
+/sddext040/AWE 1.3 Testers/Hui Liu
+
+Type tar -xvf yourfile.tar to extract the file to the current directory.
+Or tar -C /myfolder -xvf yourfile.tar to extract to another directory.
+
+cat d:\newsas\core\*.sas > d:\newsas\ahg_core.sas
+cat d:\newsas\inter\*.sas > d:\newsas\ahg_inter.sas
+cat d:\newsas\adhoc\*.sas > d:\newsas\ahg_adhoc.sas
+cat d:\newsas\ahg_*.sas >d:\newsas\all.sas
+cp d:\newsas\ahg_core.sas  "\\Gh3users\private\H\HUI.L\"
+cp d:\newsas\all.sas  "\\Gh3users\private\H\HUI.L\"
+
+cp d:\newsas\ahg_core.sas  "g:\lillyce\non_study\users_sandbox\hui_liu\ahg_core.sas"
+ 
+C005605778
+
+libname xptout xport "%sdddc(G:\lillyce\qa\ly2940680\integrations\araug2014\data\adam)\xpt.xpt";
+
+
+proc copy in=ladam out=xptout memtype=data;
+   select adae adcm adsl adex admh;
+run;
+
+ftp xpt.xpt
+
+libname insource xport "%AHGamp(mac2nd)/xpt.xpt";
+
+proc copy in=insource out=adam;
+run;
+
+
+ls D:\lillyce\qa -recurse -attributes directory
+
+ls D:\lillyce\qa -recurse -directory
+
+Select-String -SimpleMatch ly2940680 *.sas
+
+%inc "h:\all.sas";
+%AHGpmLIKE(SYS);
+
+ ;*';*";*/;quit;run;
+
+
+Get-Content mp.txt -totalcount 328367 >short.txt
+
+ Get-Content mp.txt | Measure-Object   -line 
+
+/* Creating a ZIP file with ODS PACKAGE */
+ods package(newzip) open nopf;
+ods package(newzip) add file=newcsv path="data/";
+ods package(newzip) add file=rm;
+ods package(newzip) publish archive 
+  properties(
+   archive_name="carstats.zip" 
+   archive_path="&projectDir."
+  );
+ods package(newzip) close;
+
+
+%macro n2s(num,fmt);
+%if %AHGblank(&fmt) %then %let fmt=best.;
+left(put(&num,&fmt))
+%mend;
+
+
+grep \\ core\*.sas > d:\temp\ss.sas;    
+grep \\ inter\*.sas > d:\temp\ss.sas;    
+\\mango\sddext.grp\sddext029\lillyce\prd\ly275585\f3z_cr_ioqi\final
+
+
+Preface the keydef by a vt; first. The following copies the next viewtable into both key spaces.
+
+dm "keydef F2 'next Viewtable:; end'";
+
+dm "vt; keydef F2 'next Viewtable:; end'";
+shareedit
+                    
+                    
+set path=%path% ;D:\Program Files (x86)\GnuWin32\bin
+                    
+set path=%path% ;c:\users\c187781\bin
+
+                    
+                   
+Sub HyperAdd()
+' 
+' Converts each text hyperlink selected into a working hyperlink
+'
+    For Each xCell In Selection
+        ActiveSheet.Hyperlinks.Add Anchor:=xCell, Address:=xCell.Formula
+    Next xCell
+'    
+'
+End Sub
+
+The steps after you select the cells are:
+Press Alt -> F11
+Click Insert -> Module
+Paste the code provided in the link in the white space
+Press F5 to run the macro (or click on Run -> Run Sub/UserForm)
+
+
+all powershell script by x command should be double quoted and regex be single quoted.
+
+X powershell -command  " cp \\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\intrm1\programs_stat\tfl\o_ds_studydisp_p49692_t49696.sas \\mango\sddext.grp\SDDEXT034\trash\tmp1           ";
+X powershell -command  " ;cat \\mango\sddext.grp\SDDEXT034\trash\tmp1           |% { $_ -replace 'tfloutname=[^,]+','tflOutName=o_ds_studydisp' } >\\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\intrm1\programs_stat\tfl\o_ds_studydisp_p49692_t49696.sas.TXT; " ;
+
+

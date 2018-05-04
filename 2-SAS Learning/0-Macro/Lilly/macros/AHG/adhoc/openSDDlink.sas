@@ -1,0 +1,16 @@
+%MACRO openSDDlink(link);
+%local line1 url line2;
+%let link=%sdd(&link);
+%let link=%sysfunc(tranwrd(&link,%str(/),%str(%%2F)));
+%AHGgettempname(url);
+%Local urlfile;
+%let urlfile=%AHGtempdir\temp\url%sysfunc(normal(0)).url;
+data &url;
+  set sasuser.url;
+  file "&urlfile";
+  if _n_=4 then line="%nrstr(BASEURL=https://sddchippewa.sas.com/p21/navigation.do?method=selected&parentPath=)&link%nrstr(&currentSelectedObject=Home&root=Home&treeName=navigationTree)";
+  if _n_=7 then line="%nrstr(BASEURL=https://sddchippewa.sas.com/p21/mainContent.do?parentPath=)&link%nrstr(&refreshFrame=false&navigate=true)";
+  put line;
+run;
+x "&urlfile";
+%mend;

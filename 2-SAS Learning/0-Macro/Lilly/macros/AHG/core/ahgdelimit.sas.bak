@@ -1,0 +1,4 @@
+%macro AHGdelimit;
+%if %substr(&sysscp,1,3) = SUN  %then%str(/);
+%else\;
+%mend;

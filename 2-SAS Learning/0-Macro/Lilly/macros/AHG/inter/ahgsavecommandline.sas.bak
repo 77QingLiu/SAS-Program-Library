@@ -1,0 +1,58 @@
+%macro AHGsavecommandline(scope,excludeVARs=MACRONAME);
+	%if %AHGwinorunix=UNIX %then %goto wayout;
+    %if &athome ne 1 %then
+        %do;
+             %*readmsg;
+             %local listing;
+             %let excludevars=%upcase(&excludevars);
+            proc sql noprint;
+                select  trim(name)||'='||trim(value)  into :listing separated by ' ,'
+                from sashelp.vmacro
+                where scope=upcase("&scope") and not (name in ("&excludeVars"))
+                ;quit;
+            %let listing=%nrbquote(%) &scope( &listing )%str(;);
+            %local onecall;
+            %AHGGetTempName(onecall);
+            data &onecall;
+                length callstr$500;
+                format macroname $50.  datetime datetime20. callstr $500.;
+                macroname="&scope";
+                callstr="&listing";
+                datetime=datetime();
+            run;
+
+            %local  ONECALLNotEMP;
+            proc sql noprint;
+                select nobs into :ONECALLNotEMP
+                from  sashelp.vtable
+                where libname='WORK' and memname=upcase("&onecall")
+                ;
+            quit;
+
+            %local  baseIsHere;
+            proc sql noprint;
+                select 'YES'  into :baseIsHere
+                from  sashelp.vtable
+                where libname='PSASCALL' and memname=upcase("allsascall ")
+                ;
+            quit;
+
+            %IF &baseIsHere NE  YES %then
+                %do;
+                DATA Psascall.allsascall  ;
+                    set &onecall;
+                run;
+                %end;
+            %else
+                %do;
+                %IF &ONECALLNotEMP>0 %then
+                    %do;
+                    proc append base= Psascall.allsascall data=&onecall force;
+                    run;
+                    %end;
+                %end;
+        %end;
+%wayout:
+%mend;
+
+

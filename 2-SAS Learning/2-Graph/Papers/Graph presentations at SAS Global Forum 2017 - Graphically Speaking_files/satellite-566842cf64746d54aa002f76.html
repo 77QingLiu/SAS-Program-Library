@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)http://assets.adobedtm.com/a4a4268256930a29de311efab04f43cf44db167b/scripts/satellite-566842cf64746d54aa002f76.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<!-- Twitter universal website tag code @SASsoftware -->\n <script src=\"//platform.twitter.com/oct.js\" type=\"text/javascript\"></scr"+"ipt>\n <script type=\"text/javascript\">twttr.conversion.trackPid('nuedz', { tw_sale_amount: 0, tw_order_quantity: 0 });</scr"+"ipt>\n <noscript>\n <img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"https://analytics.twitter.com/i/adsct?txn_id=nuedz&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0\" />\n <img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"//t.co/i/adsct?txn_id=nuedz&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0\" />\n </noscript>\n <!-- End Twitter universal website tag code -->\n   \n <!-- Twitter universal website tag code @SASanalytics -->\n <script src=\"//platform.twitter.com/oct.js\" type=\"text/javascript\"></scr"+"ipt>\n <script type=\"text/javascript\">twttr.conversion.trackPid('nuf1b', { tw_sale_amount: 0, tw_order_quantity: 0 });</scr"+"ipt>\n <noscript>\n <img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"https://analytics.twitter.com/i/adsct?txn_id=nuf1b&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0\" />\n <img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"//t.co/i/adsct?txn_id=nuf1b&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0\" />\n </noscript>\n <!-- End Twitter universal website tag code -->";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><!-- Twitter universal website tag code @SASsoftware -->
+ <script src="./oct.js.&#19979;&#36733;" type="text/javascript"></script>
+ <script type="text/javascript">twttr.conversion.trackPid('nuedz', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+ <noscript>
+ &lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nuedz&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+ &lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nuedz&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+ </noscript>
+ <!-- End Twitter universal website tag code -->
+   
+ <!-- Twitter universal website tag code @SASanalytics -->
+ <script src="./oct.js.&#19979;&#36733;" type="text/javascript"></script>
+ <script type="text/javascript">twttr.conversion.trackPid('nuf1b', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+ <noscript>
+ &lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nuf1b&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+ &lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nuf1b&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+ </noscript>
+ <!-- End Twitter universal website tag code -->
+  
+
+</body></html>

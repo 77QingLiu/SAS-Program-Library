@@ -1,0 +1,93 @@
+#!/bin/sh 
+#******************************************************************************
+#Sponsor name: PXL
+#Study name: NA
+#PAREXEL number: NA
+#
+#Program name: hchk 
+#Program location: /home/users/<userid>/shellscripts/
+#
+#Requirements/Purpose: To list all header information of sas program(*.sas) to csv file.   
+#
+#References: NA
+#
+#Assumptions: datasets (or files) available within kennet folder 
+#
+#Input: chk_header
+#
+#Output: _sas_headerinfo_list_<yyyymmdd>.csv
+#
+#Programs called: NA
+#
+#******************************************************************************
+#
+#Version: 1
+#
+#Release Date: Dec2015
+#
+#Developer/Programmer: Hsi-Min Yang
+#******************************************************************************
+
+touch _sas_headerinfo_list_$(date +%Y%m%d).csv 
+rm _sas_headerinfo_list_$(date +%Y%m%d).csv
+
+echo '.File, Sponsor / Protocol No, PXL Study Cod, SAS Version, Operating System, Author, Creation / modified, Program Location, Program Name, Files Created, Program Purpose, Macro Parameters, MODIFICATION HISTORY' > _tmp.csv
+
+find ${PWD}/ -name "*.sas" > _filelist
+
+while IFS= read -r file
+do
+	cat "$file"|egrep -i '(Sponsor \/ Protocol No|PXL Study Code|SAS Version|Operating System|Author|Creation \/ modified|Program Location|Program Name|Files Created|Program Purpose|Macro Parameters|MODIFICATION HISTORY)[:space:]*:'|
+	awk  '{if (match(toupper($0), "SPONSOR \/ PROTOCOL NO[:space:]*:") ||
+           match(toupper($0), "PXL STUDY CODE[:space:]*:")         ||
+           match(toupper($0), "SAS VERSION[:space:]*:")            ||
+           match(toupper($0), "OPERATING SYSTEM[:space:]*:")       ||
+           match(toupper($0), "AUTHOR[:space:]*:")                 ||
+           match(toupper($0), "CREATION \/ MODIFIED[:space:]*:")   ||
+           match(toupper($0), "PROGRAM LOCATION[:space:]*:")       ||
+           match(toupper($0), "PROGRAM NAME[:space:]*:")           ||
+           match(toupper($0), "FILES CREATED[:space:]*:")          ||
+           match(toupper($0), "PROGRAM PURPOSE[:space:]*:")        ||
+           match(toupper($0), "MACRO PARAMETERS[:space:]*:")       ||
+           match(toupper($0), "MODIFICATION HISTORY[:space:]*:"))
+     {
+            before = substr($0,1,RSTART-1);
+            pattern = substr($0,RSTART,RLENGTH-1);
+            after = substr($0,RSTART+RLENGTH);
+            printf("%s,\"%s\"\n", pattern, after);
+     }}'|
+	awk -v file="$file" 'BEGIN{FS="\n";RS="";OFS="," } 
+			{
+				for (i=1;i<=NF;i++)
+          			if (match(toupper($i),  "SPONSOR \/ PROTOCOL NO[:space:]*,"))       z1 = substr($i,RSTART+RLENGTH);
+          			else if (match(toupper($i),  "PXL STUDY CODE[:space:]*,"))		   z2 = substr($i,RSTART+RLENGTH);    
+          			else if (match(toupper($i),  "SAS VERSION[:space:]*,")) 		   z3 = substr($i,RSTART+RLENGTH);      	
+          			else if (match(toupper($i),  "OPERATING SYSTEM[:space:]*,"))  	   z4 = substr($i,RSTART+RLENGTH);      	 
+          			else if (match(toupper($i),  "AUTHOR[:space:]*,")) 			   z5 = substr($i,RSTART+RLENGTH);     	
+          			else if (match(toupper($i),  "CREATION \/ MODIFIED[:space:]*,"))    z6 = substr($i,RSTART+RLENGTH);       
+          			else if (match(toupper($i),  "PROGRAM LOCATION[:space:]*,"))   	   z7 = substr($i,RSTART+RLENGTH);     
+          			else if (match(toupper($i),  "PROGRAM NAME[:space:]*,"))   		   z8 = substr($i,RSTART+RLENGTH);    
+          			else if (match(toupper($i),  "FILES CREATED[:space:]*,"))   	   z9 = substr($i,RSTART+RLENGTH);   	 
+          			else if (match(toupper($i),  "PROGRAM PURPOSE[:space:]*,"))   	   z10 = substr($i,RSTART+RLENGTH);      	 
+          			else if (match(toupper($i),  "MACRO PARAMETERS[:space:]*,"))   	   z11 = substr($i,RSTART+RLENGTH);     
+          			else if (match(toupper($i),  "MODIFICATION HISTORY[:space:]*,"))    z12 = substr($i,RSTART+RLENGTH);        
+          	}
+          	{
+          			if (z1=="") z1="_NA_";
+          			if (z2=="") z2="_NA_";
+          			if (z3=="") z3="_NA_";
+          			if (z4=="") z4="_NA_";
+          			if (z5=="") z5="_NA_";
+          			if (z6=="") z6="_NA_";
+          			if (z7=="") z7="_NA_";
+          			if (z8=="") z8="_NA_";
+          			if (z9=="") z9="_NA_";
+          			if (z10=="") z10="_NA_";
+          			if (z11=="") z11="_NA_";
+          			if (z12=="") z12="_NA_";
+          	}
+
+   			END{print file, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12}'  >> _tmp.csv
+done < _filelist
+
+sort -t , -k 1 _tmp.csv > _sas_headerinfo_list_$(date +%Y%m%d).csv; rm _tmp.csv; rm _filelist

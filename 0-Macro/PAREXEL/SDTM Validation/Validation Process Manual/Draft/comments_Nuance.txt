@@ -1,0 +1,1481 @@
+Summary of Comments on 
+42756493LUC2001_AnnotatedSDTM_eCRF_V3.0_201608 
+17 - Nuance Power PDF Advanced 
+Page:1 
+Author: Subject: Date:8/17/2016 3:31:12 PM 
+42756493LUC2001_AnnotatedSDTM_eCRF_V3.0_20160817 
+Author: Subject: Date:3/7/2016 9:32:22 AM 
+DM = Demographics 
+Author: Subject: Date:1/14/2016 6:36:06 PM 
+SUBJID 
+Author: Subject: Date:1/14/2016 6:36:07 PM 
+[NOT SUBMITTED]
+Page:2 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+SV = Subject Visits 
+Author: Subject: Date:2/5/2016 10:35:13 AM 
+SVSTDTC, SVENDTC [DMDTC, DSDTC, FADTC, IEDTC, MHDTC, PCDTC, QSDTC, XZDTC] 
+Author: Subject: Date:1/14/2016 5:59:56 PM 
+[NOT SUBMITTED]
+Page:3 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+FA = Findings About Events or Interventions 
+Author: Subject: Date:1/21/2016 12:25:42 PM 
+FACAT, FAOBJ 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+FAORRES when FATESTCD = OCCUR 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+FATEST = Occurrence 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+FAORRES when FATESTCD = REAS 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+FATEST = Reason 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+Linked to related AE record via RELREC 
+Author: Subject: Date:1/14/2016 6:00:12 PM 
+FAORRES when FATESTCD = REAS and FASTRESC = OTHER
+Page:4 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:5 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+DM = Demographics 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+COHORT in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 6:46:51 PM 
+DISTYP in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/14/2016 6:00:24 PM 
+DISTYPO in SUPPDM when IDVAR = NULL
+Page:6 
+Author: Subject: Date:1/13/2016 11:57:22 AM 
+DM = Demographics 
+Author: Subject: Date:1/13/2016 11:57:21 AM 
+DS = Disposition 
+Author: Subject: Date:2/2/2016 7:23:53 PM 
+DSCAT = PROTOCOL MILESTONE 
+Author: Subject: Date:2/21/2016 4:29:33 PM 
+DSSTDTC 
+Author: Subject: Date:2/21/2016 4:29:28 PM 
+DSTERM = INFORMED CONSENT MOLECULAR ELIGIBILITY OBTAINED 
+Author: Subject: Date:2/21/2016 4:30:26 PM 
+DSTERM = INFORMED CONSENT OBTAINED 
+Author: Subject: Date:2/21/2016 4:30:14 PM 
+DSSTDTC 
+Author: Subject: Date:1/20/2016 12:19:26 PM 
+RFICDTC 
+Author: Subject: Date:4/7/2016 4:23:47 PM 
+SPRTDTC in SUPPDS when IDVAR = NULL 
+Author: Subject: Date:1/14/2016 6:00:36 PM 
+BRTHDTC 
+Author: Subject: Date:1/14/2016 6:00:38 PM 
+AGE 
+Author: Subject:DM Date:1/11/2016 7:03:44 PM 
+AGEU 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+SEX 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+ETHNIC 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACE 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACEAIAN in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACEA in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACEBA in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACENHOP in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACEW in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACEOTHR in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RACEOTH in SUPPDM when IDVAR = NULL 
+Author: Subject: Date:1/14/2016 6:00:48 PM 
+RACE 
+Author: Subject: Date:1/14/2016 6:00:50 PM 
+RACE 
+Author: Subject: Date:2/25/2016 3:10:52 PM 
+PSUBJID in SUPPDM when IDVAR = NULL 
+Comments from page 6 continued on next page
+Page:6 
+Author: Subject: Date:2/25/2016 10:53:28 AM 
+NOTE: If a single race is specified then the value is submitted in RACE 
+If 'Other' and 'Specify other race' are specified then RACE = OTHER and Other, Specify value is in SUPPDM 
+using the QNAM value RACEOTH 
+If multiple races are specified then RACE = MULTIPLE and specified races are in SUPPDM using the QNAM 
+values RACEAIAN, RACEA, RACEBA, RACENHOP, RACEW, RACEOTHR, RACEOTH
+Page:7 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+IE = Inclusion/Exclusion Criteria Not Met 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:IE Date:1/11/2016 11:31:41 AM 
+IECAT 
+Author: Subject: Date:2/2/2016 11:31:02 AM 
+IETESTCD 
+Author: Subject: Date:2/21/2016 4:33:57 PM 
+NOTE: IEORRES = N when IECAT = INCLUSION; IEORRES = Y when IECAT = EXCLUSION
+Page:8 
+Author: Subject: Date:1/20/2016 12:36:45 PM 
+FA = Findings About Events or Interventions 
+Author: Subject: Date:1/11/2016 12:30:13 PM 
+FACAT = DIAGNOSIS 
+Author: Subject:FA Date:1/20/2016 12:38:39 PM 
+FATEST = Date of Diagnosis 
+Author: Subject:FA Date:1/20/2016 12:38:28 PM 
+FAORRES when FATESTCD = DIAGDTC 
+Author: Subject:MH Date:1/20/2016 12:36:55 PM 
+FAOBJ 
+Author: Subject: Date:5/13/2016 5:17:34 PM 
+NOTE: If Initial Diagnosis = Multiple, then the answer to 'If Multiple, specify' is submitted in FAOBJ; If Initial 
+Diagnosis = Other, then the answer to 'If Other, specify' is submitted in FAOBJ 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:MH Date:1/20/2016 12:37:23 PM 
+FAOBJ 
+Author: Subject:MH Date:1/20/2016 12:37:25 PM 
+FAOBJ 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FATEST = Type 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FAORRES when FATESTCD = TYPE 
+Author: Subject:Text Box Date:1/11/2016 1:45:14 PM 
+[NOT SUBMITTED] 
+Author: Subject:SUPPFA Date:1/14/2016 6:01:03 PM 
+FAORRES when FATESTCD = TYPE and FASTRESC = OTHER 
+Author: Subject:FA Date:1/20/2016 3:37:54 PM 
+FATEST = Gastric Carcinoma Histology Subtype 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FAORRES when FATESTCD = SUBTYPE 
+Author: Subject:Text Box Date:1/11/2016 7:07:31 PM 
+[NOT SUBMITTED] 
+Author: Subject:SUPPFA Date:1/11/2016 7:08:15 PM 
+FAORRES when FATESTCD = SUBTYPE and FASTRESC = OTHER
+Page:9 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+FA = Findings About Events or Interventions 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FATEST 
+Author: Subject:FA Date:3/21/2014 7:59:31 PM 
+FAORRES when FATESTCD = LACLAS 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FATEST = Cancer Stage 
+Author: Subject:FA Date:1/21/2016 3:38:03 PM 
+FAORRES when FATESTCD = CANSTG 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FATEST 
+Author: Subject:FA Date:1/11/2016 7:35:04 PM 
+FAORRES when FATESTCD = TUGRD 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+FATEST = Metastatic Disease Location 
+Author: Subject:FA Date:1/11/2016 1:26:54 PM 
+FAORRES when FATESTCD = MTLOC 
+Author: Subject:SUPPFA Date:1/14/2016 6:01:13 PM 
+FAMTLOCO in SUPPFA when IDVAR = FASEQ
+Page:10 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+MH = Medical History 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MHCAT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MHSCAT 
+Author: Subject:VOID Date:1/11/2016 2:25:04 PM 
+MHTERM 
+Author: Subject:MH Date:1/11/2016 2:25:07 PM 
+MHSTDTC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MHENRTPT = ONGOING 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MHENTPT = <DATE OF HISTORY COLLECTION> 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MHENRTPT = BEFORE 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MHTOXGR
+Page:11 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+EX = Exposure 
+Author: Subject:EX Date:1/11/2016 7:40:57 PM 
+EXTRT 
+Author: Subject:EX Date:1/11/2016 7:40:59 PM 
+VISIT 
+Author: Subject:EX Date:1/11/2016 11:31:41 AM 
+EXSTDTC 
+Author: Subject:EX Date:1/11/2016 11:31:41 AM 
+EXENDTC 
+Author: Subject:EX Date:1/28/2016 10:51:22 AM 
+EXDOSE 
+Author: Subject:EX Date:1/28/2016 10:51:46 AM 
+EXDOSU
+Page:12 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+EX = Exposure 
+Author: Subject:EX Date:1/11/2016 11:31:41 AM 
+EXDOSFRM
+Page:13 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+EX = Exposure 
+Author: Subject:EX Date:1/11/2016 11:31:41 AM 
+EXDOSFRQ
+Page:14 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+EX = Exposure 
+Author: Subject:EX Date:1/11/2016 11:31:41 AM 
+EXROUTE 
+Author: Subject:EX Date:1/11/2016 11:31:41 AM 
+EXACT in SUPPEX when IDVAR = EXSEQ 
+Author: Subject:EX Date:1/28/2016 10:53:45 AM 
+EXADJ 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+Linked to related AE records via RELREC 
+Author: Subject:EX Date:1/11/2016 2:25:50 PM 
+EXADJOTH in SUPPEX when IDVAR = EXSEQ
+Page:15 
+Author: Subject: Date:1/28/2016 11:23:59 AM 
+AE = Adverse Events 
+Author: Subject: Date:1/28/2016 11:24:58 AM 
+FA = Findings About Events or Interventions 
+Author: Subject:VOID Date:1/28/2016 2:32:54 PM 
+FACAT 
+Author: Subject:VOID Date:1/28/2016 6:31:16 PM 
+Link between related FA and AE records via RELREC 
+Author: Subject:VOID Date:1/28/2016 6:28:46 PM 
+AETERM, FAOBJ 
+Author: Subject:VOID Date:1/28/2016 6:28:50 PM 
+AESTDTC, FADTC 
+Author: Subject:VOID Date:1/28/2016 6:28:48 PM 
+AEENDTC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+AETOXGR 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+AEACN 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+AECONTRT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+AEREL 
+Author: Subject:AE Date:1/11/2016 11:31:41 AM 
+AEOUT
+Page:16 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+AE = Adverse Events 
+Author: Subject:AE Date:1/11/2016 11:31:41 AM 
+AESER 
+Author: Subject:VOID Date:1/28/2016 3:51:47 PM 
+[NOT SUBMITTED] 
+Author: Subject:AE Date:1/28/2016 3:52:19 PM 
+AETRLPRC in SUPPAE when IDVAR = AESEQ 
+Author: Subject:AE Date:1/28/2016 3:52:32 PM 
+AESCONG 
+Author: Subject:AE Date:1/28/2016 3:52:44 PM 
+AESDISAB 
+Author: Subject:AE Date:1/28/2016 3:56:44 PM 
+AESDTH 
+Author: Subject:VOID Date:1/28/2016 3:57:06 PM 
+[NOT SUBMITTED] 
+Author: Subject:AE Date:1/28/2016 3:59:07 PM 
+AESHOSP 
+Author: Subject:AE Date:1/28/2016 3:59:08 PM 
+AESHOSPR in SUPPAE when IDVAR = AESEQ
+Page:17 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+AE = Adverse Events 
+Author: Subject:AE Date:1/28/2016 5:12:22 PM 
+AESHOSPP in SUPPAE when IDVAR = AESEQ 
+Author: Subject:VOID Date:1/28/2016 3:59:29 PM 
+[NOT SUBMITTED] 
+Author: Subject:AE Date:1/28/2016 3:59:48 PM 
+AESLIFE 
+Author: Subject:AE Date:1/28/2016 3:59:51 PM 
+AESMIE 
+Author: Subject:AE Date:1/28/2016 5:12:58 PM 
+AESOSP in SUPPAE when IDVAR = AESEQ 
+Author: Subject:VOID Date:1/28/2016 5:13:18 PM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/28/2016 5:13:25 PM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/28/2016 5:22:06 PM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/28/2016 5:22:36 PM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/28/2016 5:14:12 PM 
+AEINF in SUPPAE when IDVAR = AESEQ
+Page:18 
+Author: Subject: Date:1/28/2016 5:23:19 PM 
+FA = Findings About Events or Interventions 
+Author: Subject:VOID Date:1/28/2016 6:30:25 PM 
+Linked to related AE record via RELREC 
+Author: Subject:VOID Date:1/28/2016 5:23:31 PM 
+FAORRES when FATESTCD = INFOPP 
+Author: Subject:VOID Date:1/28/2016 5:23:32 PM 
+FATEST = Infection Opportunistic 
+Author: Subject:VOID Date:1/28/2016 5:24:05 PM 
+FAORRES when FATESTCD = PTHIDF 
+Author: Subject:VOID Date:1/28/2016 5:24:20 PM 
+FATEST = Pathogen Identified 
+Author: Subject:VOID Date:1/28/2016 5:24:32 PM 
+FAORRES when FATESTCD = PTHNAM 
+Author: Subject:VOID Date:1/28/2016 5:24:26 PM 
+FATEST = Pathogen Name 
+Author: Subject:VOID Date:1/29/2016 6:04:18 PM 
+FATEST = Pathogen Identification Method 
+Author: Subject:VOID Date:1/28/2016 5:24:37 PM 
+FAORRES when FATESTCD = PTHIDMET 
+Author: Subject:VOID Date:1/28/2016 5:25:49 PM 
+FATEST = Pathogen Category 
+Author: Subject:VOID Date:1/28/2016 5:24:50 PM 
+FAORRES when FATESTCD = PTHCAT 
+Author: Subject:VOID Date:1/28/2016 5:24:57 PM 
+FAVIRINF in SUPPFA when IDVAR = FASEQ 
+Author: Subject:VOID Date:1/28/2016 5:25:03 PM 
+FATEST = Infection Extent 
+Author: Subject:VOID Date:1/28/2016 5:25:08 PM 
+FAORRES when FATESTCD = INFEXT
+Page:19 
+Author: Subject: Date:2/25/2016 10:56:32 AM 
+XB = Biomarker 
+Author: Subject:Text Box Date:2/26/2016 6:43:39 PM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:2/25/2016 11:04:20 AM 
+XBREFID 
+Author: Subject:Text Box Date:2/25/2016 11:04:22 AM 
+XBSPEC 
+Author: Subject:VOID Date:2/25/2016 10:59:06 AM 
+XBDTC 
+Author: Subject:VOID Date:2/25/2016 11:04:47 AM 
+XBMETHOD 
+Author: Subject:VOID Date:2/25/2016 3:04:24 PM 
+XBMETHDO in SUPPXB when IDVAR = XBSEQ 
+Author: Subject:VOID Date:2/25/2016 3:06:37 PM 
+XBTEST = Gene Variant Type 
+Author: Subject:VOID Date:2/25/2016 3:06:38 PM 
+XBORRES when XBTESTCD = GENVRTYP
+Page:20 
+Author: Subject: Date:2/25/2016 11:23:26 AM 
+XB = Biomarker 
+Author: Subject:VOID Date:2/26/2016 5:52:22 PM 
+XBCAT 
+Author: Subject:VOID Date:2/26/2016 6:39:06 PM 
+XBGENRGO in SUPPXB when IDVAR = XBSEQ 
+Author: Subject:VOID Date:2/26/2016 5:52:50 PM 
+XBSCAT 
+Author: Subject:VOID Date:2/25/2016 3:08:34 PM 
+XBFGFRO in SUPPXB when IDVAR = XBSEQ 
+Author: Subject:VOID Date:2/25/2016 3:08:50 PM 
+XBNFGFR in SUPPXB when IDVAR = XBSEQ 
+Author: Subject:Text Box Date:2/25/2016 1:22:39 PM 
+[NOT SUBMITTED]
+Page:21 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+SU = Substance Use 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+SUCAT 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+SUTRT 
+Author: Subject:SUPPSU Date:1/11/2016 7:46:56 PM 
+SUOCCUR = Y 
+Author: Subject:SUPPSU Date:1/12/2016 2:04:06 PM 
+SUNCF in SUPPSU when IDVAR = SUSEQ 
+Author: Subject:SUPPSU Date:1/12/2016 2:04:11 PM 
+SUPRESP = Y 
+Author: Subject:SUPPSU Date:1/11/2016 7:46:52 PM 
+SUOCCUR = Y 
+Author: Subject:SUPPSU Date:1/11/2016 7:47:00 PM 
+SUOCCUR = N 
+Author: Subject:FA Date:2/25/2016 2:35:16 PM 
+SUDOSE 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+SUDOSU 
+Author: Subject:FA Date:1/11/2016 11:31:41 AM 
+SUDOSFRQ 
+Author: Subject:FA Date:1/11/2016 2:26:47 PM 
+SUSTDTC 
+Author: Subject:FA Date:1/11/2016 2:26:50 PM 
+SUENDTC
+Page:22 
+Author: Subject:SUPPSU Date:3/7/2016 9:32:40 AM 
+For annotations, refer to CRF page 21
+Page:23 
+Author: Subject:SUPPSU Date:3/7/2016 9:32:53 AM 
+For annotations, refer to CRF page 21
+Page:24 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:05 AM 
+For annotations, refer to CRF page 21
+Page:25 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:10 AM 
+For annotations, refer to CRF page 21
+Page:26 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:14 AM 
+For annotations, refer to CRF page 21
+Page:27 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMCAT = CONCOMITANT MEDICATION 
+Author: Subject:CM Date:1/11/2016 2:27:04 PM 
+CMTRT 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMINDC 
+Author: Subject:CM Date:1/14/2016 6:13:00 PM 
+Linked to related AE record via RELREC 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+Linked to related MH record via RELREC 
+Author: Subject:CM Date:3/21/2014 9:47:07 PM 
+CMINDDSC in SUPPCM when IDVAR = CMSEQ 
+Author: Subject:CM Date:1/12/2016 2:59:13 PM 
+CMDOSE, CMDOSTXT 
+Author: Subject:CM Date:1/12/2016 2:59:20 PM 
+CMDOSTOT
+Page:28 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMDOSU
+Page:29 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMDOSFRM
+Page:30 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMDOSFRQ
+Page:31 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMROUTE 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMSTRTPT = BEFORE 
+Author: Subject:CM Date:1/13/2016 11:58:05 AM 
+CMSTTPT = <INFORMED CONSENT DATE> 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMSTRTPT = AFTER 
+Author: Subject:VOID Date:1/11/2016 2:27:24 PM 
+CMSTDTC 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+CMENRF = AFTER 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:CM Date:1/11/2016 2:27:30 PM 
+CMENDTC 
+Author: Subject:VOID Date:1/11/2016 2:27:28 PM 
+[NOT SUBMITTED]
+Page:32 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+VS = Vital Signs 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 6:20:15 PM 
+VSTEST = Vital Signs Tests 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+VSSTAT = NOT DONE when VSTESTCD = VSALL 
+Author: Subject:Text Box Date:1/14/2016 6:02:18 PM 
+VSDTC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSTEST 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRES when VSTESTCD = HEIGHT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRESU when VSTESTCD = HEIGHT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSTEST 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRES when VSTESTCD = WEIGHT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRESU when VSTESTCD = WEIGHT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSTEST 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRES when VSTESTCD = TEMP 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRESU when VSTESTCD = TEMP 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSLOC when VSTESTCD = TEMP 
+Author: Subject:VOID Date:2/4/2016 8:57:40 AM 
+VSPOS when VSTESTCD in (PULSE, SYSBP, DIABP) 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSTEST 
+Author: Subject:VOID Date:1/14/2016 6:02:24 PM 
+VSORRES when VSTESTCD = PULSE 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRESU when VSTESTCD = PULSE 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSTEST 
+Author: Subject:VOID Date:1/14/2016 6:02:26 PM 
+VSORRES when VSTESTCD = SYSBP 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRESU when VSTESTCD = SYSBP 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSTEST 
+Author: Subject:VOID Date:1/14/2016 6:02:28 PM 
+VSORRES when VSTESTCD = DIABP 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VSORRESU when VSTESTCD = DIABP
+Page:33 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:20 AM 
+For annotations, refer to CRF page 32
+Page:34 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LB = Laboratory Test Results 
+Author: Subject: Date:1/14/2016 6:02:37 PM 
+LBNAM 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBCAT 
+Author: Subject:VOID Date:1/14/2016 6:03:24 PM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/11/2016 7:56:46 PM 
+LBTEST = Lab Tests 
+Author: Subject: Date:1/14/2016 6:03:26 PM 
+LBSTAT = NOT DONE, LBREASND = SAMPLE NOT COLLECTED when LBTESTCD = LBALL 
+Author: Subject:VOID Date:1/14/2016 6:03:29 PM 
+LBDTC 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = ALT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+LBTEST 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = ALB 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = ALP 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = AST 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = BICARB 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = BUN 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = CA 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = CREAT 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = CL 
+Author: Subject:LB Date:2/5/2016 3:04:06 PM 
+LBSPEC = SERUM 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = GLUC 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = MG 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = PHOS 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = K 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = SODIUM 
+Author: Subject:LB Date:1/11/2016 11:31:41 AM 
+LBTEST = Bilirubin 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = BILI 
+Comments from page 34 continued on next page
+Page:34 
+Author: Subject:LB Date:1/11/2016 11:31:41 AM 
+LBTEST = Protein 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = PROT
+Page:35 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LB = Laboratory Test Results 
+Author: Subject: Date:1/14/2016 6:02:45 PM 
+LBNAM 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBCAT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/11/2016 7:56:41 PM 
+LBTEST = Lab Tests 
+Author: Subject: Date:1/11/2016 7:56:39 PM 
+LBSTAT = NOT DONE, LBREASND = SAMPLE NOT COLLECTED when LBTESTCD = LBALL 
+Author: Subject:VOID Date:1/14/2016 6:02:54 PM 
+LBDTC 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = HGB 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+LBTEST 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = PLAT 
+Author: Subject:LB Date:1/11/2016 11:31:41 AM 
+LBTEST = Platelets 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = WBC 
+Author: Subject:LB Date:1/11/2016 11:31:41 AM 
+LBTEST = Leukocytes 
+Author: Subject:LB Date:1/11/2016 11:31:41 AM 
+LBTEST = Neutrophils 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = NEUT
+Page:36 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PR = Procedure 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PRCAT 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+PRSCAT 
+Author: Subject:VOID Date:1/14/2016 6:03:38 PM 
+PRTRT 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PRINDC 
+Author: Subject: Date:1/14/2016 6:03:41 PM 
+PRINDDSC in SUPPPR when IDVAR = PRSEQ 
+Author: Subject:VOID Date:1/14/2016 6:03:43 PM 
+Linked to related MH record via RELREC 
+Author: Subject: Date:1/14/2016 6:03:45 PM 
+PRPLNDTC in SUPPPR when IDVAR = PRSEQ
+Page:37 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+EG = ECG Test Results 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/11/2016 6:22:28 PM 
+EGTEST = ECG Tests 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+EGSTAT = NOT DONE when EGTESTCD = EGALL 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+EGMETHOD 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+EGPOS 
+Author: Subject:VOID Date:1/11/2016 2:28:18 PM 
+EGDTC 
+Author: Subject:Text Box Date:1/11/2016 7:57:42 PM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+EGTEST = Interpretation 
+Author: Subject:EG Date:1/11/2016 7:57:44 PM 
+EGORRES when EGTESTCD = INTP 
+Author: Subject:EG Date:1/11/2016 7:58:33 PM 
+EGORRES when EGTESTCD = INTP and EGSTRESC = ABNORMAL 
+Author: Subject:EG Date:1/11/2016 11:31:41 AM 
+EGCLSIG in SUPPEG when IDVAR = EGSEQ 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+Linked to related MH record via RELREC 
+Author: Subject:CM Date:1/11/2016 11:31:41 AM 
+Linked to related AE record via RELREC
+Page:38 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+EG = ECG Test Results 
+Author: Subject:EG Date:1/13/2016 11:32:54 AM 
+EGTEST 
+Author: Subject:EG Date:1/13/2016 11:35:13 AM 
+EGTESTCD = QTCF 
+Author: Subject:EG Date:1/13/2016 11:32:59 AM 
+EGTESTCD = HRMEAN 
+Author: Subject:EG Date:1/13/2016 11:33:36 AM 
+EGTESTCD = PRMEAN 
+Author: Subject:EG Date:1/13/2016 11:34:21 AM 
+EGTESTCD = QRSDUR 
+Author: Subject:EG Date:1/13/2016 11:33:57 AM 
+EGTESTCD = QTMEAN 
+Author: Subject:EG Date:1/13/2016 11:34:45 AM 
+EGTESTCD = RRMEAN 
+Author: Subject:EG Date:1/13/2016 11:33:10 AM 
+EGORRES 
+Author: Subject:EG Date:1/13/2016 11:33:20 AM 
+EGORRESU
+Page:39 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:24 AM 
+For annotations, refer to CRF page 38
+Page:40 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+DS = Disposition 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+DSCAT 
+Author: Subject:VOID Date:1/14/2016 6:03:59 PM 
+DSSCAT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+DSTERM 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:2/2/2016 12:17:00 PM 
+DSSTDTC 
+Author: Subject:VOID Date:2/2/2016 12:19:37 PM 
+DSTERM 
+Author: Subject:Text Box Date:1/11/2016 1:44:19 PM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/14/2016 6:04:16 PM 
+Linked to Related AE Record via RELREC 
+Author: Subject:VOID Date:1/14/2016 6:04:13 PM 
+DSTERM when DSDECOD = OTHER 
+Author: Subject:VOID Date:1/11/2016 2:29:03 PM 
+DSPREDTC in SUPPDS when IDVAR = DSSEQ 
+Author: Subject:Text Box Date:1/12/2016 5:55:08 PM 
+[NOT SUBMITTED]
+Page:41 
+Author: Subject: Date:1/14/2016 6:25:20 PM 
+DS = Disposition 
+Author: Subject:VOID Date:3/7/2016 9:33:34 AM 
+For Annotations, refer to CRF page 40 
+Author: Subject:VOID Date:1/14/2016 6:30:58 PM 
+DSSCAT = TREATMENT
+Page:42 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LB = Laboratory Test Results 
+Author: Subject:Text Box Date:1/12/2016 3:55:24 PM 
+LBTEST = Choriogonadotropin Beta 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+LBSTAT = NOT DONE, LBREASND = SAMPLE NOT COLLECTED when LBTESTCD = HCG 
+Author: Subject:Text Box Date:1/12/2016 6:09:32 PM 
+LBCAT = CHEMISTRY 
+Author: Subject:Text Box Date:1/12/2016 6:09:19 PM 
+LBSPEC = SERUM 
+Author: Subject:Text Box Date:1/12/2016 6:09:28 PM 
+LBCAT = URINALYSIS 
+Author: Subject:Text Box Date:1/12/2016 6:09:17 PM 
+LBSPEC = URINE 
+Author: Subject:Text Box Date:1/11/2016 2:29:22 PM 
+LBDTC 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+LBORRES when LBTESTCD = HCG
+Page:43 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CE = Clinical Events 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CMCAT, CECAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+CMINDC 
+Author: Subject: Date:1/11/2016 2:29:27 PM 
+CMGRPID, CEGRPID 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CMSCAT 
+Author: Subject: Date:4/5/2016 1:19:56 PM 
+NOTE: If Type of Therapy = Other, then 'If Other, specify' is submitted in CMSCAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/11/2016 4:09:54 PM 
+CMSCAT 
+Author: Subject: Date:1/11/2016 4:09:55 PM 
+CMSTDTC 
+Author: Subject: Date:1/11/2016 4:09:59 PM 
+CMENDTC 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+CMBSTRSP in SUPPCM when IDVAR = CMGRPID 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+CETERM 
+Author: Subject:VOID Date:4/5/2016 1:22:56 PM 
+Link between related CM and CE records via RELREC 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CEOCCUR 
+Author: Subject: Date:1/12/2016 11:23:07 AM 
+CEPRESP = Y 
+Author: Subject:Text Box Date:1/11/2016 2:29:34 PM 
+CESTDTC 
+Author: Subject: Date:1/11/2016 2:29:35 PM 
+CMTRT 
+Author: Subject: Date:3/21/2014 9:45:30 PM 
+CMDOSCUM in SUPPCM when IDVAR = CMSEQ 
+Author: Subject: Date:4/5/2016 1:21:59 PM 
+CMDOSE 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CMDOSU
+Page:44 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+CMDOSFRQ 
+Author: Subject: Date:3/21/2014 9:45:51 PM 
+CMNUMCYC in SUPPCM when IDVAR = CMSEQ 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+CMROUTE 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:45 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PR = Procedure 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PRCAT 
+Author: Subject: Date:1/20/2016 1:13:24 PM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/20/2016 1:13:26 PM 
+PRINDC 
+Author: Subject:VOID Date:1/11/2016 2:29:49 PM 
+PRTRT 
+Author: Subject: Date:1/11/2016 2:29:51 PM 
+PRSTDTC
+Page:46 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PR = Procedure 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PRCAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+PROCCUR when PRTRT = RADIOTHERAPY 
+Author: Subject:PR Date:1/11/2016 11:31:41 AM 
+PRPRESP=Y 
+Author: Subject:Text Box Date:1/14/2016 6:05:50 PM 
+PRTRT 
+Author: Subject: Date:4/8/2016 12:20:52 PM 
+NOTE: For the Anatomical Location value without laterality such as 'Head', submit 'HEAD' in PRLOC ; For 
+the value with specified laterality such as 'Left Thorax', submit the location part 'THORAX' to PRLOC, 
+corresponding laterality 'LEFT' to SUPPPR using QNAM = PRLAT with IDVAR = PRSEQ of corresponding 
+PRLOC 
+Author: Subject: Date:4/8/2016 12:20:55 PM 
+PRLOC 
+Author: Subject: Date:5/12/2016 10:32:45 AM 
+PRLAT in SUPPPR when IDVAR = PRSEQ 
+Author: Subject: Date:5/12/2016 10:32:52 AM 
+PRLOCO in SUPPPR when IDVAR = PRSEQ 
+Author: Subject: Date:1/14/2016 6:05:55 PM 
+PRSCAT 
+Author: Subject: Date:1/14/2016 6:06:01 PM 
+PRINDC 
+Author: Subject:Text Box Date:5/12/2016 10:36:46 AM 
+PRDOSCUM in SUPPPR when IDVAR = PRSEQ 
+Author: Subject:Text Box Date:5/12/2016 10:36:50 AM 
+PRDSCUMU in SUPPPR when IDVAR = PRSEQ 
+Author: Subject: Date:1/14/2016 6:06:04 PM 
+PRSTDTC 
+Author: Subject: Date:1/14/2016 6:06:06 PM 
+PRENDTC
+Page:47 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PR = Procedure 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+PRBSTRSP in SUPPPR when IDVAR = PRSEQ
+Page:48 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PR = Procedure 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PRCAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/14/2016 6:06:14 PM 
+PRTRT 
+Author: Subject: Date:1/14/2016 6:06:19 PM 
+PRSTDTC
+Page:49 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PR = Procedure 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+PRCAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 2:30:15 PM 
+PRTRT 
+Author: Subject: Date:1/11/2016 2:30:17 PM 
+PRSTDTC
+Page:50 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CM = Concomitant Medications 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CMCAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/11/2016 2:30:20 PM 
+CMTRT 
+Author: Subject: Date:1/11/2016 2:30:23 PM 
+CMSTDTC
+Page:51 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+SS = Subject Status 
+Author: Subject:SS Date:1/11/2016 11:31:41 AM 
+SSORRES when SSTESTCD = SURVSTAT 
+Author: Subject:SS Date:1/11/2016 11:31:41 AM 
+SSTEST 
+Author: Subject:SS Date:1/11/2016 2:30:29 PM 
+SSDTC
+Page:52 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+QS = Questionnaire 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+QSCAT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+QSEVAL 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+QSTEST = ECOG1-Performance Status 
+Author: Subject:VOID Date:2/1/2016 5:37:01 PM 
+QSSTRESC, QSSTRESN when QSTESTCD = ECOG101 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+NOTE: QSORRES will be the translation of numeric code
+Page:53 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+LB = Laboratory Test Results 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject: Date:1/11/2016 7:56:58 PM 
+LBTEST = Lab Tests 
+Author: Subject: Date:1/11/2016 7:56:56 PM 
+LBSTAT = NOT DONE, LBREASND = SAMPLE NOT COLLECTED when LBTESTCD = LBALL 
+Author: Subject:VOID Date:1/14/2016 6:06:53 PM 
+LBDTC 
+Author: Subject: Date:5/12/2016 10:38:40 AM 
+HBVVLDQR in SUPPLB when IDVAR = LBSEQ 
+Author: Subject: Date:1/13/2016 11:45:44 AM 
+LBTEST 
+Author: Subject: Date:1/13/2016 11:43:13 AM 
+LBTESTCD = HIVAB 
+Author: Subject:Text Box Date:1/13/2016 11:43:16 AM 
+LBCAT = IMMUNOLOGY 
+Author: Subject: Date:1/13/2016 11:43:31 AM 
+LBTESTCD = HCVVLD 
+Author: Subject:Text Box Date:1/13/2016 11:43:36 AM 
+LBCAT = CHEMISTRY 
+Author: Subject: Date:1/13/2016 11:44:14 AM 
+LBTESTCD = HBSAB 
+Author: Subject:Text Box Date:1/13/2016 11:44:34 AM 
+LBCAT = IMMUNOLOGY 
+Author: Subject: Date:1/13/2016 11:44:07 AM 
+LBTESTCD = HBSAG 
+Author: Subject:Text Box Date:1/13/2016 11:44:07 AM 
+LBCAT = IMMUNOLOGY 
+Author: Subject:Text Box Date:1/13/2016 11:44:07 AM 
+LBCAT = IMMUNOLOGY 
+Author: Subject:Text Box Date:1/13/2016 11:44:07 AM 
+LBSPEC = SERUM 
+Author: Subject: Date:1/13/2016 11:44:07 AM 
+LBTESTCD = HBEAB 
+Author: Subject:Text Box Date:1/13/2016 11:44:07 AM 
+LBCAT = IMMUNOLOGY 
+Author: Subject:Text Box Date:1/13/2016 11:44:07 AM 
+LBSPEC = SERUM 
+Author: Subject: Date:1/13/2016 11:44:07 AM 
+LBTESTCD = HBEAG 
+Author: Subject:Text Box Date:1/13/2016 11:44:08 AM 
+LBCAT = IMMUNOLOGY 
+Author: Subject:Text Box Date:1/13/2016 11:44:08 AM 
+LBSPEC = SERUM 
+Author: Subject: Date:1/13/2016 11:44:08 AM 
+LBTESTCD = HBCAB 
+Author: Subject:Text Box Date:1/13/2016 11:44:08 AM 
+LBCAT = CHEMISTRY 
+Comments from page 53 continued on next page
+Page:53 
+Author: Subject:Text Box Date:1/13/2016 11:44:08 AM 
+LBMETHOD = ASSAY YIELDING QUALITATIVE RESULTS 
+Author: Subject: Date:1/13/2016 11:44:08 AM 
+LBTESTCD = HBVVLD 
+Author: Subject: Date:1/13/2016 11:43:46 AM 
+LBORRES
+Page:54 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:44 AM 
+For annotations, refer to CRF page 53
+Page:55 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:52 AM 
+For annotations, refer to CRF page 53
+Page:56 
+Author: Subject:SUPPSU Date:3/7/2016 9:33:55 AM 
+For annotations, refer to CRF page 53
+Page:57 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:58 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+RS = Disease Response 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+RSCAT 
+Author: Subject:VOID Date:1/11/2016 2:31:10 PM 
+VISIT 
+Author: Subject:VOID Date:1/11/2016 2:31:11 PM 
+RSDTC 
+Author: Subject: Date:1/12/2016 4:33:02 PM 
+RSTEST = Target Response 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+RSORRES when RSTESTCD = TRGRESP 
+Author: Subject:VOID Date:3/3/2014 7:15:51 AM 
+RSRSNAE in SUPPRS when IDVAR = RSSEQ 
+Author: Subject: Date:1/12/2016 4:46:07 PM 
+RSTEST = Non-target Response 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+RSORRES when RSTESTCD = NTRGRESP 
+Author: Subject:VOID Date:3/3/2014 7:20:48 AM 
+RSRSNAE in SUPPRS when IDVAR = RSSEQ 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+RSORRES when RSTESTCD = NWLES 
+Author: Subject: Date:1/12/2016 4:46:28 PM 
+RSTEST 
+Author: Subject: Date:1/12/2016 4:46:41 PM 
+RSTEST 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+RSORRES when RSTESTCD = OVRLRESP
+Page:59 
+Author: Subject: Date:2/21/2016 4:31:56 PM 
+OE = Ophthalmology 
+Author: Subject:VOID Date:1/20/2016 2:05:53 PM 
+OECAT 
+Author: Subject: Date:1/20/2016 2:06:16 PM 
+OELAT 
+Author: Subject: Date:1/20/2016 2:06:11 PM 
+OELOC = EYE 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/20/2016 4:46:42 PM 
+OESTAT = NOT DONE when OETESTCD = INTP 
+Author: Subject:Text Box Date:1/20/2016 4:47:12 PM 
+OEREASND = NOT APPLICABLE 
+Author: Subject:Text Box Date:1/20/2016 4:49:19 PM 
+OEREASND = UNKNOWN 
+Author: Subject:VOID Date:1/20/2016 2:07:56 PM 
+OEDTC 
+Author: Subject:VOID Date:1/20/2016 2:08:37 PM 
+OEORRES when OETESTCD = INTP 
+Author: Subject:VOID Date:1/20/2016 2:08:34 PM 
+OECLSIG in SUPPOE when IDVAR = OESEQ 
+Author: Subject:VOID Date:1/28/2016 5:56:09 PM 
+Linked to related MH record via RELREC 
+Author: Subject:VOID Date:1/28/2016 5:56:19 PM 
+Linked to related AE record via RELREC
+Page:60 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:02 AM 
+For annotations, refer to CRF page 59
+Page:61 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PC = Pharmacokinetic Concentrations 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+XT = Intake Log 
+Author: Subject:Text Box Date:8/10/2016 9:09:48 AM 
+PCCAT = ANALYTE 
+Author: Subject:Text Box Date:8/10/2016 9:09:46 AM 
+PCSCAT = PHARMACOKINETICS SAMPLE COLLECTION 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+XTTRT = JNJ-42756493 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+XTSTAT = NOT DONE 
+Author: Subject:VOID Date:1/11/2016 2:31:27 PM 
+XTSTDTC 
+Author: Subject:XT Date:1/11/2016 11:31:41 AM 
+XTTRTNFD in SUPPXT when IDVAR = XTSEQ 
+Author: Subject:XT Date:1/11/2016 11:31:41 AM 
+XTVOMIT in SUPPXT when IDVAR = XTSEQ 
+Author: Subject:VOID Date:1/11/2016 2:31:32 PM 
+PCDTC 
+Author: Subject:VOID Date:1/14/2016 6:07:28 PM 
+PCTPT 
+Author: Subject:Text Box Date:1/11/2016 6:24:49 PM 
+PCTEST = Pharmacokinetics Tests 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:5/12/2016 10:39:17 AM 
+PCSTAT = NOT DONE, PCREASND = SAMPLE NOT COLLECTED when PCTESTCD = PCALL
+Page:62 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:08 AM 
+For annotations, refer to CRF page 61
+Page:63 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:12 AM 
+For annotations, refer to CRF page 61
+Page:64 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+PC = Pharmacokinetic Concentrations 
+Author: Subject:Text Box Date:8/10/2016 9:10:18 AM 
+PCCAT = ANALYTE 
+Author: Subject:Text Box Date:8/10/2016 9:10:06 AM 
+PCSCAT = PHARMACOKINETICS SAMPLE COLLECTION 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+PCTPT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 6:25:11 PM 
+PCTEST = Pharmacokinetics Tests 
+Author: Subject:Text Box Date:1/11/2016 6:25:08 PM 
+PCSTAT = NOT DONE, PCREASND = SAMPLE NOT COLLECTED when PCTESTCD = PCALL
+Page:65 
+Author: Subject:SUPPSU Date:5/12/2016 10:39:29 AM 
+For annotations, refer to CRF page 61
+Page:66 
+Author: Subject: Date:2/21/2016 4:32:24 PM 
+OE = Ophthalmology 
+Author: Subject:VOID Date:1/20/2016 2:16:09 PM 
+OECAT 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/20/2016 4:51:09 PM 
+OETEST = Ophthalmological Examination 
+Author: Subject:Text Box Date:1/20/2016 4:50:52 PM 
+OESTAT = NOT DONE when OETESTCD = OEALL 
+Author: Subject:Text Box Date:5/12/2016 10:39:39 AM 
+OEREASND = NOT APPLICABLE 
+Author: Subject:Text Box Date:5/12/2016 10:39:36 AM 
+OEREASND = UNKNOWN 
+Author: Subject:Text Box Date:1/20/2016 4:52:18 PM 
+OEREASND when OETESTCD = OEALL 
+Author: Subject:VOID Date:1/20/2016 2:19:24 PM 
+OEDTC 
+Author: Subject:VOID Date:1/20/2016 2:19:32 PM 
+OELAT 
+Author: Subject:VOID Date:1/20/2016 2:19:27 PM 
+OELOC = EYE 
+Author: Subject:VOID Date:1/20/2016 2:20:02 PM 
+OETEST = Interpretation when OETESTCD = INTP 
+Author: Subject:VOID Date:1/20/2016 2:22:16 PM 
+OESCAT 
+Author: Subject:VOID Date:1/20/2016 2:20:35 PM 
+OESTAT = NOT DONE when OETESTCD = INTP 
+Author: Subject:VOID Date:1/20/2016 2:20:52 PM 
+OEORRES when OETESTCD = INTP 
+Author: Subject:VOID Date:1/20/2016 2:21:02 PM 
+OECLSIG in SUPPOE when IDVAR = OESEQ 
+Author: Subject:VOID Date:1/28/2016 5:57:36 PM 
+Linked to related MH record via RELREC 
+Author: Subject:VOID Date:1/28/2016 5:57:49 PM 
+Linked to related AE record via RELREC 
+Author: Subject:Text Box Date:3/7/2016 9:31:41 AM 
+NOTE: When "Reason Not Done" is collected for "Not Applicable", set OEREASND as the concatenation of 
+"NOT APPLICABLE: " and free text in "Reason Not Done", same rule applies to the case when "Reason 
+Not Done" is collected for "Unknown".
+Page:67 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:22 AM 
+For annotations, refer to CRF page 66
+Page:68 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:29 AM 
+For annotations, refer to CRF page 66
+Page:69 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:33 AM 
+For annotations, refer to CRF page 66
+Page:70 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:37 AM 
+For annotations, refer to CRF page 66
+Page:71 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+MO = Morphology Findings 
+Author: Subject:VOID Date:1/20/2016 5:00:09 PM 
+MOMETHOD = OPTICAL COHERENCE TOMOGRAPHY 
+Author: Subject:VOID Date:1/25/2016 1:46:45 PM 
+MOLOC = EYE 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/11/2016 6:27:02 PM 
+MOTEST = Morphology Tests 
+Author: Subject:Text Box Date:1/20/2016 5:00:13 PM 
+MOSTAT = NOT DONE when MOTESTCD = MOALL 
+Author: Subject:Text Box Date:1/20/2016 4:59:24 PM 
+MOREASND = NOT APPLICABLE 
+Author: Subject:Text Box Date:1/20/2016 4:59:33 PM 
+MOREASND = UNKNOWN 
+Author: Subject:Text Box Date:5/12/2016 10:39:59 AM 
+MOREASND when MOTESTCD = MOALL 
+Author: Subject:VOID Date:1/11/2016 2:32:13 PM 
+MODTC 
+Author: Subject:VOID Date:1/12/2016 6:29:43 PM 
+MOLAT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MOTEST = Optical Coherence 
+Author: Subject:VOID Date:1/11/2016 2:32:16 PM 
+MOORRES when MOTESTCD = THICK 
+Author: Subject:VOID Date:1/11/2016 2:32:18 PM 
+MOSTAT when MOTESTCD = THICK 
+Author: Subject:VOID Date:3/7/2016 9:26:29 AM 
+MOORRESU when MOTESTCD = THICK 
+Author: Subject:VOID Date:3/7/2016 9:26:35 AM 
+MOTEST = Interpretation 
+Author: Subject:VOID Date:3/7/2016 9:27:27 AM 
+MOORRES when MOTESTCD = INTP 
+Author: Subject:VOID Date:3/7/2016 9:27:42 AM 
+MOSTAT when MOTESTCD = INTP 
+Author: Subject:VOID Date:3/7/2016 9:28:00 AM 
+MOCLSIG in SUPPMO when IDVAR = MOSEQ 
+Author: Subject:VOID Date:3/7/2016 9:26:47 AM 
+Linked to related MH record via RELREC 
+Author: Subject:VOID Date:3/7/2016 9:26:55 AM 
+Linked to related AE record via RELREC 
+Author: Subject:Text Box Date:3/7/2016 9:31:18 AM 
+NOTE: When "Reason Not Done" is collected for "Not Applicable", set MOREASND as the concatenation of 
+"NOT APPLICABLE: " and free text in "Reason Not Done", same rule applies to the case when "Reason 
+Not Done" is collected for "Unknown".
+Page:72 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:40 AM 
+For annotations, refer to CRF page 71
+Page:73 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+MO = Morphology Findings 
+Author: Subject:VOID Date:1/12/2016 11:39:55 AM 
+MOLOC = HEART 
+Author: Subject:Text Box Date:1/21/2016 12:32:41 PM 
+MOSTAT = NOT DONE when MOTESTCD = MOALL 
+Author: Subject:Text Box Date:1/11/2016 6:27:35 PM 
+MOTEST = Morphology Tests 
+Author: Subject:Text Box Date:1/21/2016 12:31:58 PM 
+[NOT SUBMITTED] 
+Author: Subject:Text Box Date:1/20/2016 5:01:17 PM 
+MOREASND = NOT APPLICABLE 
+Author: Subject:Text Box Date:2/1/2016 7:17:21 PM 
+MOSTAT = NOT DONE when MOTESTCD = MOALL 
+Author: Subject:Text Box Date:1/20/2016 5:01:23 PM 
+MOREASND = UNKNOWN 
+Author: Subject:Text Box Date:1/20/2016 5:01:00 PM 
+MOREASND when MOTESTCD = MOALL 
+Author: Subject:VOID Date:1/14/2016 6:08:19 PM 
+MODTC 
+Author: Subject:VOID Date:1/14/2016 6:08:21 PM 
+MOMETHOD 
+Author: Subject:VOID Date:1/14/2016 9:46:22 AM 
+MOTEST = Left Ventricular Ejection Fraction 
+Author: Subject:VOID Date:1/14/2016 9:46:31 AM 
+MOORRES, MOORRESU when MOTESTCD = LVEF 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MOTEST = Interpretation 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MOORRES when MOTESTCD = INTP 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+MOCLSIG in SUPPMO when IDVAR = MOSEQ 
+Author: Subject:VOID Date:1/28/2016 5:59:21 PM 
+Linked to related MH record via RELREC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+Linked to related AE record via RELREC 
+Author: Subject:Text Box Date:3/7/2016 9:30:49 AM 
+NOTE: When "Reason Not Done" is collected for "Not Applicable", set MOREASND as the concatenation of 
+"NOT APPLICABLE: " and free text in "Reason Not Done", same rule applies to the case when "Reason 
+Not Done" is collected for "Unknown".
+Page:74 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TR = Tumor Results 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TU = Tumor Identification 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRCAT, TUCAT 
+Author: Subject:VOID Date:1/14/2016 6:08:35 PM 
+TUORRES when TUTESTCD = TUMIDENT 
+Author: Subject: Date:1/14/2016 9:41:02 AM 
+TUTEST=Tumor Identification 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRLNKID, TULNKID 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+Link between related TU and TR records via RELREC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRSCAT, TUSCAT
+Page:75 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TU = Tumor Identification 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TULOC
+Page:76 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TR = Tumor Results 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TU = Tumor Identification 
+Author: Subject:VOID Date:1/11/2016 2:32:49 PM 
+TULOCO in SUPPTU when IDVAR = TUSEQ 
+Author: Subject:VOID Date:1/11/2016 2:32:48 PM 
+TUSUBLOC in SUPPTU when IDVAR = TUSEQ 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+VISIT 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRDTC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRMETHOD 
+Author: Subject:TR Date:1/11/2016 11:31:41 AM 
+TRTEST 
+Author: Subject:VOID Date:1/14/2016 6:08:52 PM 
+TRORRES when TRTESTCD = LDIAM 
+Author: Subject:VOID Date:1/14/2016 6:19:05 PM 
+TRORRESU when TRTESTCD = LDIAM 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRORRES = TOO SMALL TO MEASURE when TRTESTCD = LDIAM 
+Author: Subject:TR Date:1/11/2016 11:31:41 AM 
+TRTEST 
+Author: Subject:VOID Date:1/14/2016 6:08:58 PM 
+TRORRES when TRTESTCD = SAXIS 
+Author: Subject:VOID Date:1/14/2016 6:19:24 PM 
+TRORRESU when TRTESTCD = SAXIS 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRORRES = TOO SMALL TO MEASURE when TRTESTCD = SAXIS 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRSTAT = NOT DONE, TRREASND = NOT EVALUABLE when TRTESTCD = TUMRMEAS 
+Author: Subject:TR Date:1/11/2016 11:31:41 AM 
+TRTEST = Tumor Measurement 
+Author: Subject:VOID Date:1/14/2016 6:09:02 PM 
+TRREASNE in SUPPTR when IDVAR = TRSEQ 
+Author: Subject:VOID Date:1/14/2016 6:09:08 PM 
+[NOT SUBMITTED] 
+Author: Subject:TR Date:1/11/2016 11:31:41 AM 
+TRTEST = Tumor Status 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRORRES when TRTESTCD = TUMSTATE 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+NOTE: When too small to measure is ticked, TRORRES will be TOO SMALL TO MEASURE. If no size is 
+specified TRSTRESC and TRSTRESN will have a default value of 5. If a specific size is specified this value 
+will be used to fill up TRSTRESC and TRSTRESN.
+Page:77 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TR = Tumor Results 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CO = Comments 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRMERGID in SUPPTR when IDVAR = TRSEQ 
+Author: Subject:VOID Date:1/14/2016 6:09:13 PM 
+COVAL when IDVAR = TRSEQ
+Page:78 
+Author: Subject:SUPPSU Date:3/7/2016 9:34:45 AM 
+For annotations, refer to CRF page 74
+Page:79 
+Author: Subject:SUPPSU Date:3/7/2016 9:35:01 AM 
+For annotations, refer to CRF page 75
+Page:80 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TR = Tumor Results 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+TU = Tumor Identification 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CO = Comments 
+Author: Subject:SUPPSU Date:3/7/2016 9:35:05 AM 
+For annotations, refer to CRF page 76 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRORRES when TRTESTCD = TUMSTATE 
+Author: Subject:TR Date:1/14/2016 9:43:07 AM 
+TRTEST 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+TRSTAT = NOT DONE, TRREASND = NOT EVALUABLE when TRTESTCD = TUMRMEAS 
+Author: Subject:TR Date:1/11/2016 11:31:41 AM 
+TRTEST = Tumor Measurement 
+Author: Subject:VOID Date:1/11/2016 2:33:26 PM 
+TRREASNE in SUPPTR when IDVAR = TRSEQ 
+Author: Subject:VOID Date:1/14/2016 4:19:16 PM 
+COVAL when IDVAR = TRSEQ 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:81 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:82 
+Author: Subject:SUPPSU Date:3/7/2016 9:35:11 AM 
+For annotations, refer to CRF page 74
+Page:83 
+Author: Subject:SUPPSU Date:3/7/2016 9:35:15 AM 
+For annotations, refer to CRF page 75
+Page:84 
+Author: Subject: Date:1/13/2016 11:21:59 AM 
+TR = Tumor Results 
+Author: Subject: Date:1/13/2016 11:22:33 AM 
+TU = Tumor Identification 
+Author: Subject:SUPPSU Date:3/7/2016 9:35:19 AM 
+For annotations, refer to CRF page 76 
+Author: Subject:Text Box Date:1/13/2016 11:27:43 AM 
+[NOT SUBMITTED] 
+Author: Subject:TR Date:1/14/2016 9:43:22 AM 
+TRTEST 
+Author: Subject:VOID Date:1/13/2016 11:28:02 AM 
+TRORRES when TRTESTCD = TUMSTATE
+Page:85 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CO = Comments 
+Author: Subject:VOID Date:1/14/2016 4:21:19 PM 
+COVAL when IDVAR = TRSEQ
+Page:86 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+CO = Comments 
+Author: Subject:VOID Date:1/11/2016 2:33:48 PM 
+COREF 
+Author: Subject:VOID Date:1/11/2016 2:33:46 PM 
+COREF 
+Author: Subject:VOID Date:1/11/2016 2:33:49 PM 
+COVAL 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+NOTE: COREF will be the result of concatenating the two COREF fields separated by ' -'
+Page:87 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+DD = Death Diagnosis 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+DM = Demographics 
+Author: Subject:VOID Date:1/11/2016 2:33:53 PM 
+DDDTC 
+Author: Subject:VOID Date:1/11/2016 2:33:58 PM 
+DTHDTC 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+DDORRES when DDTESTCD = PRCDTH 
+Author: Subject:DS Date:1/11/2016 11:31:41 AM 
+DDTEST = Primary Cause of Death 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+Linked to related AE record via RELREC 
+Author: Subject:VOID Date:2/2/2016 3:52:16 PM 
+DDORRES when DDTESTCD = PRCDTH and DDSTRESC = OTHER 
+Author: Subject:DS Date:1/11/2016 11:31:41 AM 
+DDTEST = Autopsy Performed 
+Author: Subject:DS Date:1/11/2016 11:31:41 AM 
+DDORRES when DDTESTCD = AUTOPSYN
+Page:88 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+DS = Disposition 
+Author: Subject: Date:2/2/2016 12:13:41 PM 
+DSCAT = PROTOCOL MILESTONE 
+Author: Subject:DS Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:DS Date:3/21/2014 9:17:32 PM 
+DSTERM = INFORMED RE-CONSENT OBTAINED 
+Author: Subject:DS Date:3/21/2014 9:17:23 PM 
+DSSTDTC 
+Author: Subject:SUPPDS Date:1/14/2016 6:10:13 PM 
+SPRTDTC in SUPPDS when IDVAR = DSSEQ
+Page:89 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+XZ = Sample Handling 
+Author: Subject:VOID Date:1/11/2016 2:41:20 PM 
+XZCAT = BLOOD SAMPLE FOR MOLECULAR ELIGIBILITY 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+XZORRES when XZTESTCD = SAMPOBT 
+Author: Subject:Text Box Date:1/12/2016 6:14:52 PM 
+XZTEST = Sample Obtained 
+Author: Subject:VOID Date:1/14/2016 6:10:20 PM 
+XZREASNC in SUPPXZ when IDVAR = XZSEQ
+Page:90 
+Author: Subject: Date:1/13/2016 11:48:44 AM 
+XZ = Sample Handling 
+Author: Subject:SUPPSU Date:3/7/2016 9:35:28 AM 
+For annotations, refer to CRF page 89 
+Author: Subject:VOID Date:1/13/2016 11:28:55 AM 
+XZCAT = BIOMARKER BLOOD SAMPLE 
+Author: Subject:VOID Date:1/13/2016 11:29:00 AM 
+XZTPT
+Page:91 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+XZ = Sample Handling 
+Author: Subject:SUPPSU Date:3/7/2016 9:39:48 AM 
+For annotations, refer to CRF page 89 
+Author: Subject:VOID Date:1/13/2016 11:29:39 AM 
+XZCAT = BIOMARKER BLOOD SAMPLE
+Page:92 
+Author: Subject: Date:1/12/2016 6:39:02 PM 
+XZ = Sample Handling 
+Author: Subject:VOID Date:1/12/2016 3:30:49 PM 
+XZCAT = TUMOR TISSUE COLLECTION 
+Author: Subject: Date:1/12/2016 11:51:01 AM 
+XZORRES when XZTESTCD = TUMBIOP 
+Author: Subject: Date:1/12/2016 11:51:23 AM 
+XZTEST = Subject Consent to Tumor Biopsy 
+Author: Subject:Text Box Date:1/11/2016 2:34:42 PM 
+XZORRES when XZTESTCD = SAMPOBT 
+Author: Subject:VOID Date:1/11/2016 2:34:39 PM 
+XZREASNC in SUPPXZ when IDVAR = XZSEQ
+Page:93 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:94 
+Author: Subject:Text Box Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED]
+Page:95 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+BE = Biospecimen Events 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+BETERM = FUTURE RESEARCH CONSENT WITHDRAWN 
+Author: Subject:VOID Date:1/14/2016 6:46:00 PM 
+BECAT 
+Author: Subject:VOID Date:1/11/2016 2:34:51 PM 
+BESTDTC
+Page:96 
+Author: Subject: Date:1/11/2016 11:31:41 AM 
+XZ = Sample Handling 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+XZCAT 
+Author: Subject:VOID Date:1/12/2016 6:16:38 PM 
+XZTEST = Limit on Length of Storage of Samples 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+XZORRES when XZTESTCD = STORLIMT 
+Author: Subject:VOID Date:1/12/2016 6:17:30 PM 
+XZTEST = Length of Storage of Samples 
+Author: Subject:VOID Date:1/14/2016 6:10:55 PM 
+XZORRES, XZORRESU when XZTESTCD = STORLEN 
+Author: Subject:VOID Date:1/11/2016 11:31:41 AM 
+[NOT SUBMITTED] 
+Author: Subject:VOID Date:1/12/2016 6:17:51 PM 
+XZORRES, XZORRESU when XZTESTCD = STORLEN

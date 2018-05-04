@@ -1,0 +1,273 @@
+dm "endsas";
+
+
+PROC SQL;
+  CREATE TABLE max(drop=cnt) as
+  SELECT *
+  FROM
+  (
+  select *
+  from
+  (select *,count(*) as cnt
+  from adam.adTTE
+  group by usubjid
+  )
+  having cnt=max(cnt)
+  )
+  having usubjid=min(usubjid)
+  order by paramn
+  ;
+
+  quit;
+
+
+%AHGhtml(max);
+
+
+%let studypath=
+\\mango\sddext.grp\sddext029\lillyce\prd\ly275585\f3z_cr_ioqi\final;  
+
+\\mango\sddext.grp\SDDEXT029\lillyce\prd\ly275585\f3z_cr_ioqi\final\replica_programs_nonsdd 
+\\gh3nas01\gh3nas_sales.grp\LCDDMAC\STATS\SA
+
+\\mango\sddext.grp\SDDEXT056\qa\ly2835219\i3y_mc_jpbm\dmc_blinded4\programs_stat 
+
+
+\\mango\sddext.grp\SDDEXT056\qa\ly2835219\i3y_mc_jpbm\dmc_blinded5\programs_stat 
+
+M:\SDDEXT056\qa\ly2835219\i3y_mc_jpbm\dmc_blinded4\programs_stat 
+
+
+
+\\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\dmc_blinded5\programs_stat\
+
+\\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\intrm1\programs_stat\
+
+M:\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\intrm1\programs_stat\
+
+
+
+m:\SDDEXT034\prd\ly2835219\i3y_mc_jpbl\dmc_blinded5\programs_stat\
+
+m:\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\dmc_blinded5\programs_stat\
+
+
+
+
+c:\
+\\mango\awe.grp\sddext112
+
+
+\\mango\awe.grp\SDDEXT112\qa\ly2835219\i3y_mc_jpbo\safety_review1\programs_stat\sdtm
+
+\\mango\awe.grp\SDDEXT112\qa\ly2835219\i3y_mc_jpbo\arsep2015
+
+ 
+x "start powershell.exe";
+
+option noxwait;
+x "start powershell.exe";
+
+new-alias grep select-string
+
+cat dm_l.sas | % { $_ -replace 'ded3','ded4' }|% { $_ -replace 'ded2','ded4' }|% { $_ -replace 'ded1','ded4' } >dm_1.sas
+
+
+foreach ($line in ls *.sas -name) { cp $line \\mango\sddext.grp\SDDEXT034\trash\tmp ;cat \\mango\sddext.grp\SDDEXT034\trash\tmp | % { $_ -replace 'blinded3','blinded5' }|% { $_ -replace 'blinded2','blinded5' }|% { $_ -replace 'blinded4','blinded5' } >$line}
+
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 100] |select-string versi |% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 100] 
+|select-string version |% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 20] |% { $_ -replace '.*\\f11\\fs16','' } |more }
+
+foreach ($myfile in ls *.lst -name) { echo '@@@@@@' $myfile; cat $myfile |select-string 'Comparison of'   }
+
+foreach ($myfile in ls *.lst -name) { echo '@@@@@@' $myfile; cat $myfile |(Get-Content $myfile)[0 .. 30]  }
+
+foreach ($myfile in ls *.lst -name) { echo '@@@@@@' $myfile; cat $myfile |(Get-Content $myfile)[0 .. 30]  }
+
+select-string '(erro)|(warning)|(equal)' *lst
+
+cat *lst |more
+
+cd ..\..\.. 
+select-string equa *lst
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 40] |% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 48] |% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 48] |select-string meddra|% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 48] |select-string ctcae|% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 48] |select-string ctcae|% { $_ -replace '.*\\f11\\fs16','' }  }
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 55] |% { $_ -replace '.*\\f11\\fs16','' }  |% { $_ -replace '\\\\','\' } |more}
+
+foreach ($myfile in ls c_*.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 200] |% { $_ -replace '.*\\f11\\fs16','' }  |more}
+
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 58]|SELECT-STRING 'MEDDRA\s*vers'|% { $_ -replace '.*\\f11\\fs16','' }  |more}
+
+
+ls *.sas -name | % { $_ -replace '.sas','' } 
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[25 .. 55] |SELECT-STRING version |% { $_ -replace '.*\\f11\\fs16','' }  |more}
+foreach ($myfile in ls *.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 25] |SELECT-STRING 'n=' |% { $_ -replace '.*\\f11\\fs16','' }  |more}
+
+
+
+
+
+foreach ($myfile in ls c_*.rtf -name) { echo '@@@@@@' $myfile ;(Get-Content $myfile)[0 .. 100]|select-string '\\f1\\b'
+|% { $_ -replace '.*\\f1\\b','' }
+|% { $_ -replace '','' }
+|more}
+
+\par \pard\plain \b\f11\fs16
+
+
+ ls c_* -name | % { $_ -replace ".sas","" }  
+
+
+qc_lsaesf111.sas
+qc_lsaesf112.sas
+qc_lsaesf113.sas
+qc_lsaesf114.sas
+
+qc_smaesf111.sas 
+qc_smaesf121.sas 
+qc_smaesf131.sas 
+qc_smaesf141.sas 
+
+qc_smaesf151.sas 
+
+%ioqiqc(smaesf151kr);
+%ioqiqc(smaesf151tr);
+%ioqiqc(smaesf151jp);
+%ioqiqc(smaesf151cn);
+
+
+libname xls excel "H:\TFL Specs DMC4Nov2015.XLSX";
+/*"https://lillynetcollaboration.global.lilly.com/sites/GCDMLibraryManagementTeam/CDA/LY2835219/I3YMCJPBL/TFL%20Specs%20DMC4Nov2015.xlsm" ACCESS=READONLY;*/
+
+data xls;
+set sashelp.vtable;
+where libname = 'XLS'AND INDEX(memname,'$');
+sheet=compress(memname,'$');
+run;
+
+/*%AHGvarlist(xls,Into=xls,dlm=%str(@),global=1);*/
+
+%AHGdistinctValue(xls,sheet,into=xls,dlm=@);
+
+%macro dosomething;
+%local i;
+%do i=1 %to %AHGcount(&xls,dlm=@);
+%put  %scan(&xls,&i,@);
+PROC IMPORT OUT= %scan(&xls,&i,@); 
+            DATAFILE= "H:\TFL Specs DMC4Nov2015.XLSX"
+            DBMS=EXCEL REPLACE;
+     SHEET= %scan(&xls,&i,@); 
+RUN;
+%end;
+
+%mend;
+%doSomething
+
+
+
+/**/
+/*https://lillynetcollaboration.global.lilly.com/sites/GCDMLibraryManagementTeam/CDA/LY2835219/I3YMCJPBL*/
+
+%AHGkill;
+%AHGclearlog;
+option ls= 255;
+%AHGps(%str( select-string '(erro)|(warning)' *lst),%str(&__snapshot.programs_stat\adam\system_files));
+%AHGps(%str( select-string '(erro)|(warning)' *lst),%str(&__snapshot.programs_stat\sdtm\system_files));
+%AHGps(%str( select-string '(erro)|(warning)' *lst),%str(&__snapshot.programs_stat\tfl\system_files));
+
+%AHGps(%str( select-string '(erro)|(warning)|(equal)' *lst),%str(&__snapshot.replica_programs\adam\system_files));
+%AHGps(%str( select-string '(erro)|(warning)|(equal)' *lst),%str(&__snapshot.replica_programs\sdtm\system_files));
+%AHGps(%str( select-string '(erro)|(warning)|(equal)' *lst),%str(&__snapshot.replica_programs\tfl\system_files));
+
+o_ds_death_by_reason_4_p40723_t41834
+o_dm_summary_p40723_t41787
+o_ae_pt_2_p40723_t41749
+o_ae_rel_pt_2_p40723_t41750
+c_ae_pt_soc_2_p40723_t42621
+c_dm_l_p40723_t41182
+c_lb_figure_boxwhisker_4_p40723_t41814
+c_vs_figure_boxwhisker_4_p40723_t42584
+
+smex
+smvs
+smptdisp
+smdoseadj
+tfl_ae_l_dia_ae_bypt
+tfl_ae_l_dia_ae_v1
+tfl_cm_l_all_meds_v1
+f_lab_hep_ae
+l_lab_hep_ae
+teae_diarrhoea
+teae_hepatic
+creat_sum
+
+
+
+%chn_ut_highlight(%str(N=),type=rtf);
+
+
+%macro AHGtempdir;                         
+%local theuser;
+%let theuser= %sysfunc(getoption(sasuser));          
+/*%scan( &theuser,1,\/)%AHGdelimit%scan( &theuser,2,\/)%AHGdelimit%scan( &theuser,3,\/)*/
+%sysfunc(prxchange(s/(.*)\\[^\\]+\\[^\\]+/\1/,1,&theuser))\temp
+%mend;
+
+proc sql;
+  create table more as
+  select *
+  from adexsum
+  except 
+  select *
+  from new
+  ;
+  quit;
+ 
+$pshost = get-host
+$pswindow = $pshost.ui.rawui
+
+$newsize = $pswindow.buffersize
+$newsize.height = 160
+$newsize.width = 120
+$pswindow.buffersize = $newsize
+
+$newsize = $pswindow.windowsize
+$newsize.height = 50
+$newsize.width = 120
+$pswindow.windowsize = $newsize
+
+
+PROC IMPORT OUT=taffy 
+DATAFILE= "\\mango\sddext.grp\SDDEXT034\qa\ly2835219\i3y_mc_jpbl\intrm1\outputname_TFL_programming_tracker .xlsx"
+            DBMS=excel REPLACE;
+     SHEET="tracker";
+     GETNAMES=yes;
+RUN;
+%let myfile=%AHGtempdir%str(\)%AHGrdm.txt;
+data taffynew;
+  set taffy(obs=5);
+  file "&myfile";
+  where upcase(programmer)='HUI' AND validator='NA';
+  format cmd $1000.;
+  id=left(put(_n_,best.));
+  cmd="foreach ($line in echo "|| trim(PROGRAM_NAME)|| ".sas) { cp $line \\mango\sddext.grp\SDDEXT034\trash\tmp"||id||" ;cat \\mango\sddext.grp\SDDEXT034\trash\tmp"||id||" | % { $_ -replace ',\s*tfloutname=[^,]+,',',tflOutName="
+  ||trim(file_name)||",' } >$line;};"||byte(13);
+  put cmd;
+run;
+
+%AHGopenfile(&myfile);
+

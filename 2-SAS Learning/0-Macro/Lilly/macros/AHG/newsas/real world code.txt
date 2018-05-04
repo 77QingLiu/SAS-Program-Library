@@ -1,0 +1,24 @@
+the real world code
+
+1. search for current folder.
+%macro setexecpath;
+   %let execpath=%sysfunc(GetOption(SYSIN));
+   %if %length(&execpath)=0
+      %then %let execpath=%sysget(SAS_EXECFILEPATH);
+%let currentname=%qscan(%bquote(&execpath),-1,/\);
+%let currentpath=%qsysfunc(tranwrd(%bquote(&execpath),&currentname,%str()));
+x "cd &currentpath";
+%let pgmname=%qscan(&currentname,1,%str(.));
+
+%mend setexecpath;
+
+%setexecpath;               
+
+2. remove all label and format
+
+proc datasets lib=work memtype=data;
+   modify class;
+
+     attrib _all_ label=' ';
+     attrib _all_ format=;
+run;

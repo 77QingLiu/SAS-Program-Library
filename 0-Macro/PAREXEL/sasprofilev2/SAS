@@ -1,0 +1,17 @@
+!!
+!!  Resource file written by Reshelper 3.0
+!!
+!!  Monday, Jul 10, 2006  11:47:46
+!!  X Server Vendor: "Hummingbird Ltd."
+!!
+!!  These definitions were processed by Reshelper:
+
+SAS.keyboardTranslations: #override \
+   None<Key>osfEndLine: sas-move-end() \n\
+   None<Key>osfBeginLine: sas-move-begin() \n\
+   Shift<Key>F12: sas-next-word() \n\
+   Shift<Key>F11: sas-prev-word() \n\
+   None<Key>Tab: sas-insert-char("    ") \n\
+   Shift<Key>Tab: sas-delete-begin() \n\
+   Ctrl<Key>x: sas-do-command(cut)
+

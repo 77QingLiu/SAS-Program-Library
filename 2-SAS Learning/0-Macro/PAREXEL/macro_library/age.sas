@@ -1,0 +1,155 @@
+%MACRO AGE (VDATE=,DOB=,AGE=,vday=vday,vmonth=vmonth,vyear=vyear,dday=dday,
+dmonth=dmonth,dyear=dyear);
+
+   %******************************************************************************;
+   %*                          PAREXEL INTERNATIONAL LTD                          ;
+   %*                                                                             ;
+   %* CLIENT:            PAREXEL                                                  ;
+   %*                                                                             ;
+   %* PROJECT:           Age calculation macro                                    ;
+   %*                                                                             ;
+   %* TIMS CODE:         68372                                                    ;
+   %*                                                                             ;
+   %* SOPS FOLLOWED:     1213                                                     ;
+   %*                                                                             ;
+   %******************************************************************************;
+   %*                                                                             ;
+   %* PROGRAM NAME:      age.sas                                                  ;
+   %*                                                                             ;
+   %* PROGRAM LOCATION:  /opt/pxlcommon/stats/macros/sas/code/age_shef/ver002     ;
+   %*                                                                             ;
+   %******************************************************************************;
+   %*                                                                             ;
+   %* USER REQUIREMENTS: 1) Must be able to accurately calculate age (i.e. the    ;
+   %*                       difference between two SAS date variables)            ;
+   %*                                                                             ;
+   %* TECHNICAL          The code contained in this program will accurately       ;
+   %* SPECIFICATIONS:    calculate the duration between two SAS date variables.   ;
+   %*                                                                             ;
+   %* INPUT:             Macro Parameters:                                        ;
+   %*                    VDATE -  A variable representing a SAS date value that   ;
+   %*                             identifies the end of a specified time span,    ;
+   %*                             usually a visit date                            ;
+   %*                    VDAY -   A variable to hold the day part of the VDATE    ;
+   %*                             variable. Default is VDAY                       ;
+   %*                    VMONTH - A variable to hold the month part of the VDATE  ;
+   %*                             variable. Default is VMONTH                     ;
+   %*                    VYEAR -  A variable to hold the year part of the VDATE   ;
+   %*                             variable. Default is VYEAR                      ;
+   %*                    DOB -    A variable representing a SAS date value that   ;
+   %*                             identifies the beginning of a specified time    ;
+   %*                             span , usually the date of birth                ;
+   %*                    DDAY   - A variable to hold the day part of the DOB      ;
+   %*                             variable. Default is DDAY                       ;
+   %*                    DMONTH - A variable to hold the month part of the DOB    ;
+   %*                             variable. Default is DMONTH                     ;
+   %*                    DYEAR -  A variable to hold the year part of the DOB     ;
+   %*                             variable. Default is DYEAR                      ;
+   %*                    AGE -    A variable to hold the value of the calculated  ;
+   %*                             age                                             ;
+   %*                                                                             ;
+   %* OUTPUT:            The following variables are created                      ;
+   %*                    &AGE  - A variable containing the calculated age         ;
+   %*                                                                             ;
+   %* PROGRAMS CALLED:   N/A                                                      ;
+   %*                                                                             ;
+   %* ASSUMPTIONS/       Assumes complete dates are present -                     ;
+   %* REFERENCES:        The relevant adjustment for partial dates should be      ;
+   %*                    addressed prior to invoking this macro                   ; 
+   %*                                                                             ;
+   %******************************************************************************;
+   %*                                                                             ;
+   %* MODIFICATION HISTORY                                                        ;
+   %*-----------------------------------------------------------------------------;
+   %* VERSION:           1                                                        ;
+   %* AUTHOR:            Karen Stafford [Sheffield/Biostats and Programming]      ;
+   %* QC BY:             <NA>                                                     ;
+   %*                                                                             ;
+   %*-----------------------------------------------------------------------------;
+   %* VERSION:           2                                                        ;
+   %*                                                                             ;
+   %* RISK ASSESSMENT                                                             ;
+   %* Business:          High   [X]: System has direct impact on the provision of ;
+   %*                                business critical services either globally   ;
+   %*                                or at a regional level.                      ;
+   %*                    Medium [ ]: System has direct impact on the provision of ;
+   %*                                business critical services at a local level  ;
+   %*                                only.                                        ;
+   %*                    Low    [ ]: System used to indirectly support the        ;
+   %*                                provision of a business critical service or  ;
+   %*                                operation at a global, regional or local     ;
+   %*                                level.                                       ;
+   %*                    None   [ ]: System has no impact on the provision of a   ;
+   %*                                business critical service or operation.      ;
+   %*                                                                             ;
+   %* Regulatory:        High   [ ]: System has a direct impact on GxP data and/  ;
+   %*                                or directly supports a GxP process.          ;
+   %*                    Medium [X]: System has an indirect impact on GxP data    ;
+   %*                                and supports a GxP process.                  ;
+   %*                    Low    [ ]: System has an indirect impact on GxP data or ;
+   %*                                supports a GxP process.                      ;
+   %*                    None   [ ]: System is not involved directly or           ;
+   %*                                indirectly with GxP data or a GxP process.   ;
+   %*                                                                             ;
+   %* REASON FOR CHANGE: 1) Validation of program to standards required by        ;
+   %*                       WSOP 1213.                                            ;
+   %*                    2) Macro variables &vday, &vmonth, &dyear, &dday,        ;
+   %*                       &dmonth and &dyear are now calculated from VDATE and  ;
+   %*                       DOB.                                                  ;
+   %*                                                                             ;
+   %* TESTING            Peer code review and review of the test output           ;
+   %* METHODOLOGY:                                                                ;
+   %*                                                                             ;
+   %* DEVELOPER:         Helen Orange                      Date : 23 March 2005   ;
+   %*                                                                             ;
+   %* SIGNATURE:         ................................  Date : ............... ;
+   %*                                                                             ;
+   %* CODE REVIEWER:     Phil Riley                        Date : 23 March 2005   ;
+   %*                                                                             ;
+   %* SIGNATURE:         ................................  Date : ............... ;
+   %*                                                                             ;
+   %* USER:              Phil Riley                        Date : 23 March 2005   ;
+   %*                                                                             ;
+   %* SIGNATURE:         ................................  Date : ............... ;
+   %*                                                                             ;
+   %******************************************************************************;
+   %* Tested on UNIX platform:-                                                   ;
+   %*                                                                             ;
+   %* USER:              Dan Higgins                       Date : 11/07/2005      ;
+   %*                                                                             ;
+   %* SIGNATURE:         ................................  Date : ............... ;
+   %*                                                                             ;
+   %******************************************************************************;
+
+
+      
+   %*** OBTAIN DAY MONTH AND YEAR AS THREE SEPARATE VARIABLES FROM BOTH VDATE AND DOB ***;
+
+   &vday=day(&vdate);
+   &vmonth=month(&vdate);
+   &vyear=year(&vdate);
+   &dday=day(&dob);
+   &dmonth=month(&dob);
+   &dyear=year(&dob);
+
+   %*** age if vdate and dob in different months ***;
+
+   if &vmonth lt &dmonth then &age = (&vyear - &dyear - 1);
+   else if &vmonth gt &dmonth then &age = (&vyear - &dyear);
+
+   %*** age if vdate and dob in the same month ***;
+
+   else if &vmonth = &dmonth then do;
+      if &vday lt &dday then &age = (&vyear - &dyear - 1);
+      else if &vday ge &dday then &age = (&vyear - &dyear);
+   end;
+
+   drop &vday &vmonth &vyear &dday &dmonth &dyear;
+
+   if &age lt 0 then &age = .;
+   if &age = . then do;
+      put "ERR" "OR: [PXL] Patients age recorded as missing or less than zero. " &vdate= &dob=;
+   end;
+
+%MEND AGE;
+

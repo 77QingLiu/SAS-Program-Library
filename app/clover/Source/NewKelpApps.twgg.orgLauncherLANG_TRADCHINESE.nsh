@@ -1,0 +1,6 @@
+LangString LauncherFileNotFound ${LANG_TradChinese} "${PORTABLEAPPNAME} 未啟動，您可能需要重新安裝來修復這個問題。 (錯誤: $MISSINGFILEORPATH 沒有找到。)"
+LangString LauncherAlreadyRunning ${LANG_TradChinese} "另一個 ${APPNAME} 正在執行中。 在啟動 ${PORTABLEAPPNAME} 前請先關閉其他執行中的 ${APPNAME}。"
+LangString LauncherAskCopyLocal ${LANG_TradChinese} "${PORTABLEAPPNAME} 可能是從唯讀的位置執行。您想將它先暫時複製到本機硬碟來執行嗎？$\n$\n隱私權備註：若您的答案為〔是〕那麼您在 ${PORTABLEAPPNAME} 的個人資料將暫時被複製到本機硬碟，雖然在您關閉 ${PORTABLEAPPNAME}後，您的個人資料將被刪除，但也有可能在以後被其他有心人士存取。"
+LangString LauncherNoReadOnly ${LANG_TradChinese} "${PORTABLEAPPNAME} 無法直接從唯讀的位置執行，現在即將關閉。"
+LangString LauncherPathTooLong ${LANG_TradChinese} "${PORTABLEAPPNAME} 的路徑太長。請縮短路徑或試著將資料夾或上層資料夾名稱縮短。."
+LangString LauncherNextButton ${LANG_TradChinese} "下一步(&N) >"

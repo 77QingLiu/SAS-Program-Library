@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+#Script name: headerchk
+#
+#Purpose: To check the SAS code header box
+#
+#Input: headerchk protocol time
+#
+#Release Date: 03Dec2015
+#
+#Developer/Programmer: Allen Zeng
+#******************************************************************************
+#******************************************************************************
+
+if [ $# -lt 2 ]
+then
+    echo 'Usage: headerchk protocol time'
+    exit 1
+fi
+
+protocol=$1
+time=$2
+
+for file in *.sas
+  do 
+     cat $file|egrep '.*Protocol No:.*\/[ ][0-9a-zA-Z]*'|sed -e 's/.*\/[ ]\([0-9a-zA-Z]*\)/\1/'|awk -v file="$file" -v protocol="$protocol" 'BEGIN{FS=OFS="";  print file " ====>"} {if ($1 != protocol) {print "\t \t \t The protocol number is not correct: " $1 } }'  
+     cat $file|egrep '.*Study Code:[ ]*[0-9]*'|sed -e 's/.*[ ]\([0-9]*\)/\1/'|awk -v time="$time" 'BEGIN{FS=RS=OFS="";} {if ($1 != time) {print "\t \t \t The time code is not correct: " $1} }' 	 
+done

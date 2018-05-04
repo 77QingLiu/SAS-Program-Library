@@ -1,0 +1,15 @@
+/*
+Theme Name: Smart Mag Child
+Theme URI: http://theme-sphere.com/
+Description: A child theme of SmartMag
+Author: ThemeSphere
+Author URI: http://theme-sphere.com
+Template: smart-mag
+Version: 1.0
+*/
+
+@import url("../smart-mag/style.css");
+@import url("../smart-mag/css/responsive.css");
+
+/* custom overrides */
+@import url(library/css/sas.css);

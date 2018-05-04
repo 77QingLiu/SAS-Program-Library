@@ -10,11 +10,12 @@
                          used for reporting its number of logical observations.
 
 -----------------------------------------------------------------------------*/
-ods path sasuser.tmplmst(update) sasuser.tmplmst(read);
-
+ods path sasuser.TEMPLAT(update) sashelp.TMPLMST(read);
+/* ods path (prepend) work.templat(update); */
+/* refer to SAS blog: https://blogs.sas.com/content/graphicallyspeaking/2017/11/17/advanced-ods-graphics-deeper-dive-item-stores/ */
 *-------------------  A NEW ODS STYLE CALLED Arial9 --------------------;
 proc template ;
-    define style tmplmst.Arial9  ; 
+    define style Arial9  /* / store = sasuser.TEMPLAT */; 
     parent = styles.journal ;
     replace fonts /
         'TitleFont2'          =   ("Arial", 8pt,italic)
@@ -297,8 +298,8 @@ proc template ;
 run ;
 
 proc template ;
- define style tmplmst.Arial10  ; /* CREATE A NEW ODS STYLE CALLED Arial10 */
-    parent = tmplmst.Arial9 ; /* BASE THE TEMPLATE ON ARIAL9 */
+ define style Arial10  ; /* CREATE A NEW ODS STYLE CALLED Arial10 */
+    parent = Arial9 ; /* BASE THE TEMPLATE ON ARIAL9 */
     replace fonts /
         'TitleFont2'   = ("Arial", 8pt,italic)
         'TitleFont'    = ("Arial", 10pt)
@@ -319,8 +320,8 @@ proc template ;
 run ;
 
 proc template ;
- define style tmplmst.Arial8  ; /* CREATE A NEW ODS STYLE CALLED Arial8 */
-    parent = tmplmst.Arial9 ; /* BASE THE TEMPLATE ON Arial9 */
+ define style Arial8  ; /* CREATE A NEW ODS STYLE CALLED Arial8 */
+    parent = Arial9 ; /* BASE THE TEMPLATE ON Arial9 */
     replace fonts /
         'TitleFont2'   = ("Arial", 8pt,italic)
         'TitleFont'    = ("Arial", 9pt,bold)

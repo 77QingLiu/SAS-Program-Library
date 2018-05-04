@@ -1,0 +1,10 @@
+%macro AHGdelta(msg);
+  %put '####################    ';
+  %if not %AHGblank(&msg) %then %put '          &msg             ';
+  %put '          #             ';
+  %put '        ####           ';
+  %put '      ########          ';
+  %put '    ############        ';
+  %put '  ################      ';
+  %put '####################    ';
+%mend;

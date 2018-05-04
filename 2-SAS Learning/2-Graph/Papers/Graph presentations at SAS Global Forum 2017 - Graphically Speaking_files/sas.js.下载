@@ -1,0 +1,128 @@
+(function($) {
+    
+    $(document).ready(function() {
+        
+        /* Move the menus */
+        $('#nav-blog-menu-1').detach().appendTo('li.nav-item-1');
+        $('#nav-blog-menu-2').detach().appendTo('li.nav-item-2');
+        
+        /* Mobile Business Menu: */
+        $('li.nav-item-1 > a').bind( "touchstart", function(event){
+            // Disable all menu links 
+            event.preventDefault();
+            
+            // Show/hide business menu
+            var menu = $('li.nav-item-1 div.blog-menu');
+            if ( menu.hasClass('is-active') ) {
+                menu.removeClass('is-active');
+            } else {
+                menu.addClass('is-active');
+            }
+            
+            // Hide technology menu
+            $('li.nav-item-2 div.blog-menu').removeClass('is-active');
+        });
+        
+        /* Mobile Technology Menu: */
+        $('li.nav-item-2 > a').bind( "touchstart", function(event){
+            // Disable all menu links 
+            event.preventDefault();
+            
+            // Show/hide technology menu
+            var menu = $('li.nav-item-2 div.blog-menu');
+            if ( menu.hasClass('is-active') ) {
+                menu.removeClass('is-active');
+            } else {
+                menu.addClass('is-active');
+            }
+            
+            // Hide business menu
+            $('li.nav-item-1 div.blog-menu').removeClass('is-active');
+        });
+        
+        /* Desktop Business Menu: */
+        $('body').on('click', 'li.nav-item-1 > a', function(event) {
+            // Disable all menu links 
+            event.preventDefault();
+            
+            // Show/hide business menu
+            var menu = $('li.nav-item-1 div.blog-menu');
+            if ( menu.hasClass('is-active') ) {
+                menu.removeClass('is-active');
+            } else {
+                menu.addClass('is-active');
+            }
+            
+            // Hide technology menu
+            $('li.nav-item-2 div.blog-menu').removeClass('is-active');
+        });
+        
+        /* Technology Business Menu: */
+        $('body').on('click', 'li.nav-item-2 > a', function(event) {
+            // Disable all menu links 
+            event.preventDefault();
+            
+            // Show/hide technology menu
+            var menu = $('li.nav-item-2 div.blog-menu');
+            if ( menu.hasClass('is-active') ) {
+                menu.removeClass('is-active');
+            } else {
+                menu.addClass('is-active');
+            }
+            
+            // Hide business menu
+            $('li.nav-item-1 div.blog-menu').removeClass('is-active');
+        });
+        
+        /* Handle close buttons in blog menus */
+        $('.blog-menu').bind( "touchstart", function(event){
+            if ( $(event.target).is('button') ) {
+                $('.blog-menu').removeClass('is-active');
+            }
+        });
+        $('body').on('click', '.blog-menu', function(event) {
+            if ( $(event.target).is('button') ) {
+                $('.blog-menu').removeClass('is-active');
+            }
+        });
+        
+        /* Disable hash on hamburger */
+        $('body').on('click', 'div.menu-icon > a', function(event) {
+            event.preventDefault();
+        });
+        
+        /* Disable hash on right nav X button */
+        $('body').on('click', 'li.close > a', function(event) {
+            event.preventDefault();
+        });
+        
+        /* Hide blog menus when pheader mega menus are opened */
+        $('#nav-main > ul > li').click(
+            function() {
+                $('.blog-menu').removeClass('is-active');
+            }
+        );
+        
+        /* Disable hash on back to top button */
+        $('body').on('click', 'a.topbutton', function(event) {
+            event.preventDefault();
+        });
+        
+        /* back to top button */
+        var offset = 100;
+        var speed = 250;
+        var duration = 500;
+        $(window).scroll(function() {
+            if ($(this).scrollTop() < offset) {
+                $('.topbutton').fadeOut(duration);
+            } else {
+                $('.topbutton').fadeIn(duration);
+            }
+        });
+        $('.topbutton').on('click', function() {
+            $('html, body').animate({scrollTop:0}, speed);
+            return false;
+        });
+    
+    });
+})(jQuery);

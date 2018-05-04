@@ -1,0 +1,236 @@
+empID,FName,LName,Sex,Salary,JobTitle,Country,BirthDate,HireDate
+120101,Patrick,Lu,M,163040,Director,AU,18-Aug-76,1-Jul-03
+120104,Kareen,Billington,F,46230,Administration Manager,au,11-May-54,1-Jan-81
+120105,Liz,Povey,F,27110,Secretary I,AU,21-Dec-74,1-May-99
+120106,John,Hornsey,M,unknown,Office Assistant II,AU,23-Dec-44,1-Jan-74
+120107,Sherie,Sheedy,F,30475,Office Assistant III,AU,1-Feb-78,21-Jan-53
+120108,Gladys,Gromek,F,27660,Warehouse Assistant II,AU,23-Feb-84,1-Aug-06
+120108,Gabriele,Baker,F,26495,Warehouse Assistant I,AU,15-Dec-86,1-Oct-06
+120110,Dennis,Entwisle,M,28615,Warehouse Assistant III,AU,20-Nov-49,1-Nov-79
+120111,Ubaldo,Spillane,M,26895,Security Guard II,AU,23-Jul-49,99NOV1978
+120112,Ellis,Glattback,F,26550, ,AU,17-Feb-69,1-Jul-90
+120113,Riu,Horsey,F,26870,Security Guard II,AU,10-May-44,1-Jan-74
+120114,Jeannette,Buddery,G,31285,Security Manager,AU,8-Feb-44,1-Jan-74
+120115,Hugh,Nichollas,M,2650,Service Assistant I,AU,8-May-84,1-Aug-05
+.,Austen,Ralston,M,29250,Service Assistant II,AU,13-Jun-59,1-Feb-80
+120117,Bill,Mccleary,M,31670,Cabinet Maker III,AU,11-Sep-64,1-Apr-86
+120118,Darshi,Hartshorn,M,28090,Cabinet Maker II,AU,3-Jun-59,1-Jul-84
+120119,Lal,Elleman,M,30255,Electrician IV,AU,21-Dec-69,1-Jan-98
+120120,Krishna,Peiris,F,27645,Electrician II,AU,5-May-44,1-Jan-74
+120190,Ivor,Czernezkyi,M,24100,Trainee,AU,5-Dec-84,1-Nov-04
+120191,Jannene,Graham-Rowe,F,2401,Trainee,AU,17-Jan-59,1-Jan-03
+120192,Anthony,Nichollas,M,26185,Trainee,AU,8-May-84,1-Jun-05
+120193,Russell,Streit,M,24515,Trainee,AU,6-Dec-84,1-Sep-05
+120194,Reece,Harwood,M,25985,Trainee,AU,23-Sep-84,1-Feb-05
+120195,Jina,Fiocca,F,24990,Trainee,AU,25-Dec-84,1-Jul-06
+120196,Merle,Hieds,F,24025,Trainee,AU,31-Jan-84,1-Jan-03
+120197,Kerrin,Dillin,F,25580,Trainee,AU,8-Aug-54,1-Jan-03
+120259,Anthony,Miller,M,433800,Chief Executive Officer,US,25-Jan-64,1-Sep-89
+120260,Christine,Fletcher,F,207885,Chief Marketing Officer,US,2-Dec-64,1-Nov-84
+120262,Max,Crown,M,268455,Chief Financial Officer,US,21-Oct-69,1-Sep-88
+120263,Bobby,Cleverley,M,42605,Financial Analyst III,US,10-Feb-64,1-Oct-83
+120264,Latonya,Croome,F,37510,Financial Analyst II,US,23-Jan-84,1-Dec-06
+120265,Wanda,Branly,F,51950,Auditor III,US,4-Oct-44,1-Jan-74
+120266,Bao,Krafve,F,31750,Secretary IV,US,1-Jul-69,1-Apr-89
+120267,Belanda,Rink,F,28585,Secretary III,US,2-Jun-86,1-Feb-03
+120268,Jacques,Villeneuve,M,76105,Senior Strategist,US,1-Sep-74,1-May-97
+120269,Shrimatee,Kagolanu,F,52540,Strategist II,US,27-Sep-44,1-Jan-74
+120270,Grezegorz,Nuss,M,48435,Concession Director,US,25-Mar-54,1-Jan-74
+120271,Kenisha,Winge,F,43635,Concession Manager,US,6-Aug-64,1-Sep-86
+120272,Febin,Flow,M,34390,Concession Consultant II,US,15-Mar-44,1-Jan-74
+120273,Doris,Antonini,F,28455,Concession Assistant III,US,7-Jun-86,1-Mar-06
+120274,Angela,Landry,F,26840,Concession Assistant I,US,9-Jan-64,1-Dec-93
+120275,Brandy,Lattimer,F,32195,Concession Consultant II,US,27-Dec-59,1-Oct-84
+120276,Nicholas,Plybon,M,28090,Concession Assistant II,US,16-Dec-44,1-Jan-74
+120277,Wesley,Shirts,F,32645,Concession Consultant I,US,16-Aug-88,1-May-04
+120278,Binit,Jongleux,M,27685,Concession Assistant III,US,17-Dec-86,1-Aug-06
+120279,Kareema,Dunlap,F,32925,Concession Consultant I,US,20-Oct-69,1-May-96
+120280,Jaime,Laurer,F,36930,Concession Consultant III,US,11-Nov-64,1-May-88
+120656,Salley,Amos,F,42570,Logistics Coordinator II,US,28-Jan-74,1-Mar-99
+120657,Theresa,Weisbarth,F,36110,Logistics Coordinator I,US,7-Jan-64,1-Nov-90
+120658,Kenneth,Kennedy,M,42485,Logistics Coordinator II,US,20-Dec-54,1-Feb-81
+120659,Jay,Havasy,M,161290,Director,US,16-Jul-49,1-Jan-74
+120660,Robert,Smith,M,61125,Logistics Manager,US,6-Jun-78,1-Mar-05
+120661,Cynthia,Racine,F,85495,Senior Logistics Manager,US,27-Nov-54,1-Jan-84
+120662,Lemonica,Burroughs,M,27045,Secretary II,US,25-Jun-88,1-Nov-06
+120663,Anglar,Kornblith,F,56385,Pricing Manager,US,26-Mar-69,1-Mar-97
+120664,Brock,Senchak,M,47605,Pricing Specialist,US,18-Feb-54,1-May-75
+120665,Jill,Leacock,F,80070,Senior Logistics Manager,US,24-Oct-74,1-Mar-02
+120666,John,Onuscheck,M,64555,Logistics Manager,US,22-Jun-69,1-Dec-91
+120667,Edwin,Droste,M,29980,Office Assistant III,US,21-Jun-79,1-Feb-06
+120668,Thyland,Dolan,M,47785,Services Manager,US,23-Oct-49,1-Dec-78
+120669,Ronald,Hill,M,36370,Services Assistant IV,US,23-Jul-44,1-Jan-74
+120670,Odudu,Zisek,M,65420,Shipping Manager,US,26-Mar-44,1-Jan-74
+120671,William,Latty,M,40080,Shipping Agent III,US,27-May-54,1-Feb-83
+120672,Verne,Guscott,M,60980,Shipping Manager,AU,25-Aug-64,1-Mar-92
+120673,Pearl,Santomaggio,F,35935,Shipping Agent II,AU,27-Jun-44,1-Jan-74
+120677,Suad,Sochacki,F,65555,Shipping Manager,US,2-Sep-69,1-Feb-93
+120678,Lucretta,Octetree,F,40035,Shipping Agent III,US,12-Jan-49,1-May-78
+120679,Chrisy,Cutucache,F,46190,Shipping Manager,US,7-Nov-76,1-Jul-02
+120680,Raymondria,Desaulniers,F,27295,Shipping Agent I,US,25-Aug-69,1-May-91
+120681,Elery,Tolbet,M,30950,Shipping Agent II,US,12-Aug-79,1-Apr-04
+120682,Barbara,Kennedy,F,26760,Shipping Agent I,US,20-Dec-69,1-Apr-96
+120683,Deven,Kochneff,F,36315,Shipping Agent III,US,12-Nov-54,1-Jan-74
+120684,Suzon,Woyach,F,26960,Warehouse Assistant I,US,26-Nov-86,1-Nov-06
+120685,Anita,Howard,F,25130,Warehouse Assistant I,US,1-Mar-84,1-Nov-06
+120686,Berether,Tucker,F,26690,Warehouse Assistant II,US,7-May-44,1-Jan-74
+120687,Freda,Dannin,F,26800,Warehouse Assistant I,US,25-May-79,1-Aug-04
+120688,Lisa,Carcaterra,F,25905,Warehouse Assistant I,US,25-Dec-49,1-Jan-74
+120689,Katherine,Pongor,F,27780,Warehouse Assistant III,US,20-Jul-79,1-Jul-06
+120690,Taronda,Langston,F,25185,Warehouse Assistant I,US,17-Jan-84,1-Dec-04
+120691,Sek,Habres,M,49240,Shipping Manager,AU,15-Sep-44,1-Jan-74
+120692,Rit,Tregonning,M,32485,Shipping Agent II,AU,22-Nov-54,1-Apr-82
+120693,Diaz,Tellam,M,26625,Shipping Agent I,AU,2-May-59,1-Jun-79
+120694,Sharon,Leazer,F,27365,Warehouse Assistant I,AU,16-Aug-88,1-Apr-06
+120695,Trent,Moffat,M,28180,Warehouse Assistant II,au,13-Jul-64,1-Jul-89
+120696,Peter,Pettolino,M,26615,Warehouse Assistant I,AU,14-Aug-54,1-Mar-74
+120697,Madelaine,Fouche,F,29625,Warehouse Assistant IV,AU,27-Jun-88,1-Jun-06
+120698,Geoff,Kistanna,M,26160,Warehouse Assistant I,au,17-May-54,1-Aug-76
+120710,Timothy,Baltzell,M,54840,Business Analyst II,US,24-Nov-74,1-Jan-98
+120711,Gloria,Drew,F,59130,Business Analyst III,US,28-May-69,1-Mar-94
+120712,Elisabeth,Motashaw,F,63640,Marketing Manager,US,12-Jun-49,1-Jan-74
+120713,Carston,Campbell,M,31630,Marketing Assistant III,US,23-Feb-44,1-Jan-74
+120714,Robert,Dinley,M,62625,Marketing Manager,US,4-Apr-76,1-Sep-98
+120715,Angelia,Neal,F,28535,Marketing Assistant II,US,12-Jun-79,1-Feb-05
+120716,Kenneth,Juif,M,53015,Events Manager,US,24-Jul-74,1-Aug-93
+120717,Jon,Sleva,M,30155,Marketing Assistant II,US,9-Jan-54,1-Aug-81
+120718,Charles,Hennington,M,29190,Marketing Assistant II,US,8-Jul-64,1-May-90
+120719,Roya,Ridley,F,87420,Senior Marketing Manager,US,22-Jan-69,1-Feb-96
+120720,John,Spingola,M,46580,Corp. Comm. Manager,US,7-May-64,1-Apr-92
+120721,Dlutomi,Knust,F,29870,Marketing Assistant II,US,21-Oct-44,1-Jan-74
+120722,Ishmar,Sheffield,M,32460,Corp. Comm. Specialist I,US,22-Sep-59,1-Oct-85
+120723,Deanna,Olsen, ,33950,Corp. Comm. Specialist II,US,10-Aug-49,1-Jan-74
+120724,Hampie,Brown,M,63705,Marketing Manager,US,27-Jan-64,1-Apr-92
+120725,Robert,Whitlock,M,29970,Marketing Assistant II,US,24-Oct-79,1-Jun-04
+120726,Lutezenia,Obermeyer,F,27380,Marketing Assistant I,US,1-Jul-88,1-Sep-06
+120727,Donald,Marples,M,34925,Marketing Assistant IV,US,25-Jun-64,1-Jun-86
+120728,Kathryn,Borge,F,35070,Purchasing Agent II,US,4-Dec-54,1-Jan-82
+120729,Kimberly,Howell,F,31495,Purchasing Agent I,US,3-Apr-88,25-Apr-03
+120730,Woodson,Burt,M,30195,Purchasing Agent I,US,16-Dec-64,1-Oct-88
+120731,Robert,Lerew,M,34150,Purchasing Agent II,US,15-Mar-59,1-Sep-83
+120732,Kent,Uenking,M,35870,Purchasing Agent III,US,14-Aug-49,1-Jan-74
+120733,Michael,Bezinque,M,31760,Purchasing Agent I,US,3-Apr-64,1-Nov-90
+120734,Svein,Saylor,M,34270,Purchasing Agent III,US,26-Apr-79,1-Mar-06
+120735,Brenda,Bilobran,F,61985,Purchasing Manager,US,13-Jun-54,1-May-78
+120736,Parie,Kiemle,F,63985,Purchasing Manager,US,27-Nov-64,1-Oct-91
+120737,Brenner,Toner,F,63605,Purchasing Manager,US,28-Mar-59,1-Nov-88
+120738,Huilun,Swaiti,F,30025,Purchasing Agent I,US,6-Jul-49,1-Jan-74
+120739,Bryon,Cooper,M,36970,Purchasing Agent III,US,7-Aug-86,1-May-06
+120740,Lisa,Koonce,F,35110,Purchasing Agent II,US,19-Oct-49,1-Jan-74
+120741,Keisha,Court,F,36365,Purchasing Agent III,US,28-Nov-44,1-Jan-74
+120742,Ronald,Shewitz,M,31020,Purchasing Agent I,US,4-Feb-44,1-Jan-74
+120743,Chimena,Harrison,F,34620,Purchasing Agent II,US,1-Feb-69,1-Jun-97
+120744,Alden,Feigenbaum,F,33490,Purchasing Agent II,US,19-Jun-88,1-Jul-04
+120745,Barbara,Harvill,F,31365,Purchasing Agent I,US,5-Jul-86,1-Jun-06
+120746,Kevie,Kimmerle,M,46090,Account Manager,US,10-Oct-74,1-Apr-02
+120747,Zashia,Farthing,F,43590,Financial Controller I,us,20-Jun-74,1-Aug-95
+120748,Nahliah,Post,F,48380,Building Admin. Manager,US,5-Jul-76,1-Mar-03
+120749,Kevin,Niemann,M,26545,Office Assistant II,US,20-Sep-74,1-Oct-96
+120750,Connie,Woods,F,32675,Accountant I,US,7-Jun-54,1-Feb-79
+120751,Azavi0us,Mea,M,58200,Finance Manager,US,5-Apr-64,1-Aug-88
+120752,Jean-Claude,Van Damme,M,30590,Accountant I,US,17-Feb-54,1-Aug-75
+120753,Ralph,Ferrari,M,47000,Financial Controller II,US,15-Jun-76,1-Aug-94
+120754,John,Atkins,M,34760,Accountant II,US,2-Jun-88,1-May-06
+120755,Elizabeth,Thoits,F,36440,Accountant III,US,24-Aug-64,1-Aug-83
+120756,Wendy,Asta,F,52295,Financial Controller III,US,20-Feb-74,1-Jul-96
+120757,Paul,Knopfmacher,M,38545,Accountant III,US,18-Mar-44,1-Jan-74
+120758,Sal,Voltz,M,34040,Accountant II,US,22-Oct-64,1-Oct-92
+120759,Nishan,Apr,M,36230,Accountant II,US,4-Nov-64,1-Jan-83
+120760,Pamela,Miller,F,53475,Financial Controller III,US,6-Jan-69,1-May-93
+120761,Tameaka,Akinfolarin,F,30960,Accountant I,US,28-Dec-86,1-Jul-06
+120762,Marvin,Leone,M,30625,Accountant I,US,2-Nov-79,1-Mar-06
+120763,Ramond,Capps,M,45100,Auditor II,US,26-Oct-44,1-Jan-74
+120764,Steven,Worton,M,40450,Auditor I,US,22-Dec-74,1-Dec-02
+120765,Nikeisha,Kokoszka,F,51950,Financial Controller III,US,17-Dec-54,1-Jan-74
+120766,Janelle,Kempster,F,53400,Auditing Manager,US,5-Nov-74,1-Mar-01
+120767,Legette,Terricciano,M,32965,Accountant I,US,9-May-64,1-Apr-87
+120768,Roland,Rayburn,M,44955,Accountant II,US,22-Jul-54,1-Oct-81
+120769,Abelino,Lightbourne,M,47990,Auditor II,US,24-May-74,1-Apr-96
+120770,Julia,Pascoe,F,43930,Auditor I,US,24-Apr-64,1-Apr-87
+120771,Wei,Xing Moore,F,36435,Accountant II,US,4-Aug-54,1-Dec-76
+120772,Erich,Overdorff,M,27365,HR Generalist I,US,8-Apr-88,1-Aug-06
+120773,Entrisse,Horne,F,27370,HR Generalist II,US,22-Feb-59,1-Apr-81
+120774,Sue,El-Amin,F,45155,HR Specialist II,US,17-Sep-78,1-Mar-02
+120775,Tanya,Thompson,F,41580,HR Analyst II,US,11-Feb-69,1-Nov-96
+120776,Ratna,Silverthorne,M,32580,HR Generalist III,US,21-Sep-79,1-Apr-01
+120777,Kary,Sacher,M,40955,HR Specialist I,US,26-Mar-69,1-May-94
+120778,Angela,Gardner,F,43650,HR Specialist I,US,8-Dec-54,1-Feb-84
+120779,Jennifer,Eggleston,F,43690,HR Analyst II,US,4-Oct-76,1-Mar-97
+120780,Kimberly,Walcott,F,62995,HR Manager,US,1-Sep-69,1-Oct-91
+120781,Sarah,Sitnik,F,32620,Recruiter I,US,23-Jan-88,1-Dec-04
+120782,Rilma,Sines,F,63915,Recruitment Manager,US,29-Nov-74,1-Jun-99
+120783,Davis,Karp,M,42975,Recruiter III,US,20-Dec-74,1-Jan-96
+120784,Jennifer,Pinol,F,35715,Recruiter II,US,24-Apr-79,1-Sep-04
+120785,Damesha,Donnell,F,48335,Training Manager,US,21-Jan-69,1-Jun-93
+120786,Chris-Anne,Delafuente,F,32650,Trainer I,US,18-Mar-44,1-Jan-74
+120787,Carl,Peachey,M,34000,Trainer II,US,22-Aug-69,1-Jan-96
+120788,Smitty,Lisowe,M,33530,Trainer I,US,13-Jun-69,1-Dec-94
+120789,Julius,Denhollem,M,39330,Trainer III,US,14-Jul-64,1-Dec-82
+120790,Tara,O'Toole,F,53740,ETL Specialist II,US,7-Dec-74,1-May-95
+120791,Richard,Chiseloff,M,61115,Systems Architect IV,US,26-Jul-64,1-Oct-86
+120792,Omeba,Horne,F,54760,Systems Architect II,US,19-Mar-76,1-Aug-97
+120793,William,Mamo,M,47155,ETL Specialist I,US,8-Aug-69,1-Jun-96
+120794,Samantha,Cross,F,51265,Applications Developer IV,US,31-Dec-78,1-Jul-03
+120795,David,Deacon,M,49105,Applications Developer II,US,16-Jan-69,1-Aug-88
+120796,Philip,Kellis,M,47030,Applications Developer II,US,12-May-54,1-Mar-83
+120797,Sherrie,Jones,F,43385,Applications Developer I,US,17-Nov-54,1-Dec-77
+120798,Elizabeth,Ardskin,F,80755,Senior Project Manager,US,23-Jun-59,1-Jan-87
+120799,Jeffery,Stefandonovan,M,29070,Office Assistant III,US,23-Mar-79,1-Nov-98
+120800,Fred,Benyami,M,80210,IS Director,US,20-Dec-74,1-Jun-97
+120801,Kathryn,Kennedy,F,40040,Applications Developer I,US,6-Mar-74,1-Jul-99
+120802,U'Vonda,Parker,F,65125,Applications Developer IV,US,11-May-49,1-Jan-78
+120803,Victor,Droste,M,43630,Applications Developer I,US,6-Jun-54,1-Jan-78
+120804,Ahmed,Zied,M,55400,IS Administrator III,US,11-Feb-44,1-Jan-74
+120805,Robert,Walker,M,58530,BI Administrator IV,US,27-Jun-78,1-Apr-00
+120806,Lorna,Ousley,F,47285,IS Administrator II,US,25-Feb-74,1-Feb-92
+120807,Gerlinde,Peppers,F,43325,IS Administrator I,US,14-Dec-59,1-Jan-82
+120808,Marcel,Dupree,M,44425,BI Specialist II,US,1-Jun-64,1-Jun-84
+120809,Chiorene,Marion,F,47155,BI Architect II,US,14-Jan-44,1-Jan-74
+120810,Loyal,Esguerra,M,58375,IS Architect III,US,4-Oct-54,1-Mar-80
+120811,Dale,Bergeron-Jeter,M,43985,Applications Developer I,US,26-Sep-69,1-Jul-93
+120812,Fauver,Arruza,M,45810,Applications Developer II,US,19-Feb-74,1-Aug-01
+120813,John,Heinsler,M,50865,Applications Developer IV,US,14-Sep-69,1-Jan-93
+120814,Victor,Scroggin,M,59140,Project Manager,US,3-Jun-59,1-Sep-79
+120815,Craig,Honore,M,31590,Service Administrator III,US,27-Dec-88,1-Apr-06
+120816,Tessia,Hart,F,30485,Service Administrator I,US,3-May-69,1-Aug-93
+120992,Lisa,Kicak,F,26940,Office Assistant I,US,17-Feb-79,1-Aug-00
+120993,Lorraine,Boatright,F,26260,Office Assistant I,US,18-Dec-69,1-Mar-97
+120994,Danelle,Sergeant,F,31645,Office Administrator I,us,16-Jun-74,1-Nov-94
+120995,Lily-Ann,Gordo,F,34850,Office Administrator II,US,13-Jun-84,1-Aug-06
+120996,Johannes,Wade,M,32745,Office Assistant IV,US,21-Jul-74,1-Sep-02
+120997,Mary,Donathan,F,27420,Shipping Administrator I,us,21-Nov-74,1-Sep-96
+120998,Tondelayo,Benedicto,F,26330,Clerk I,US,6-Dec-79,1-Apr-05
+120999,Sherelyn,Heilmann,F,27215,Clerk I,US,28-Dec-59,1-Apr-84
+121000,Herman,Supple,M,48600,Administration Manager,US,25-Jan-64,1-Dec-93
+121001,Tony,House,M,43615,Warehouse Manager,US,21-Jan-59,1-Sep-77
+121002,Terry-Ann,Clark,F,26650,Warehouse Assistant II,US,18-Sep-54,1-Dec-79
+121003,Troyce Van,Der Wiele,M,26000,Warehouse Assistant I,US,5-May-88,1-Jul-06
+121004,Kellen,Smith,M,30895,Security Manager,US,3-Aug-44,1-Jan-74
+121005,Yuh-Lang,Mclamb,M,25020,Security Guard I,US,15-Jul-84,1-Feb-04
+121006,Bernard,Bolster,M,26145,Security Guard I,US,12-Oct-86,1-Nov-04
+121007,John,Banaszak,M,27290,Security Guard II,US,12-Oct-64,1-Feb-87
+121008,Eron,Mckenzie,M,27875,Security Guard II,US,3-Jul-69,1-Aug-93
+121009,Robert,Goodwin,M,32955,Service Administrator I,US,4-Dec-79,1-Aug-99
+121010,Donald,Lamp,M,25195,Service Assistant I,US,14-Aug-84,1-Mar-06
+121011,Steven,Banchi,M,25735,Service Assistant I,US,11-Mar-44,1-Jan-68
+121012,Carmelo,Broome,M,29575,Service Assistant II,US,26-Jan-86,1-Sep-03
+121013,Seco,Hargrave,M,26675,Electrician II,US,28-Apr-79,1-Apr-00
+121014,Donelle,Liguori,F,28510,Electrician III,US,1-May-74,1-Aug-99
+121015,Wilson,Elmoslamy,M,26140,Technician I,US,13-Dec-79,1-Sep-00
+121016,Lutezenia,Sullivan,F,48075,Technical Manager,US,19-Jan-76,1-Sep-04
+121017,Gilbert,Arizmendi,M,29225,Technician II,US,6-Jan-84,1-Mar-05
+121125,Michael,Holt,M,25315,Trainee,US,17-Apr-74,1-Jan-03
+121126,James,Penhale,M,26015,Trainee,US,26-Oct-54,1-Jan-03
+121127,Keyna,Mangini,F,25435,Trainee,US,3-Sep-86,1-Jun-05
+121128,Glacia,Nazar,F,25405,Trainee,US,26-Jun-74,1-Jan-03
+121129,Yusef,Hafley,M,30945,Trainee,US,1-May-64,1-Jan-03
+121130,Gary,Herndon,M,25255,Trainee,US,21-Jan-84,1-Feb-04
+121131,William,Pantages,M,25445,Trainee,US,30-Jun-69,1-Jan-03
+121132,Shia-Ling,Digiorgio,M,24390,Trainee,US,8-Feb-54,1-Jan-03
+121133,Peter,Pringley,M,25405,Trainee,US,10-Nov-79,1-Jan-03
+121134,Paul,Tacosa,M,25585,Trainee,US,2-Jul-64,1-Jan-03
+121141,Henri Le,Bleu,M,194885,Vice President,US,19-Jun-44,1-Jan-74
+121142,Reginald,Steiber,M,156065,Director,US,14-Feb-69,1-May-93
+121146,Julieanne,Sangiorgio,F,29320,Secretary III,US,9-Dec-86,1-Apr-06
+121147,Christine,Sneed,F,29145,Secretary II,US,28-May-69,1-Sep-87
+121148,Shane,Sadig,M,52930,Business Analyst II,US,1-Jan-69,1-Jan-98

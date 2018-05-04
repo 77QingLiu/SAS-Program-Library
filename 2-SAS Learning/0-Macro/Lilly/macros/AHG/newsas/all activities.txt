@@ -1,0 +1,4 @@
+1. review dataset structure :open dataset 
+2. review variable values :create distinct values for them
+3. review CRF for variables
+4. review SAP for statistic's definition

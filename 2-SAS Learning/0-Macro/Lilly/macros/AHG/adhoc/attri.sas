@@ -1,0 +1,17 @@
+%macro Attri(attri,prefix=Att_);
+  %AHGdel(&prefix,like=1);
+  %local count i j att varname;
+  %let  Att=&attri;
+  %let count=%eval(%AHGcount(&att)/4);
+  %do i=1 %to &count;
+    %AHGleft(Att,varname);
+    %global &prefix.name_&varname &prefix.type_&varname &prefix.length_&varname &prefix.format_&varname;
+    %let &prefix.name_&varname=&varname;
+    %AHGleft(Att,&prefix.type_&varname);
+    %AHGleft(Att,&prefix.length_&varname);
+    %AHGleft(Att,&prefix.format_&varname);
+    %let &prefix.format_&varname=&&&prefix.format_&varname%scan(.,1,%str( ));
+    %if %UPCASE(&&&prefix.type_&varname)=CHAR and not %index(&&&prefix.format_&varname,$) %then  %let &prefix.format_&varname=$&&&prefix.format_&varname;
+    %AHGpm(&prefix.type_&varname &prefix.length_&varname &prefix.format_&varname);
+  %end;
+%mend;

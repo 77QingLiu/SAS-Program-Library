@@ -1,0 +1,70 @@
+C:\Documents and Settings\All Users\「開始」功能表\程式集\Clover	1KB	D	1601/1/1 上午 08:00:00		
+C:\Documents and Settings\All Users\「開始」功能表\程式集\Clover\Clover.lnk	1KB	A	2013/7/26 上午 11:47:56		
+C:\Documents and Settings\All Users\「開始」功能表\程式集\Clover\Uninstall Clover.lnk	1KB	A	2013/7/26 上午 11:47:56		
+C:\Documents and Settings\All Users\桌面\Clover.lnk	1KB	A	2013/7/26 上午 11:47:56		
+C:\Documents and Settings\robin\Application Data\Microsoft\Internet Explorer\Quick Launch\Clover.lnk	2KB	A	2013/7/26 上午 11:47:58		
+C:\Documents and Settings\robin\Local Settings\Application Data\Clover	1KB	D	1601/1/1 上午 08:00:00		
+C:\Documents and Settings\robin\Local Settings\Application Data\Clover\User Data	1KB	D	1601/1/1 上午 08:00:00		
+C:\Documents and Settings\robin\Local Settings\Application Data\Clover\User Data\Default\Current Session	1KB	A	2013/7/26 上午 11:48:01		
+C:\Documents and Settings\robin\Local Settings\Application Data\Clover\User Data\First Run	1KB	A	2013/7/26 上午 11:47:58		
+C:\Program Files\Clover	1KB	D	1601/1/1 上午 08:00:00		
+C:\Program Files\Clover\clover.dll	4,346KB	A	2013/7/2 上午 11:00:40		
+C:\Program Files\Clover\clover.exe	892KB	A	2013/7/2 上午 11:00:44		
+C:\Program Files\Clover\License.txt	4KB	A	2013/3/26 下午 04:10:20		
+C:\Program Files\Clover\locales	1KB	D	1601/1/1 上午 08:00:00		
+C:\Program Files\Clover\locales\am.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ar.pak	24KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\bg.pak	28KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\bn.pak	31KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ca.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\cs.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\da.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\de.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\el.pak	29KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\en-GB.pak	17KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\en-US.pak	17KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\es-419.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\es.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\et.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\fa.pak	24KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\fi.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\fil.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\fr.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\gu.pak	31KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\he.pak	21KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\hi.pak	31KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\hr.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\hu.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\id.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\it.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ja.pak	22KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\kn.pak	35KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ko.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\lt.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\lv.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ml.pak	39KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\mr.pak	30KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ms.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\nb.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\nl.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\pl.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\pt-BR.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\pt-PT.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ro.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ru.pak	26KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\sk.pak	20KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\sl.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\sr.pak	26KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\sv.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\sw.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\ta.pak	36KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\te.pak	35KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\th.pak	30KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\tr.pak	19KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\uk.pak	26KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\vi.pak	21KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\zh-CN.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\locales\zh-TW.pak	18KB	A	2013/5/9 上午 10:08:22		
+C:\Program Files\Clover\TabHelper32.dll	166KB	A	2013/7/2 上午 11:00:52		
+C:\Program Files\Clover\TabHelper64.dll	201KB	A	2013/7/2 上午 11:00:54		
+C:\Program Files\Clover\uninst.exe	74KB	A	2013/7/26 上午 11:47:57		

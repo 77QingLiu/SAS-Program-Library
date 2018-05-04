@@ -1,0 +1,13 @@
+[DEFAULT]
+BASEURL=https://sddchippewa.sas.com/p21/mainScreen.do
+[DOC#8#9#8_MiddleFrameset#11]
+BASEURL=https://sddchippewa.sas.com/p21/navigation.do?parentPath=/lillyce/qa/ly231514/h3e_cr_jmit/safety_review10/replica_programs
+ORIGURL=/p21/navigation.do?fromLogin=true&currentSelectedObject=Home&parentPath=/
+[DOC#8#9#8_MiddleFrameset#12]
+BASEURL=https://sddchippewa.sas.com/p21/mainContent.do?parentPath=%2Flillyce%2Fqa%2Fly231514%2Fh3e_cr_jmit%2Fsafety_review10%2Freplica_programs&navigate=true&fromShortcut=$fromShortcut$
+ORIGURL=/p21/mainContent.do?refreshFrame=false
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,11
+[InternetShortcut]
+URL=https://sddchippewa.sas.com/p21/mainScreen.do
+IDList=

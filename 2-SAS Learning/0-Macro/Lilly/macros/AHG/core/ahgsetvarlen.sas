@@ -1,0 +1,13 @@
+%macro AHGsetvarLen(dsn,var,len,out=);
+	%if %AHGblank(&out) %then %let out=%AHGbasename(&dsn);
+	%local empty varlist;
+	%AHGgettempname(empty);
+	%AHGvarlist(&dsn,Into=varlist,dlm=%str( ),global=0);
+	data &empty;
+		length &var &len;
+	run;
+	data &out;
+		merge &empty &dsn;
+	run;
+	%AHGordvar(&out,&varlist,keepall=0);
+%mend;

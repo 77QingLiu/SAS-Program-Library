@@ -1,0 +1,126 @@
+@font-face { font-family: "avenir-light"; src: url('http://www.sas.com/includes/fonts/an/b4199f62-4009-46e6-9359-5c262251c962.woff') format('woff'); }
+@font-face { font-family: "avenir-med"; src: url('http://www.sas.com/includes/fonts/an/bb495831-ebf7-4423-9a14-ee11bf6b292f.woff') format('woff'); }
+@font-face { font-family: "avenir-reg"; src: url('http://www.sas.com/includes/fonts/an/b4199f62-4009-46e6-9359-5c262251c962.woff') format('woff'); }
+::selection { background: #007dc3; }
+
+::-moz-selection { background: #007dc3; }
+
+.top-bar, .post-content .modern-quote, .mobile-head { border-top-color: #007dc3; }
+
+.trending-ticker .heading, .breadcrumbs .location, .gallery-title, .related-posts .section-head, 
+.post-content a, .comments-list .bypostauthor .comment-author a, .error-page 
+.text-404, .main-color, .section-head.prominent, .block.posts .fa-angle-right, a.bbp-author-name, .main-stars span:before,
+.main-stars, .recentcomments .url, .nav-light .menu > li:hover > a, .nav-light .menu > .current-menu-item > a, 
+.nav-light .menu > .current-menu-parent > a, .nav-light-search .active .search-icon, .nav-light-search .search-icon:hover,
+.nav-light .menu li li:hover > a, .nav-light .menu li li.current-menu-item > a, .nav-light .mega-menu .sub-nav li:hover > a, 
+.nav-light .menu .sub-nav li.current-menu-item > a { color: #007dc3; }
+
+.navigation .menu > li:hover > a, .navigation .menu >.current-menu-item > a, .navigation .menu > .current-menu-parent > a,
+.navigation .menu > .current-menu-ancestor > a, .tabbed .tabs-list .active a, .nav-search .search-icon:hover, 
+.nav-search .active .search-icon, .comment-content .reply, .sc-tabs .active a { border-bottom-color: #007dc3; }
+
+.main-featured .cat, .main-featured .pages .flex-active, .rate-number .progress, .highlights .rate-number .progress, 
+.main-pagination .current, .main-pagination a:hover, .cat-title, .sc-button-default:hover, .drop-caps, .review-box .bar,
+.review-box .overall, .post .read-more a, .button, .post-pagination > span { background: #007dc3; }
+
+.post-content .wpcf7-not-valid-tip, .main-heading, .review-box .heading, .post-header .post-title:before, 
+.highlights h2:before, div.bbp-template-notice, div.indicator-hint, div.bbp-template-notice.info, 
+.modal-header .modal-title, .entry-title, .page-title { border-left-color: #007dc3; }
+
+@media only screen and (max-width: 799px) { .navigation .mobile .fa { background: #007dc3; } }
+
+.post-content a { color: #007DC3; }
+
+body, .main .sidebar .widgettitle, .tabbed .tabs-list, h3.gallery-title, .comment-respond small, .main-heading, .gallery-title, .section-head, .main-footer .widgettitle, .entry-title, .page-title { font-family:  avenir-reg;  }
+h1, h2, h3, h4, h5, h6, .gallery-block .carousel .title a, .list-timeline .posts article, .posts-list .content > a, .block.posts a, 
+								#bbpress-forums .bbp-topic-title, #bbpress-forums .bbp-forum-title, .bbpress.single-topic .main-heading, .navigate-posts .link { font-family:  avenir-reg;  }
+.post-content { font-family:  Arial, "Helvetica Neue", Helvetica, sans-serif;  }
+.navigation .menu { font-family:  avenir-reg;  }
+.highlights .excerpt, .listing-alt .content .excerpt { font-family:  avenir-reg;  }
+.post-header h1, .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 { font-family:  avenir-reg;  }
+.top-bar, .top-bar.dark { background-color: #FFF;; }
+
+.main-head { background-color: #007dc3; background-image: none;; }
+
+body, body.boxed { background-color: #FFFFFF;; }
+
+h1, h2, h3, h4, h5, h6 { color: #000; }
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 { color: #000; }
+
+.main .sidebar .widgettitle, .tabbed .tabs-list { background-color: #FFF;; }
+
+.main .sidebar .widgettitle, .tabbed .tabs-list a { color: #000; }
+
+
+.cat-209, .cat-title.cat-209 { background: #f79400; }
+.cat-text-209, .section-head.cat-text-209 { color: #f79400; }
+
+.navigation .menu > .menu-cat-209:hover > a, .navigation .menu > .menu-cat-209.current-menu-item > a, .navigation .menu > .menu-cat-209.current-menu-parent > a {
+	border-bottom-color: #f79400;
+}
+	
+.nav-light .menu > .menu-cat-209:hover > a, 
+.nav-light .menu > .menu-cat-209.current-menu-item > a, 
+.nav-light .menu > .menu-cat-209.current-menu-parent > a {
+	color: #f79400;
+}
+		
+
+.cat-210, .cat-title.cat-210 { background: #3e00f9; }
+.cat-text-210, .section-head.cat-text-210 { color: #3e00f9; }
+
+.navigation .menu > .menu-cat-210:hover > a, .navigation .menu > .menu-cat-210.current-menu-item > a, .navigation .menu > .menu-cat-210.current-menu-parent > a {
+	border-bottom-color: #3e00f9;
+}
+	
+.nav-light .menu > .menu-cat-210:hover > a, 
+.nav-light .menu > .menu-cat-210.current-menu-item > a, 
+.nav-light .menu > .menu-cat-210.current-menu-parent > a {
+	color: #3e00f9;
+}
+		
+
+.cat-1, .cat-title.cat-1 { background: #81d742; }
+.cat-text-1, .section-head.cat-text-1 { color: #81d742; }
+
+.navigation .menu > .menu-cat-1:hover > a, .navigation .menu > .menu-cat-1.current-menu-item > a, .navigation .menu > .menu-cat-1.current-menu-parent > a {
+	border-bottom-color: #81d742;
+}
+	
+.nav-light .menu > .menu-cat-1:hover > a, 
+.nav-light .menu > .menu-cat-1.current-menu-item > a, 
+.nav-light .menu > .menu-cat-1.current-menu-parent > a {
+	color: #81d742;
+}
+		
+
+.cat-212, .cat-title.cat-212 { background: #8224e3; }
+.cat-text-212, .section-head.cat-text-212 { color: #8224e3; }
+
+.navigation .menu > .menu-cat-212:hover > a, .navigation .menu > .menu-cat-212.current-menu-item > a, .navigation .menu > .menu-cat-212.current-menu-parent > a {
+	border-bottom-color: #8224e3;
+}
+	
+.nav-light .menu > .menu-cat-212:hover > a, 
+.nav-light .menu > .menu-cat-212.current-menu-item > a, 
+.nav-light .menu > .menu-cat-212.current-menu-parent > a {
+	color: #8224e3;
+}
+		
+
+.cat-523, .cat-title.cat-523 { background: #ff751a; }
+.cat-text-523, .section-head.cat-text-523 { color: #ff751a; }
+
+.navigation .menu > .menu-cat-523:hover > a, .navigation .menu > .menu-cat-523.current-menu-item > a, .navigation .menu > .menu-cat-523.current-menu-parent > a {
+	border-bottom-color: #ff751a;
+}
+	
+.nav-light .menu > .menu-cat-523:hover > a, 
+.nav-light .menu > .menu-cat-523.current-menu-item > a, 
+.nav-light .menu > .menu-cat-523.current-menu-parent > a {
+	color: #ff751a;
+}
+		
+
+/* empty */
